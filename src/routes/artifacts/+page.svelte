@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
     import PocketBase from "pocketbase"
     import Post from "../../components/Post.svelte";
     import Boilerplate from "../../components/Boilerplate.svelte";

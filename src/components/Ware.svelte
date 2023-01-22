@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
     export let ware;
 
     let href = `https://cdn.zelo.dev/api/files/fx39sxljxqc10s0/${ware.id}/${ware.icon}`;

@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
     export let artifact;
 
     let title = new Date(artifact.created).toLocaleString("DE", {dateStyle: "short"})
