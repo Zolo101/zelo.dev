@@ -4,7 +4,7 @@
             <p class="text-center text-7xl">zelo.dev</p>
             <a href="/wares">wares</a>
 <!--            <a href="/blog">blog</a>-->
-            <a href="/artifacts">artifacts</a>
+<!--            <a href="/artifacts">artifacts</a>-->
         </div>
     </div>
 </div>
