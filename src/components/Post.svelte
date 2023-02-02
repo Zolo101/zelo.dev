@@ -10,16 +10,12 @@
 </script>
 
 <div>
-    {#if artifact.media}
-        <a target="_blank" href={href}>
-            <span>{title}</span>
-            {#if artifact.alt}
-                <span class="text-cyan-800 dark:text-cyan-500" title={artifact.alt}>{notice}</span>
-            {/if}
-        </a>
-    {:else}
-        <p>{title}</p>
-    {/if}
+    <a target="_blank" href={href}>
+        <span>{title}</span>
+        {#if artifact.alt}
+            <span class="text-cyan-800 dark:text-cyan-500" title={artifact.alt}>{notice}</span>
+        {/if}
+    </a>
 
     <!--{#if note}-->
     <!--    <span class="underline text-cyan-800 dark:text-cyan-500" title={note}>{notice}</span>-->
