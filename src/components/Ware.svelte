@@ -6,12 +6,12 @@
 </script>
 
 <div class="outline outline-1 shadow-md p-2 mb-4 cursor-pointer flex gap-5 hover:bg-gray-100" on:click={() => window.open(ware.link, "_blank")}>
-    <img class="w-32 h-32" src={href}/>
+    <img class="w-1/6 h-1/6" src={href}/>
     <div class="grow">
         <div class="flex justify-between">
             <p class="font-bold text-3xl">{ware.name}</p>
             <p class="text-lg text-right">{date}</p>
         </div>
-        <p class="pt-2 max-w-2xl">{ware.description}</p>
+        <p class="pt-2 max-w-2xl break-words">{ware.description}</p>
     </div>
 </div>
