@@ -6,10 +6,12 @@
 
 <div class="p-2 mb-4 flex gap-5 hover:bg-gray-50">
     <div class="grow w-full">
-        <div class="flex justify-between">
+        <div class="flex justify-between gap-2">
             <p class="font-bold text-3xl bg-amber-300 p-2 max-w-full break-words">{qa.question}</p>
-            <p class="text-lg text-right">{date}</p>
+            <p class="text-lg text-right p-2">{date}</p>
         </div>
-        <p class="pt-4 pl-4 max-w-2xl text-xl">{qa.answer}</p>
+        <div class="pt-4 pl-4 max-w-2xl text-xl">
+            {@html qa.answer}
+        </div>
     </div>
 </div>
