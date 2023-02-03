@@ -5,7 +5,7 @@
     let date = new Date(ware.date).toLocaleString("DE", {dateStyle: "short"})
 </script>
 
-<div class="outline outline-1 shadow-md p-2 mb-4 cursor-pointer flex gap-5 hover:bg-gray-100" on:click={() => window.open(ware.link, "_blank")}>
+<div class="outline outline-1 shadow-md p-2 mb-4 cursor-pointer flex gap-5 hover:bg-gray-100 dark:hover:bg-gray-700" on:click={() => window.open(ware.link, "_blank")}>
     <img class="w-1/6 h-1/6" src={href}/>
     <div class="grow">
         <div class="flex justify-between">
