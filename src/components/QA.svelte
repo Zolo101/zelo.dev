@@ -10,8 +10,14 @@
             <p class="font-bold text-3xl bg-amber-300 p-2 max-w-full break-words">{qa.question}</p>
             <p class="text-lg text-right p-2">{date}</p>
         </div>
-        <div class="pt-4 pl-4 max-w-2xl text-xl">
+        <div class="answer pt-4 pl-4 max-w-2xl text-xl">
             {@html qa.answer}
         </div>
     </div>
 </div>
+
+<style>
+    .answer ul {
+        @apply list-disc;
+    }
+</style>

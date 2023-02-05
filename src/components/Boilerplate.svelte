@@ -6,3 +6,7 @@
         <p>Hopefully in the future... it won't need to be.</p>
     </noscript>
 </div>
+
+<style>
+    a {@apply no-underline;}
+</style>

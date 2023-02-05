@@ -7,3 +7,7 @@
 <!--            <a href="/artifacts">artifacts</a>-->
     </div>
 </div>
+
+<style>
+    a {@apply no-underline;}
+</style>
