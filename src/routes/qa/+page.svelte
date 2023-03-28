@@ -78,20 +78,21 @@
     }
 </script>
 
-<p class="text-7xl font-bold -z-10 fixed right-4 bottom-6 text-gray-200">{$text}</p>
+<p class="text-7xl font-bold z-10 fixed right-4 bottom-6 text-gray-400 opacity-40">{$text}</p>
 <Boilerplate>
     <form class="flex flex-col" on:submit|preventDefault={askQuestion}>
-        <textarea class="outline outline-1 w-4/5 h-24 m-auto" minlength="5" maxlength="1000" bind:value={$data.question}></textarea>
-        <input type="submit" class="outline outline-1 cursor-pointer float-right bg-gray-200 hover:bg-gray-300 text-2xl p-2 m-5" value={$submitText}/>
+        <textarea class="outline outline-1 w-4/5 h-24 m-auto p-1 dark:bg-black dark:focus-visible:outline-gray-500" minlength="5" maxlength="1000" bind:value={$data.question}></textarea>
+        <input type="submit" class="outline outline-1 cursor-pointer float-right bg-gray-200 hover:bg-gray-300 dark:bg-black dark:hover:bg-gray-800 text-2xl p-2 m-5" value={$submitText}/>
     </form>
 
     <div class="flex w-full text-center text-xl">
-        <p class="outline outline-1 outline-gray-200 flex-grow bg-gray-50 pt-1 pb-1 mr-1 cursor-pointer hover:bg-gray-200" on:click={() => changeMode("latest")}>Latest</p>
-        <p class="outline outline-1 outline-gray-200 flex-grow bg-gray-50 pt-1 pb-1 ml-1 cursor-pointer hover:bg-gray-200" on:click={() => changeMode("yours")}>Your Questions</p>
+        <div class="outline outline-1 outline-gray-200 flex-grow pt-1 pb-1 mr-1 cursor-pointer bg-gray-50 hover:bg-gray-200 dark:bg-black dark:hover:bg-gray-800" on:click={() => changeMode("latest")}>Latest</div>
+        <div class="outline outline-1 outline-gray-200 flex-grow pt-1 pb-1 ml-1 cursor-pointer bg-gray-50 hover:bg-gray-200 dark:bg-black dark:hover:bg-gray-800" on:click={() => changeMode("yours")}>Your Questions</div>
     </div>
 
     <br>
     <Linebreak/>
+    <br>
 
     {#await requestQuestions($settings.filter) then result}
         {#each result as qa}
