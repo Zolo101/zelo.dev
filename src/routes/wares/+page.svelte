@@ -4,13 +4,14 @@
     import Ware from "../../components/Ware.svelte";
 
     const pb = new PocketBase("https://cdn.zelo.dev")
-    const request = pb.collection("wares").getFullList()
+    const request = pb.collection("wares").getFullList(-1, {
+        sort: "-date"
+    })
 </script>
 
 <Boilerplate>
     <p class="text-center text-4xl pb-4">wares</p>
     {#await request then result}
-        {@const _ = result.sort((a, b) => new Date(b.date) - new Date(a.date))}
         {#each result as ware}
             <Ware {ware}/>
         {/each}
