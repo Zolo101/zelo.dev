@@ -1,5 +1,5 @@
 <script>
-    import IndexComponent from "../components/IndexComponent.svelte";
+    // import IndexComponent from "../components/IndexComponent.svelte";
     import ZelosAntLite from "../../node_modules/zelos.ant.lite/src/component/ZelosAntLite.svelte";
 </script>
 
