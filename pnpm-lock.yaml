@@ -10,7 +10,7 @@ dependencies:
     version: 0.19.0
   zelos.ant.lite:
     specifier: github:Zolo101/zelos_ant_lite
-    version: github.com/Zolo101/zelos_ant_lite/94169c53100566ca56751345a97884fd6787fd0b
+    version: github.com/Zolo101/zelos_ant_lite/487b2e2637637de96b4a2717aa10ad581d655bf3
 
 devDependencies:
   '@sveltejs/adapter-static':
@@ -1561,11 +1561,10 @@ packages:
     engines: {node: '>= 14'}
     dev: true
 
-  github.com/Zolo101/zelos_ant_lite/94169c53100566ca56751345a97884fd6787fd0b:
-    resolution: {tarball: https://codeload.github.com/Zolo101/zelos_ant_lite/tar.gz/94169c53100566ca56751345a97884fd6787fd0b}
+  github.com/Zolo101/zelos_ant_lite/487b2e2637637de96b4a2717aa10ad581d655bf3:
+    resolution: {tarball: https://codeload.github.com/Zolo101/zelos_ant_lite/tar.gz/487b2e2637637de96b4a2717aa10ad581d655bf3}
     name: zelos.ant.lite
     version: 0.1.0
-    requiresBuild: true
     dependencies:
       twgl.js: 5.5.3
       webgl-lint: 1.11.3
