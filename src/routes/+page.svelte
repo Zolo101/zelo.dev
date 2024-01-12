@@ -1,6 +1,6 @@
 <script>
     // import IndexComponent from "../components/IndexComponent.svelte";
-    import ZelosAntLite from "../../node_modules/zelos.ant.lite/src/component/ZelosAntLite.svelte";
+    import ZelosAntLite from "../../node_modules/zelos.ant.lite/src/lib/component/ZelosAntLite.svelte";
 </script>
 
 <div class="flex justify-center items-center" style="height: 100vh">
