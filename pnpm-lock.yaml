@@ -10,7 +10,7 @@ dependencies:
     version: 0.19.0
   zelos.ant.lite:
     specifier: github:Zolo101/zelos_ant_lite#missing-file
-    version: github.com/Zolo101/zelos_ant_lite/aba0e4d9743e58778e605a94850f8c8ebdb110cd(svelte@4.2.8)
+    version: github.com/Zolo101/zelos_ant_lite/e3d8c58a87d9b7eede05bc3baabc628d26b22496(svelte@4.2.8)
 
 devDependencies:
   '@sveltejs/adapter-static':
@@ -1553,11 +1553,11 @@ packages:
       webgl-lint: 1.11.3
     dev: false
 
-  github.com/Zolo101/zelos_ant_lite/aba0e4d9743e58778e605a94850f8c8ebdb110cd(svelte@4.2.8):
-    resolution: {tarball: https://codeload.github.com/Zolo101/zelos_ant_lite/tar.gz/aba0e4d9743e58778e605a94850f8c8ebdb110cd}
-    id: github.com/Zolo101/zelos_ant_lite/aba0e4d9743e58778e605a94850f8c8ebdb110cd
+  github.com/Zolo101/zelos_ant_lite/e3d8c58a87d9b7eede05bc3baabc628d26b22496(svelte@4.2.8):
+    resolution: {tarball: https://codeload.github.com/Zolo101/zelos_ant_lite/tar.gz/e3d8c58a87d9b7eede05bc3baabc628d26b22496}
+    id: github.com/Zolo101/zelos_ant_lite/e3d8c58a87d9b7eede05bc3baabc628d26b22496
     name: zelos.ant.lite
-    version: 0.4.0
+    version: 0.4.1
     peerDependencies:
       svelte: ^4.0.0
     dependencies:
