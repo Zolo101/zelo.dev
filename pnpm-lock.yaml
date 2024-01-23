@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  hashcanvas:
+    specifier: github:Zolo101/hashcanvas#missing-file
+    version: github.com/Zolo101/hashcanvas/00aff1b494db6855e4cdda223bc81b441d94ffb4(svelte@4.2.8)
   pocketbase:
     specifier: ^0.19.0
     version: 0.19.0
