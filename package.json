@@ -26,7 +26,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"hashcanvas": "github:Zolo101/hashcanvas#missing-file",
 		"pocketbase": "^0.20.3",
 		"zelos.ant.lite": "github:Zolo101/zelos_ant_lite#missing-file"
 	}

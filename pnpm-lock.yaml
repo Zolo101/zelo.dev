@@ -5,15 +5,12 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  hashcanvas:
-    specifier: github:Zolo101/hashcanvas#missing-file
-    version: github.com/Zolo101/hashcanvas/00aff1b494db6855e4cdda223bc81b441d94ffb4(svelte@4.2.9)
   pocketbase:
     specifier: ^0.20.3
     version: 0.20.3
   zelos.ant.lite:
     specifier: github:Zolo101/zelos_ant_lite#missing-file
-    version: github.com/Zolo101/zelos_ant_lite/e3d8c58a87d9b7eede05bc3baabc628d26b22496(svelte@4.2.9)
+    version: github.com/Zolo101/zelos_ant_lite/6b5de633284f6eb0abc40c0c855ac65e472b859e(svelte@4.2.9)
 
 devDependencies:
   '@sveltejs/adapter-static':
@@ -1763,11 +1760,12 @@ packages:
     engines: {node: '>= 14'}
     dev: true
 
-  github.com/Zolo101/hashcanvas/00aff1b494db6855e4cdda223bc81b441d94ffb4(svelte@4.2.9):
-    resolution: {tarball: https://codeload.github.com/Zolo101/hashcanvas/tar.gz/00aff1b494db6855e4cdda223bc81b441d94ffb4}
-    id: github.com/Zolo101/hashcanvas/00aff1b494db6855e4cdda223bc81b441d94ffb4
+  github.com/Zolo101/hashcanvas/68975f82b350548b94b22b6082dc129eb364a878(svelte@4.2.9):
+    resolution: {tarball: https://codeload.github.com/Zolo101/hashcanvas/tar.gz/68975f82b350548b94b22b6082dc129eb364a878}
+    id: github.com/Zolo101/hashcanvas/68975f82b350548b94b22b6082dc129eb364a878
     name: hashcanvas
-    version: 0.5.1
+    version: 0.8.0
+    requiresBuild: true
     peerDependencies:
       svelte: ^4.0.0
     dependencies:
@@ -1776,15 +1774,16 @@ packages:
       webgl-lint: 1.11.3
     dev: false
 
-  github.com/Zolo101/zelos_ant_lite/e3d8c58a87d9b7eede05bc3baabc628d26b22496(svelte@4.2.9):
-    resolution: {tarball: https://codeload.github.com/Zolo101/zelos_ant_lite/tar.gz/e3d8c58a87d9b7eede05bc3baabc628d26b22496}
-    id: github.com/Zolo101/zelos_ant_lite/e3d8c58a87d9b7eede05bc3baabc628d26b22496
+  github.com/Zolo101/zelos_ant_lite/6b5de633284f6eb0abc40c0c855ac65e472b859e(svelte@4.2.9):
+    resolution: {tarball: https://codeload.github.com/Zolo101/zelos_ant_lite/tar.gz/6b5de633284f6eb0abc40c0c855ac65e472b859e}
+    id: github.com/Zolo101/zelos_ant_lite/6b5de633284f6eb0abc40c0c855ac65e472b859e
     name: zelos.ant.lite
-    version: 0.4.1
+    version: 0.5.0
+    requiresBuild: true
     peerDependencies:
       svelte: ^4.0.0
     dependencies:
-      hashcanvas: github.com/Zolo101/hashcanvas/00aff1b494db6855e4cdda223bc81b441d94ffb4(svelte@4.2.9)
+      hashcanvas: github.com/Zolo101/hashcanvas/68975f82b350548b94b22b6082dc129eb364a878(svelte@4.2.9)
       svelte: 4.2.9
       twgl.js: 5.5.3
       webgl-lint: 1.11.3
