@@ -1,6 +1,6 @@
 <script>
     // import IndexComponent from "../components/IndexComponent.svelte";
-    import ZelosAntLite from "../../node_modules/zelos.ant.lite/src/lib/component/ZelosAntLite.svelte";
+    import ZelosAntLite from "zelos.ant.lite";
 </script>
 
 <div class="flex justify-center items-center" style="height: 100vh">
@@ -10,7 +10,7 @@
             <ZelosAntLite/>
         </div>
         <div class="grid grid-cols-2 gap-10">
-            <a href="https://corkboard.zelo.dev">corkboard</a>
+<!--            <a href="https://corkboard.zelo.dev">corkboard</a>-->
             <a href="/wares">wares</a>
     <!--        <a href="/blender">blender</a>-->
             <a href="/qa">q&a</a>
