@@ -8,6 +8,7 @@ const config: UserConfig = {
 		esbuildOptions: {
 			loader: {
 				".glsl": "text",
+				".wgsl": "text",
 			},
 		}
 	},
