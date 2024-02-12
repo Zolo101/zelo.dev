@@ -20,4 +20,8 @@
     .answer > table {
         @apply outline outline-1;
     }
+
+    :global(.answer a) {
+        @apply text-blue-300;
+    }
 </style>

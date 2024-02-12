@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import Boilerplate from "../../components/Boilerplate.svelte";
     import PocketBase from "pocketbase";
     import QA from "../../components/QA.svelte";
@@ -36,7 +36,7 @@
     let text = writable("q&a")
     let submitText = writable("Ask")
 
-    const requestQuestions = (filter) => {
+    const requestQuestions = (filter: string) => {
         switch (filter) {
             case "yours":
                 return pb.collection("qa").getFullList(-1, {
@@ -66,11 +66,11 @@
             })
     }
 
-    const changeMode = (text) => {
+    const changeMode = (text: string) => {
         $settings.filter = text
     }
 
-    const setText = (content) => {
+    const setText = (content: string) => {
         $text = content.toLowerCase()
         $submitText = content
         setTimeout(() => $text = "q&a", 5000)
@@ -85,18 +85,20 @@
         <input type="submit" class="outline outline-1 cursor-pointer float-right bg-gray-200 hover:bg-gray-300 dark:bg-black dark:hover:bg-gray-800 text-2xl p-2 m-5" value={$submitText}/>
     </form>
 
-    <div class="flex w-full text-center text-xl">
-        <div class="outline outline-1 outline-gray-200 flex-grow pt-1 pb-1 mr-1 cursor-pointer bg-gray-50 hover:bg-gray-200 dark:bg-black dark:hover:bg-gray-800" on:click={() => changeMode("latest")}>Latest</div>
-        <div class="outline outline-1 outline-gray-200 flex-grow pt-1 pb-1 ml-1 cursor-pointer bg-gray-50 hover:bg-gray-200 dark:bg-black dark:hover:bg-gray-800" on:click={() => changeMode("yours")}>Your Questions</div>
-    </div>
+<!--    <div class="flex justify-center gap-2 w-full text-xl">-->
+<!--        <button class="outline outline-1 outline-gray-200 px-4 py-1 cursor-pointer bg-gray-50 hover:bg-gray-200 dark:bg-black dark:hover:bg-gray-800" on:click={() => changeMode("latest")}>Latest</button>-->
+<!--        <button class="outline outline-1 outline-gray-200 px-4 py-1 cursor-pointer bg-gray-50 hover:bg-gray-200 dark:bg-black dark:hover:bg-gray-800" on:click={() => changeMode("yours")}>Your Questions</button>-->
+<!--    </div>-->
 
     <br>
     <Linebreak/>
     <br>
 
-    {#await requestQuestions($settings.filter) then result}
-        {#each result as qa}
-            <QA {qa}/>
-        {/each}
-    {/await}
+    <div class="flex flex-col">
+        {#await requestQuestions($settings.filter) then result}
+            {#each result as qa}
+                <QA {qa}/>
+            {/each}
+        {/await}
+    </div>
 </Boilerplate>

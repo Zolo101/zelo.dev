@@ -13,6 +13,10 @@ html, body {
     height: 100%;
 }
 
+a {
+    @apply no-underline;
+}
+
 canvas {
     @apply outline-black max-w-[800px] max-h-[800px];
 }
@@ -31,7 +35,7 @@ canvas {
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-    @apply w-3;
+    @apply w-2.5;
 }
 
 ::-webkit-scrollbar-track {
@@ -39,7 +43,7 @@ canvas {
 }
 
 ::-webkit-scrollbar-thumb {
-    @apply bg-gray-500 rounded shadow;
+    @apply bg-gray-700 shadow;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -48,19 +52,23 @@ canvas {
 
 table {
     @apply outline outline-2 outline-black/50 rounded border-hidden;
+    @apply dark:outline-white/50;
 }
 
 th, td {
     @apply p-2.5 border-2 border-neutral-400;
+    @apply dark:border-neutral-600;
 }
 
 th {
     @apply bg-neutral-300;
+    @apply dark:bg-neutral-700;
     /*background-color: #5a5a5a;*/
 }
 
 td {
     @apply bg-neutral-200;
+    @apply dark:bg-neutral-800;
 }
 
 @layer base {
