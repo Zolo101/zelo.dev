@@ -11,10 +11,12 @@
 
 <Boilerplate>
     <p class="text-center text-4xl pb-4">wares</p>
-    {#await request then result}
-        {#each result as ware}
-            <Ware {ware}/>
-        {/each}
-    {/await}
+    <div class="flex flex-col">
+        {#await request then result}
+            {#each result as ware}
+                <Ware {ware}/>
+            {/each}
+        {/await}
+    </div>
     <br>
 </Boilerplate>
