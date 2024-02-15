@@ -6,14 +6,15 @@
 <div class="flex justify-center items-center" style="height: 100vh">
     <div class="grid grid-cols-1 text-center gap-10 text-4xl">
         <p class="text-center text-7xl">zelo.dev</p>
-        <div class="font-sans">
+        <div class="font-sans m-auto">
             <ZelosAntLite/>
         </div>
         <div class="grid grid-cols-2 gap-10">
-<!--            <a href="https://corkboard.zelo.dev">corkboard</a>-->
             <a href="/wares">wares</a>
+            <a href="/backgrounds">backgrounds</a>
     <!--        <a href="/blender">blender</a>-->
             <a href="/qa">q&a</a>
+            <a href="https://corkboard.zelo.dev"><img class="hover:contrast-150 transition-all" width="196" src="https://corkboard.zelo.dev/corkboard/logo_alpha.png" alt="Logo for the website 'Corkboard'"/></a>
             <!--<a href="/artifacts">artifacts</a>-->
         </div>
 <!--        <IndexComponent-->
