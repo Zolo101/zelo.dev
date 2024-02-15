@@ -1,10 +1,10 @@
-<script>
+<script lang="ts">
     import Boilerplate from "../../components/Boilerplate.svelte";
     import PocketBase from "pocketbase";
     import Ware from "../../components/Ware.svelte";
 
     const pb = new PocketBase("https://cdn.zelo.dev")
-    const request = pb.collection("wares").getFullList(-1, {
+    const request = pb.collection<WareItem>("wares").getFullList(-1, {
         sort: "-date"
     })
 </script>

@@ -39,14 +39,14 @@
     const requestQuestions = (filter: string) => {
         switch (filter) {
             case "yours":
-                return pb.collection("qa").getFullList(-1, {
+                return pb.collection<QAItem>("qa").getFullList(-1, {
                     sort: "-created",
                     filter: `questioner = "${$data.questioner}"`
                 })
 
             case "latest":
             default:
-                return pb.collection("qa").getFullList(-1, {
+                return pb.collection<QAItem>("qa").getFullList(-1, {
                     sort: "-created"
                 })
         }

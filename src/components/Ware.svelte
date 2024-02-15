@@ -1,5 +1,5 @@
-<script>
-    export let ware;
+<script lang="ts">
+    export let ware: WareItem;
 
     let href = `https://cdn.zelo.dev/api/files/fx39sxljxqc10s0/${ware.id}/${ware.icon}`;
     let date = new Date(ware.date).toLocaleString("DE", {dateStyle: "short"})

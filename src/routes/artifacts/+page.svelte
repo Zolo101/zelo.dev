@@ -1,10 +1,10 @@
-<script>
+<script lang="ts">
     import PocketBase from "pocketbase"
     import Post from "../../components/Post.svelte";
     import Boilerplate from "../../components/Boilerplate.svelte";
 
     const pb = new PocketBase("https://cdn.zelo.dev")
-    const request = pb.collection("artifacts").getFullList(-1, {
+    const request = pb.collection<PostItem>("artifacts").getFullList(-1, {
         sort: "-created"
     })
 </script>

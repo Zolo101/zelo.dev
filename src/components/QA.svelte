@@ -1,5 +1,5 @@
-<script>
-    export let qa;
+<script lang="ts">
+    export let qa: QAItem;
 
     let date = new Date(qa.created).toLocaleString("DE", {dateStyle: "short"})
 </script>

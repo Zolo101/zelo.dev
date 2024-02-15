@@ -1,5 +1,5 @@
-<script>
-    export let artifact;
+<script lang="ts">
+    export let artifact: PostItem
 
     let title = new Date(artifact.created).toLocaleString("DE", {dateStyle: "short"})
     let href = artifact.media
