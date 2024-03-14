@@ -21,8 +21,8 @@
     import discord_logo from "$lib/assets/discord.png"
     import ZelosAntLite from "zelos.ant.lite";
 
-    let getNewsThumbnail = (id: string, src: string) => `https://cdn.zelo.dev/api/files/63wj7u8szd0trni/${id}/${src}`;
-    let formatNewsDate = (date: Date) => {
+    const getNewsThumbnail = (id: string, src: string) => `https://cdn.zelo.dev/api/files/63wj7u8szd0trni/${id}/${src}`;
+    const formatNewsDate = (date: Date) => {
         return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`
     }
     // fetch("https://api.github.com/search/commits?q=author:Zolo101 sort:author-date")
