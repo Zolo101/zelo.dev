@@ -7,7 +7,7 @@ html {
 }
 
 html, body {
-    @apply h-full dark:text-neutral-50;
+    @apply h-full text-neutral-50;
 }
 
 header {
