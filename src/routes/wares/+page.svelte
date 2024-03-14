@@ -1,5 +1,4 @@
 <script lang="ts">
-    import Boilerplate from "../../components/Boilerplate.svelte";
     import PocketBase from "pocketbase";
     import Ware from "../../components/Ware.svelte";
 
@@ -9,14 +8,12 @@
     })
 </script>
 
-<Boilerplate>
-    <p class="text-center text-4xl pb-4">wares</p>
-    <div class="flex flex-col">
-        {#await request then result}
-            {#each result as ware}
-                <Ware {ware}/>
-            {/each}
-        {/await}
-    </div>
-    <br>
-</Boilerplate>
+<p class="text-center text-4xl pb-4">wares</p>
+<div class="flex flex-col">
+    {#await request then result}
+        {#each result as ware}
+            <Ware {ware}/>
+        {/each}
+    {/await}
+</div>
+<br>
