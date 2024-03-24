@@ -20,11 +20,9 @@
     import github_logo from "$lib/assets/github.png"
     import discord_logo from "$lib/assets/discord.png"
     import ZelosAntLite from "zelos.ant.lite";
+    import News from "../components/News.svelte";
+    import Commit from "../components/Commit.svelte";
 
-    const getNewsThumbnail = (id: string, src: string) => `https://cdn.zelo.dev/api/files/63wj7u8szd0trni/${id}/${src}`;
-    const formatNewsDate = (date: Date) => {
-        return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`
-    }
     // fetch("https://api.github.com/search/commits?q=author:Zolo101 sort:author-date")
     //     .then(res => res.json())
     //     .then(json => localStorage.setItem("test", JSON.stringify(json)))
@@ -33,31 +31,21 @@
     console.log(t.items[0])
 </script>
 
-<div class="flex max-sm:flex-col gap-8 max-w-[1000px] mt-5 px-5 mx-auto">
+<div class="flex max-sm:flex-col gap-8 max-w-full mt-5 px-5 mx-auto">
     <div class="sm:w-1/2">
         <h1 class="border-red-500">News</h1>
         <section class="mb-10">
 <!--            TODO: News Section-->
             {#await newsRequest then res}
-                <section>
-                    {#each res as news}
-                        <section class="p-2 border-b border-b-white/25">
-                            <a href="/news/{news.id}"><h3>{news.header}</h3></a>
-                            <p class="italic text-right">{formatNewsDate(new Date(news.created))}</p>
-                            <div class="h-36">
-<!--                                BLUR -->
-                                <img class="relative w-full h-36 object-cover blur-2xl brightness-50" src={getNewsThumbnail(news.id, news.header_img)}/>
-                                <img class="relative bottom-36 w-full h-36 object-cover rounded ring-1 ring-white/80" src={getNewsThumbnail(news.id, news.header_img)}/>
-                            </div>
-                            <div class="max-h-24 overflow-hidden p-4">
-                                <div class="relative z-10 w-full h-24 bg-gradient-to-b from-transparent to-neutral-950"></div>
-                                <div class="relative bottom-24">
-                                    {@html news.article}
-                                </div>
-                            </div>
-                        </section>
-                    {/each}
-                </section>
+                {#if res.length === 0}
+                    <h2 class="text-center opacity-50">No news yet!</h2>
+                {:else}
+                    <section>
+                        {#each res as news}
+                            <News {news}/>
+                        {/each}
+                    </section>
+                {/if}
             {/await}
         </section>
         <h1 class="border-emerald-500 max-sm:hidden">Commits</h1>
@@ -65,28 +53,7 @@
             <!--{#await commitsRequest then commits}-->
             <!--    {#each commits.items as item}-->
                 {#each t.items as item}
-                    {@const date = new Date(item.commit.author.date)}
-                    <!-- TODO: Make this its own component -->
-                    <section>
-                        <div class="flex justify-between items-center pb-2">
-                            <div class="flex items-start">
-                                <a href={item.html_url}>
-                                    <img width="32" height="32" src={github_logo}/>
-                                </a>
-<!--                                <p>{item.repository.name}</p>-->
-<!--                                TODO: Make this the icon of the ware if found -->
-                                <div class="px-2">
-                                    <h2>{item.commit.message}</h2>
-<!--                                    TODO: Make it say something like "2 days ago" -->
-                                    <span class="text-sm opacity-75 italic">{date.getDate()}-{date.getMonth() + 1}-{date.getFullYear()}</span>
-                                </div>
-                            </div>
-                            <a href={item.committer.html_url}>
-                                <img class="opacity-50 hover:opacity-100 transition-opacity rounded" width="32" height="32" src={item.author.avatar_url}/>
-                            </a>
-                        </div>
-                        <div class="w-full ring-1 ring-emerald-300/20 mb-2"></div>
-                    </section>
+                    <Commit {item}/>
                 {/each}
             <!--{/await}-->
         </div>

@@ -34,9 +34,21 @@ declare interface PostItem extends PocketbaseItem {
     alt: string;
 }
 
+declare interface NewsItem extends PocketbaseItem {
+    header: string;
+    header_img: string;
+    blurb: string;
+    article: string;
+    hide: boolean;
+}
+
 declare interface QAItem extends PocketbaseItem {
     question: string;
     questioner: string;
     answer: string;
     hidden: boolean;
+}
+
+declare interface CommitsAPIResultItem extends PocketbaseItem {
+    json: string; // Json of the github api result
 }
