@@ -11,13 +11,13 @@
 <!--    <img class="absolute w-full h-full blur-2xl -z-10" src={href} alt={ware.name}/>-->
     <div class="w-full flex flex-col justify-between p-5">
         <section>
-            <div class="flex justify-between">
+            <div class="flex justify-between gap-2">
                 <img class="w-1/6 h-1/6 rounded" src={href} alt={ware.name}/>
                 <div class="flex grow justify-between items-center p-2">
                     <span class="font-bold text-2xl">{ware.name}</span>
                     {#if ware.source}
                         <a href={ware.source}>
-                            <img width="64" height="64" class="opacity-40 hover:opacity-100 px-5 py-1.5 transition-opacity" src={github_icon}/>
+                            <img width="64" height="64" class="opacity-40 hover:opacity-100 px-5 py-1.5 transition-opacity min-w-16" src={github_icon}/>
                         </a>
                     {/if}
                 </div>

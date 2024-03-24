@@ -9,11 +9,10 @@
 </script>
 
 <p class="text-center text-4xl pb-4">wares</p>
-<div class="flex flex-col">
+<div class="grid grid-cols-2">
     {#await request then result}
         {#each result as ware}
             <Ware {ware}/>
         {/each}
     {/await}
 </div>
-<br>

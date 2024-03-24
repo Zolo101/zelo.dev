@@ -79,10 +79,10 @@
 
 <p class="text-8xl font-bold fixed right-4 bottom-6 text-gray-400/20">{$text}</p>
 
-<section class="flex max-lg:flex-col gap-2 mt-10 max-w-[1600px]">
-    <form class="sticky flex flex-col min-w-96" on:submit|preventDefault={askQuestion}>
-        <textarea class="outline outline-1 w-full p-2 h-24 rounded-t bg-black focus-visible:outline-gray-500" minlength="5" maxlength="1000" bind:value={$data.question}></textarea>
-        <input type="submit" class="outline outline-1 cursor-pointer rounded-b float-right bg-black hover:bg-gray-800 text-2xl p-2" value={$submitText}/>
+<section class="flex max-lg:flex-col gap-6 mt-10 max-w-[1600px] p-5">
+    <form class="lg:sticky top-10 flex flex-col gap-2 min-w-96 h-full" on:submit|preventDefault={askQuestion}>
+        <textarea class="w-full p-2 h-24 ring-1 bg-black" minlength="5" maxlength="1000" bind:value={$data.question}></textarea>
+        <input type="submit" class="cursor-pointer font-bold bg-cyan-800 hover:bg-gray-800 text-2xl p-2" value={$submitText}/>
     </form>
     <div class="flex flex-col">
         {#await requestQuestions($settings.filter) then result}
