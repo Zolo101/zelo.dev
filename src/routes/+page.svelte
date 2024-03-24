@@ -27,7 +27,7 @@
     // TODO: Temporary until I can automate this on a server that updates the database
     // fetch("https://api.github.com/search/commits?q=author:Zolo101 sort:author-date")
     //     .then(res => res.json())
-    //     .then(json => localStorage.setItem("test", JSON.stringify(json)))
+    //     .then(json => console.log(json))
 </script>
 
 <div class="flex max-sm:flex-col gap-8 max-w-full mt-5 px-5 mx-auto">

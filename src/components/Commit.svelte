@@ -25,7 +25,7 @@
     <div class="flex justify-between items-center pb-2">
         <div class="flex items-start">
             <a href={item.html_url} class="min-w-8">
-                <img width="32" height="32" src={imageSrc}/>
+                <img width="32" height="32" src={imageSrc} class="rounded"/>
             </a>
             <div class="px-2">
                 <h2>{item.commit.message}</h2>
