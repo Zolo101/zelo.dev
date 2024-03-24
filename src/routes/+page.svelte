@@ -16,6 +16,7 @@
     const newsRequest = pb.collection("news").getFullList(-1, {
         sort: "-created",
     })
+    const commitsRequest = pb.collection("json").getOne("sg7392pvrr7jxi9")
 
     import github_logo from "$lib/assets/github.png"
     import discord_logo from "$lib/assets/discord.png"
@@ -23,12 +24,10 @@
     import News from "../components/News.svelte";
     import Commit from "../components/Commit.svelte";
 
+    // TODO: Temporary until I can automate this on a server that updates the database
     // fetch("https://api.github.com/search/commits?q=author:Zolo101 sort:author-date")
     //     .then(res => res.json())
     //     .then(json => localStorage.setItem("test", JSON.stringify(json)))
-
-    const t = JSON.parse(localStorage.getItem("test")!)
-    console.log(t.items[0])
 </script>
 
 <div class="flex max-sm:flex-col gap-8 max-w-full mt-5 px-5 mx-auto">
@@ -50,12 +49,11 @@
         </section>
         <h1 class="border-emerald-500 max-sm:hidden">Commits</h1>
         <div class="p-2 order-5 max-sm:hidden">
-            <!--{#await commitsRequest then commits}-->
-            <!--    {#each commits.items as item}-->
-                {#each t.items as item}
+            {#await commitsRequest then commits}
+                {#each commits.data.items as item}
                     <Commit {item}/>
                 {/each}
-            <!--{/await}-->
+            {/await}
         </div>
     </div>
     <div class="flex flex-col gap-4 sm:w-1/2">
