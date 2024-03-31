@@ -19,7 +19,7 @@
 
 <div class="m"></div>
 <div class="w-full h-24">
-    <img class="w-full h-full" src={header}/>
+    <img class="w-full h-full" alt="" src={header}/>
     <div class="absolute top-0 w-full h-24 bg-gradient-to-b from-transparent via-neutral-950/10 via-75% to-neutral-950"></div>
 </div>
 
