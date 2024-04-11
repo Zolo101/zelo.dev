@@ -3,7 +3,8 @@
 
     export let ware: WareItem;
 
-    let href = `https://cdn.zelo.dev/api/files/fx39sxljxqc10s0/${ware.id}/${ware.icon}`;
+    const href = `https://cdn.zelo.dev/api/files/fx39sxljxqc10s0/${ware.id}/${ware.icon}?thumb=128x128`;
+    const isVideo = ware.icon.endsWith(".webm");
 </script>
 
 
@@ -12,7 +13,11 @@
     <div class="w-full flex flex-col justify-between p-5">
         <section>
             <div class="flex justify-between gap-2">
-                <img class="w-1/6 h-1/6 rounded" src={href} alt={ware.name}/>
+                {#if isVideo}
+                    <video class="w-1/6 h-1/6 rounded" src={href} autoplay muted loop><track kind="captions" src=""/></video>
+                {:else}
+                    <img class="w-1/6 h-1/6 rounded" src={href} alt={ware.name}/>
+                {/if}
                 <div class="flex grow justify-between items-center p-2">
                     <span class="font-bold text-2xl">{ware.name}</span>
                     {#if ware.source}

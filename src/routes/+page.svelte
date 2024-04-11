@@ -1,10 +1,7 @@
 <script lang="ts">
-    // import IndexComponent from "../components/IndexComponent.svelte";
-    // import ZelosAntLite from "zelos.ant.lite";
     import PocketBase from "pocketbase";
     import Ware from "../components/Ware.svelte";
 
-    import header from "$lib/assets/header.png"
     import Other from "../components/Other.svelte";
     import Social from "../components/Social.svelte";
 
@@ -90,7 +87,7 @@
 
 <style>
     h1 {
-        @apply px-5 text-4xl font-bold italic border-b border-b-4;
+        @apply px-5 text-4xl font-bold italic border-b-4;
     }
 
     h2 {

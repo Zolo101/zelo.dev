@@ -1,7 +1,7 @@
 <script lang="ts">
     import "../app.css";
     import { onNavigate } from "$app/navigation";
-    import header from "$lib/assets/header.png";
+    import header from "$lib/assets/header.webp";
 
     onNavigate((navigation) => {
         // @ts-ignore

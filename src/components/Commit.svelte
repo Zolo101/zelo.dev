@@ -37,9 +37,6 @@
                 {/if}
             </div>
         </div>
-        <a href={item.committer.html_url} class="min-w-8">
-            <img class="opacity-50 hover:opacity-100 transition-opacity rounded" width="32" height="32" src={item.author.avatar_url}/>
-        </a>
     </div>
     <div class="w-full ring-1 ring-emerald-300/20 mb-2"></div>
 </section>
