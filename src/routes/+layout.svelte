@@ -10,24 +10,29 @@
         return new Promise((resolve) => {
             // @ts-ignore
             document.startViewTransition(async () => {
-                resolve()
+                resolve();
                 await navigation.complete;
-            })
-        })
-    })
+            });
+        });
+    });
 </script>
 
 <div class="m"></div>
 <div class="w-full h-24">
-    <img class="w-full h-full" alt="" src={header}/>
-    <div class="absolute top-0 w-full h-24 bg-gradient-to-b from-transparent via-neutral-950/10 via-75% to-neutral-950"></div>
+    <img class="w-full h-full" alt="" src={header} />
+    <div
+        class="absolute top-0 w-full h-24 bg-gradient-to-b from-transparent via-neutral-950/10 via-75% to-neutral-950"
+    ></div>
 </div>
 
 <main class="h-full max-w-7xl m-auto">
     <header>
-        <a class="mt-2.5 font-bold tracking-tighter no-underline block cursor-pointer hover:scale-105 transition-transform" href="https://zelo.dev/">zelo.dev</a>
+        <a
+            class="mt-2.5 font-bold tracking-tighter no-underline block cursor-pointer hover:scale-105 transition-transform"
+            href="/">zelo.dev</a
+        >
     </header>
-    <slot/>
+    <slot />
     <noscript>
         <p>This website currently requires Javascript to be enabled.</p>
         <p>Hopefully in the future... it won't need to be.</p>
