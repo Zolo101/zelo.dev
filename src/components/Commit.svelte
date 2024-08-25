@@ -15,6 +15,9 @@
         case "zelos_ant":
             imageSrc = "https://cdn.zelo.dev/api/files/fx39sxljxqc10s0/0rss9kv6onow2pb/zelosant_dJmfhfuj0W.gif";
             break;
+        case "NotEnoughServers":
+            imageSrc = "https://cdn.zelo.dev/api/files/fx39sxljxqc10s0/gonr0um2p7gpnpv/icon_rD09PzNS0p.png";
+            break;
         case "zelo.dev":
             imageSrc = "favicon.png";
             break;
