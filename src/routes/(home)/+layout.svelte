@@ -1,5 +1,5 @@
 <script lang="ts">
-    import "../app.css";
+    import "../../app.css";
     import { onNavigate } from "$app/navigation";
     import header from "$lib/assets/header.webp";
 
@@ -33,10 +33,6 @@
         >
     </header>
     <slot />
-    <noscript>
-        <p>This website currently requires Javascript to be enabled.</p>
-        <p>Hopefully in the future... it won't need to be.</p>
-    </noscript>
 </main>
 
 <style>

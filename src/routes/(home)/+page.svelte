@@ -1,9 +1,9 @@
 <script lang="ts">
     import PocketBase from "pocketbase";
-    import Ware from "../components/Ware.svelte";
+    import Ware from "$lib/components/Ware.svelte";
 
-    import Other from "../components/Other.svelte";
-    import Social from "../components/Social.svelte";
+    import Other from "$lib/components/Other.svelte";
+    import Social from "$lib/components/Social.svelte";
 
     const pb = new PocketBase("https://cdn.zelo.dev");
     const waresRequest = pb.collection("wares").getFullList(-1, {
@@ -18,8 +18,8 @@
     import github_logo from "$lib/assets/github.png";
     import discord_logo from "$lib/assets/discord.png";
     // import ZelosAntLite from "zelos.ant.lite";
-    import News from "../components/News.svelte";
-    import Commit from "../components/Commit.svelte";
+    import News from "$lib/components/News.svelte";
+    import Commit from "$lib/components/Commit.svelte";
 
     // TODO: Temporary until I can automate this on a server that updates the database
     // fetch("https://api.github.com/search/commits?q=author:Zolo101 sort:author-date")
