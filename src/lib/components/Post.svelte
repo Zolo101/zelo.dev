@@ -7,11 +7,21 @@
         : artifact.link;
 
     let notice = artifact.alt ? "(?)" : "";
+
+    let type = "unknown";
+    if (artifact.media.endsWith(".png") || artifact.media.endsWith(".jpg") || artifact.media.endsWith(".webp")) {
+        type = "image";
+    } else if (artifact.media.endsWith(".webm") || artifact.media.endsWith(".mp4")) {
+        type = "video";
+    } else if (artifact.media.endsWith(".gif")) {
+        type = "animation";
+    }
+    console.log(type);
 </script>
 
 <div>
     <a target="_blank" href={href}>
-        <span>{title}</span>
+        <span class="type-{type}">{title}</span>
         {#if artifact.alt}
             <span class="text-cyan-800 dark:text-cyan-500" title={artifact.alt}>{notice}</span>
         {/if}
@@ -21,3 +31,17 @@
     <!--    <span class="underline text-cyan-800 dark:text-cyan-500" title={note}>{notice}</span>-->
     <!--{/if}-->
 </div>
+
+<style>
+    .type-image {
+        @apply text-green-500;
+    }
+
+    .type-video {
+        @apply text-blue-500;
+    }
+
+    .type-animation {
+        @apply text-pink-500;
+    }
+</style>
