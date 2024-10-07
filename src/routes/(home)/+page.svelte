@@ -6,14 +6,14 @@
     import Social from "$lib/components/Social.svelte";
 
     const pb = new PocketBase("https://cdn.zelo.dev");
-    const waresRequest = pb.collection("wares").getFullList(-1, {
+    const waresRequest = pb.collection<WareItem>("wares").getFullList(-1, {
         sort: "-date",
         filter: "featured = true",
     });
-    const newsRequest = pb.collection("news").getFullList(-1, {
+    const newsRequest = pb.collection<NewsItem>("news").getFullList(-1, {
         sort: "-created",
     });
-    const commitsRequest = pb.collection("json").getOne("sg7392pvrr7jxi9");
+    const commitsRequest = pb.collection<CommitsAPIResultItem>("json").getOne("sg7392pvrr7jxi9");
 
     import github_logo from "$lib/assets/github.png";
     import discord_logo from "$lib/assets/discord.png";
@@ -56,7 +56,7 @@
     <div class="flex flex-col gap-4 sm:w-1/2">
         <h1 class="border-amber-500">Projects</h1>
         {#await waresRequest then result}
-            <section class="*:ring-amber-500/50">
+            <section class="*:!ring-amber-500/50">
                 {#each result as ware}
                     <Ware {ware} />
                 {/each}

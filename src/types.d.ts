@@ -25,7 +25,8 @@ declare interface WareItem extends PocketbaseItem {
     description: string
     link?: string;
     source?: string;
-    wip: boolean;
+    featured: boolean;
+    type: "future" | "stable" | "contributed" | "legacy"
 }
 
 declare interface PostItem extends PocketbaseItem {
@@ -50,5 +51,5 @@ declare interface QAItem extends PocketbaseItem {
 }
 
 declare interface CommitsAPIResultItem extends PocketbaseItem {
-    json: string; // Json of the github api result
+    data: any; // Json of the github api result
 }
