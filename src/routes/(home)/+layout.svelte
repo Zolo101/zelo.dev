@@ -17,6 +17,10 @@
     });
 </script>
 
+<svelte:head>
+    <link rel="icon" href="favicon.png" />
+</svelte:head>
+
 <div class="m"></div>
 <div class="w-full h-24">
     <img class="w-full h-full" alt="" src={header} />

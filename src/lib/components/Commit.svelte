@@ -28,13 +28,13 @@
     <div class="flex justify-between items-center pb-2">
         <div class="flex items-start">
             <a href={item.html_url} class="min-w-8">
-                <img width="32" height="32" src={imageSrc} class="rounded"/>
+                <img width="32" height="32" src={imageSrc} class="rounded" alt="{repositoryName}"/>
             </a>
             <div class="px-2">
                 <h2>{item.commit.message}</h2>
                 <!--                                    TODO: Make it say something like "2 days ago" -->
                 <span class="text-sm opacity-75 italic">{date.toLocaleString("en-GB", {timeZone: "GMT", hour: "numeric", minute: "numeric" , year: "numeric", month: "long", day: "numeric"})}</span>
-                {#if imageSrc != github_logo}
+                {#if imageSrc !== github_logo}
                     <span class="text-green-500 tracking-tighter">::</span>
                     <span class="opacity-75">{repositoryName}</span>
                 {/if}

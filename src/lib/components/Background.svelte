@@ -21,8 +21,6 @@
             <span class="bg-black/60 px-2">{date === "Invalid Date" ? "xx.xx.xx" : date}</span>
             {#if background.source}
                 <a class="underline" href={background.source}>Source</a>
-            {:else}
-                <span class="italic text-neutral-500">No Source</span>
             {/if}
         </div>
     </div>

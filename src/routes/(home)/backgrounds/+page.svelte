@@ -12,13 +12,10 @@
         class="font-bold hover:underline text-green-500 dark:text-green-500"
         href="https://creativecommons.org/licenses/by/4.0/deed.en">CC BY 4.0</a
     >. It means you can use this for whatever but just credit me by linking the
-    website.
+    website. Click on the preview to get the full image.
 </p>
-<p class="text-center">
-    You can get the full images by clicking on them. An outline means there's
-    also more information about the background.
-</p>
-{#await backgrounds.getFullList({ sort: "-created" })}
+<br>
+{#await backgrounds.getFullList({ sort: "-date" })}
     <p>Loading...</p>
 {:then items}
     <div class="flex flex-wrap gap-4 p-2">
