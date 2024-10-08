@@ -15,6 +15,8 @@
         type = "video";
     } else if (artifact.media.endsWith(".gif")) {
         type = "animation";
+    } else if (artifact.link) {
+        type = "link";
     }
     console.log(type);
 </script>
@@ -43,5 +45,9 @@
 
     .type-animation {
         @apply text-pink-500;
+    }
+
+    .type-link {
+        @apply underline;
     }
 </style>

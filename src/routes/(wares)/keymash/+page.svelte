@@ -224,8 +224,8 @@
 <footer class="md:absolute bottom-0 text-xs m-2.5">
     <span>Made by Zelo101, 2021 </span>
     <div class="inline-flex *:px-2 *:py-1 *:mx-1 *:rounded *:ring-1 *:ring-black hover:*:scale-105 *:transition-transform">
-        <a target="_blank" rel="noopener" href="https://zelo.dev/">Back to Site</a>
-        <a target="_blank" rel="noopener" href="https://github.com/Zolo101/keymash_grader">Source Code</a>
+        <a href="../">Back to Site</a>
+        <a target="_blank" rel="noopener" href="https://github.com/Zolo101/zelo.dev/blob/master/src/routes/(wares)/keymash/%2Bpage.svelte">Source Code</a>
     </div>
 </footer>
 
