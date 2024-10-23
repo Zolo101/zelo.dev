@@ -8,7 +8,7 @@
     console.log(background)
 </script>
 
-<div class="hover:bg-black/20 dark:hover:bg-white/10 p-1 transition-colors">
+<div class="hover:bg-black/20 dark:hover:bg-white/5 p-1 transition-colors">
     <p class="absolute px-2 bg-black/40">{background.name}</p>
         <a href={background.info || srcOG}><img class:info={background.info} class="w-[256px] h-[256px] object-cover" {src} alt={background.name}/></a>
     <div class="flex justify-between">

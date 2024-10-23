@@ -18,6 +18,9 @@
         case "NotEnoughServers":
             imageSrc = "https://cdn.zelo.dev/api/files/fx39sxljxqc10s0/gonr0um2p7gpnpv/icon_rD09PzNS0p.png";
             break;
+        case "cell-workshop":
+            imageSrc = "https://cdn.zelo.dev/api/files/fx39sxljxqc10s0/3z2xsrvdc9gzrco/favicon_rZsEFGy3be.png";
+            break;
         case "zelo.dev":
             imageSrc = "favicon.png";
             break;
