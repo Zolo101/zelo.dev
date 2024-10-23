@@ -1,7 +1,8 @@
 <script lang="ts">
     export let news: NewsItem;
 
-    const getNewsThumbnail = (id: string, src: string) => `https://cdn.zelo.dev/api/files/63wj7u8szd0trni/${id}/${src}`;
+    const getNewsThumbnail = `https://cdn.zelo.dev/api/files/63wj7u8szd0trni/${news.id}/${news.header_img}`;
+    const isVideo = news.header_img.endsWith(".webm");
     const formatNewsDate = (date: Date) => {
         return date.toLocaleString('en-US', {
             year: 'numeric',
@@ -18,9 +19,40 @@
     </div>
     <div class="h-36">
         <!--                                BLUR -->
-        <img alt="" class="relative w-full h-36 object-cover blur-2xl brightness-50" src={getNewsThumbnail(news.id, news.header_img)}/>
+<!--        TODO: Image&Video Component-->
+        {#if isVideo}
+            <video
+                    class="relative w-full h-36 blur-2xl brightness-50"
+                    src={getNewsThumbnail}
+                    autoplay
+                    muted
+                    loop><track kind="captions" src="" /></video
+            >
+        {:else}
+            <img
+                    alt=""
+                    class="relative w-full h-36 object-cover blur-2xl brightness-50"
+                    src={getNewsThumbnail}
+            />
+        {/if}
+<!--        <img alt="" class="relative w-full h-36 object-cover blur-2xl brightness-50" src={getNewsThumbnail}/>-->
 <!--        TODO: News thumbnail alts -->
-        <img alt="{news.header} thumbnail" class="relative bottom-36 w-full h-36 object-cover rounded ring-1 ring-white/80" src={getNewsThumbnail(news.id, news.header_img)}/>
+        {#if isVideo}
+            <video
+                    class="relative bottom-36 w-full h-36 rounded ring-1 ring-white/10 bg-black"
+                    src={getNewsThumbnail}
+                    autoplay
+                    muted
+                    loop><track kind="captions" src="" /></video
+            >
+        {:else}
+            <img
+                    alt="{news.header} thumbnail"
+                    class="relative bottom-36 w-full h-36 object-cover rounded ring-1 ring-white/10"
+                    src={getNewsThumbnail}
+            />
+        {/if}
+<!--        <img alt="{news.header} thumbnail" class="relative bottom-36 w-full h-36 object-cover rounded ring-1 ring-white/80" src={getNewsThumbnail}/>-->
     </div>
     <div class="max-h-24 overflow-hidden p-4">
         <div class="relative w-full h-24 bg-gradient-to-b from-transparent to-neutral-950"></div>
