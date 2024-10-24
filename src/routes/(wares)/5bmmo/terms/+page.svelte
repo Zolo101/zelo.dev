@@ -6,7 +6,7 @@
   <h1>5bMMO TERMS OF SERVICE</h1>
   <span>The 5bMMO Terms of Service were last updated on October 24th, 2024.</span>
   <h2>1. INTRODUCTION</h2>
-  5bMMO is a service, which is conditioned on your acceptance, without any modification whatsoever to the following terms, conditions, and notices. By visiting and/or using the services offered by this site (https://5bMMO/) or any affiliated services (henceforth referenced as "5bMMO" or the "Service"), you are acknowledging your full compliance to the terms and conditions listed here.
+  5bMMO is a service, which is conditioned on your acceptance, without any modification whatsoever to the following terms, conditions, and notices. By visiting and/or using the services offered by this site (https://zelo.dev/5bmmo/) or any affiliated services (henceforth referenced as "5bMMO" or the "Service"), you are acknowledging your full compliance to the terms and conditions listed here.
 
   As a condition of your use of this web site, you warrant that you will not use this web site, or any of the content obtained from this web site, for any purpose that is unlawful or prohibited by these terms.
 
