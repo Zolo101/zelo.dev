@@ -1,0 +1,4 @@
+[[redirect]]
+    from = "/cell-workshop/*"
+    to = "https://glistening-bombolone-42394b.netlify.app/:splat"
+#    status = 200
