@@ -11,7 +11,7 @@
         "check:watch": "svelte-kit sync && svelte-check --tsconfig tsconfig.json --watch"
     },
     "devDependencies": {
-        "@sveltejs/adapter-static": "^3.0.5",
+        "@sveltejs/adapter-netlify": "^4.3.5",
         "@sveltejs/kit": "2.5.24",
         "@sveltejs/vite-plugin-svelte": "4.0.0-next.6",
         "autoprefixer": "^10.4.20",
