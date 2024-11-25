@@ -3,10 +3,13 @@
 
     export let item: any;
 
-    const date = new Date(item.commit.author.date)
+    const date = new Date(item.commit.author.date);
+    // const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
+    const dateText = date.toLocaleString("en-GB", {timeZone: "GMT", hour: "numeric", minute: "numeric" , year: "numeric", month: "long", day: "numeric"})
 
     const repositoryName = item.repository.name;
     let imageSrc = github_logo;
+    let defaultLogo = false;
 
     switch (repositoryName) {
         case "5beam":
@@ -24,6 +27,9 @@
         case "zelo.dev":
             imageSrc = "favicon.png";
             break;
+        default:
+            defaultLogo = true;
+            break;
     }
 </script>
 
@@ -31,12 +37,12 @@
     <div class="flex justify-between items-center pb-2">
         <div class="flex items-start">
             <a href={item.html_url} class="min-w-8">
-                <img width="32" height="32" src={imageSrc} class="rounded" alt="{repositoryName}"/>
+                <img width="32" height="32" src={imageSrc} class="rounded" alt="{defaultLogo ? 'Github link' : repositoryName}"/>
             </a>
             <div class="px-2">
                 <h2>{item.commit.message}</h2>
                 <!--                                    TODO: Make it say something like "2 days ago" -->
-                <span class="text-sm opacity-75 italic">{date.toLocaleString("en-GB", {timeZone: "GMT", hour: "numeric", minute: "numeric" , year: "numeric", month: "long", day: "numeric"})}</span>
+                <span class="text-sm opacity-75 italic">{dateText}</span>
                 {#if imageSrc !== github_logo}
                     <span class="text-green-500 tracking-tighter">::</span>
                     <span class="opacity-75">{repositoryName}</span>

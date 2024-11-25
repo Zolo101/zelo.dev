@@ -5,6 +5,7 @@
 
 <svelte:head>
     <link rel="icon" href="favicon.png" />
+    <link rel="preconnect" href="https://cdn.zelo.dev/" />
 </svelte:head>
 
 <div class="m"></div>
