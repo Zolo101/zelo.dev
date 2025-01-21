@@ -24,6 +24,9 @@
         case "cell-workshop":
             imageSrc = "https://cdn.zelo.dev/api/files/fx39sxljxqc10s0/3z2xsrvdc9gzrco/favicon_rZsEFGy3be.png";
             break;
+        case "RenderScale":
+            imageSrc = "https://cdn.zelo.dev/api/files/fx39sxljxqc10s0/c40wminbrsrz7dy/renderscale_Crq0fLscCA.png";
+            break;
         case "zelo.dev":
             imageSrc = "favicon.png";
             break;
