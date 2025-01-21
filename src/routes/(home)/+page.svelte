@@ -5,15 +5,8 @@
     import Other from "$lib/components/Other.svelte";
     import Social from "$lib/components/Social.svelte";
 
-    const pb = new PocketBase("https://cdn.zelo.dev");
-    const waresRequest = pb.collection<WareItem>("wares").getFullList(-1, {
-        sort: "-date",
-        filter: "featured = true",
-    });
-    const newsRequest = pb.collection<NewsItem>("news").getFullList(-1, {
-        sort: "-created",
-    });
-    const commitsRequest = pb.collection<CommitsAPIResultItem>("json").getOne("sg7392pvrr7jxi9");
+    let { data }: PageProps = $props();
+    const {wares, news, commits} = data;
 
     import github_logo from "$lib/assets/github.png";
     import discord_logo from "$lib/assets/discord.png";
@@ -31,37 +24,30 @@
     <div class="sm:w-1/2">
         <h1 class="border-red-500">News</h1>
         <section class="mb-10">
-            <!--            TODO: News Section-->
-            {#await newsRequest then res}
-                {#if res.length === 0}
-                    <h2 class="text-center opacity-50">No news yet!</h2>
-                {:else}
-                    <section>
-                        {#each res as news}
-                            <News {news} />
-                        {/each}
-                    </section>
-                {/if}
-            {/await}
+            {#if news.length === 0}
+                <h2 class="text-center opacity-50">No news yet!</h2>
+            {:else}
+                <section>
+                    {#each news as newsArticle}
+                        <News news={newsArticle} />
+                    {/each}
+                </section>
+            {/if}
         </section>
         <h1 class="border-emerald-500 max-sm:hidden">Commits</h1>
         <div class="p-2 order-5 max-sm:hidden">
-            {#await commitsRequest then commits}
-                {#each commits.data.items as item}
-                    <Commit {item} />
-                {/each}
-            {/await}
+            {#each commits.data.items as item}
+                <Commit {item} />
+            {/each}
         </div>
     </div>
     <div class="flex flex-col gap-4 sm:w-1/2">
         <h1 class="border-amber-500">Projects</h1>
-        {#await waresRequest then result}
-            <section class="*:!ring-amber-500/50">
-                {#each result as ware}
-                    <Ware {ware} />
-                {/each}
-            </section>
-        {/await}
+        <section class="*:!ring-amber-500/50">
+            {#each wares as ware}
+                <Ware {ware} />
+            {/each}
+        </section>
         <h1 class="border-blue-500">More</h1>
         <div class="flex flex-col gap-3 *:ring-blue-600/50">
             <div class="grid grid-cols-2 gap-3 hover:*:bg-blue-600/10">

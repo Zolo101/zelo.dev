@@ -3,10 +3,8 @@
     import Ware from "$lib/components/Ware.svelte";
     import { onMount } from "svelte";
 
-    const pb = new PocketBase("https://cdn.zelo.dev");
-    const request = pb.collection<WareItem>("wares").getFullList(-1, {
-        sort: "-date",
-    });
+    let { data }: PageProps = $props();
+    const {wares} = data;
 
     const typeColours: Record<WareItem["type"], any> = {
         future: "#36cf00",
@@ -33,17 +31,14 @@
 
 <p class="text-center text-4xl pb-4">wares</p>
 <div>
-    {#await request then result}
-        {@const sortedResults = boxSortWares(result)}
-        {#each sortedResults as [type, wares]}
-            <h1 class="capitalize" style="border-color: {typeColours[type]}">{type}</h1>
-            <div class="grid grid-cols-2 py-4">
-                {#each wares as ware}
-                    <Ware {ware}/>
-                {/each}
-            </div>
-        {/each}
-    {/await}
+    {#each boxSortWares(wares) as [type, wares]}
+        <h1 class="capitalize" style="border-color: {typeColours[type]}">{type}</h1>
+        <div class="grid grid-cols-2 py-4">
+            {#each wares as ware}
+                <Ware {ware}/>
+            {/each}
+        </div>
+    {/each}
 </div>
 
 <style>
