@@ -43,7 +43,7 @@
     </div>
     <div class="flex flex-col gap-4 sm:w-1/2">
         <h1 class="border-amber-500">Projects</h1>
-        <section class="*:!ring-amber-500/50">
+        <section class="*:ring-amber-500/50!">
             {#each wares as ware}
                 <Ware {ware} />
             {/each}
@@ -61,7 +61,7 @@
         </div>
         <h1 class="border-purple-500">Socials</h1>
         <div
-            class="flex gap-2 mb-24 *:ring-1 *:ring-purple-600/50 *:rounded *:p-2 *:transition-colors"
+            class="flex gap-2 mb-24 *:ring-1 *:ring-purple-600/50 *:rounded-xs *:p-2 *:transition-colors"
         >
             <Social
                 name="Github"

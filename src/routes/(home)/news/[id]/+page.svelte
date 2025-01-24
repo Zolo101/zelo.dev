@@ -50,7 +50,7 @@
             <!--        TODO: News thumbnail alts -->
             {#if isVideo}
                 <video
-                        class="relative bottom-96 w-full h-96 object-contain rounded ring-1 ring-white/10 bg-black"
+                        class="relative bottom-96 w-full h-96 object-contain rounded-xs ring-1 ring-white/10 bg-black"
                         src={getNewsThumbnail}
                         autoplay
                         muted
@@ -59,17 +59,17 @@
             {:else}
                 <img
                         alt=""
-                        class="relative bottom-96 w-full h-96 object-contain rounded ring-1 ring-white/10"
+                        class="relative bottom-96 w-full h-96 object-contain rounded-xs ring-1 ring-white/10"
                         src={getNewsThumbnail}
                 />
             {/if}
 <!--            <img-->
 <!--                alt="{news.header} thumbnail"-->
-<!--                class="relative bottom-96 w-full h-96 object-contain rounded ring-1 ring-white/25"-->
+<!--                class="relative bottom-96 w-full h-96 object-contain rounded-xs ring-1 ring-white/25"-->
 <!--                src={getNewsThumbnail(news.id, news.header_img)}-->
 <!--            />-->
         </div>
-        <!--        <section class="flex gap-2 justify-center w-full font-bold text-blue-100 backdrop-blur-xl bg-blue-950/20 ring-1 ring-blue-950 rounded p-3 mb-5">-->
+        <!--        <section class="flex gap-2 justify-center w-full font-bold text-blue-100 backdrop-blur-xl bg-blue-950/20 ring-1 ring-blue-950 rounded-xs p-3 mb-5">-->
         <!--            <span class="text-xl">Share the news!</span>-->
         <!--            <div class="flex gap-2">-->
         <!--                <button>Corkboard</button>-->

@@ -40,7 +40,7 @@
     <div class="flex justify-between items-center pb-2">
         <div class="flex items-start">
             <a href={item.html_url} class="min-w-8">
-                <img width="32" height="32" src={imageSrc} class="rounded" alt="{defaultLogo ? 'Github link' : repositoryName}"/>
+                <img width="32" height="32" src={imageSrc} class="rounded-xs" alt="{defaultLogo ? 'Github link' : repositoryName}"/>
             </a>
             <div class="px-2">
                 <h2>{item.commit.message}</h2>

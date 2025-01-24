@@ -203,8 +203,8 @@
         {@render total_grade(results)}
         <div class="max-md:grid-rows-2 grid md:grid-cols-2 gap-4 justify-items-center items-center">
             <div>
-                <input bind:this={input} class="w-full text-3xl p-1 rounded ring-1 ring-gray-500" disabled placeholder="type here"/>
-                <button bind:this={counterButton} onclick={startPreTest} class="py-1 px-2.5 my-2 rounded ring-1 ring-gray-500">Start! (Space)</button>
+                <input bind:this={input} class="w-full text-3xl p-1 rounded-xs ring-1 ring-gray-500" disabled placeholder="type here"/>
+                <button bind:this={counterButton} onclick={startPreTest} class="py-1 px-2.5 my-2 rounded-xs ring-1 ring-gray-500">Start! (Space)</button>
                 <p bind:this={countdown} class="m-0 text-9xl text-center">...</p>
             </div>
             <div>
@@ -223,7 +223,7 @@
 </main>
 <footer class="md:absolute bottom-0 text-xs m-2.5">
     <span>Made by Zelo101, 2021</span>
-    <div class="inline-flex *:px-2 *:py-1 *:mx-1 *:rounded *:ring-1 *:ring-black hover:*:scale-105 *:transition-transform">
+    <div class="inline-flex *:px-2 *:py-1 *:mx-1 *:rounded-xs *:ring-1 *:ring-black hover:*:scale-105 *:transition-transform">
         <a href="../">Back to Site</a>
         <a target="_blank" rel="noopener" href="https://github.com/Zolo101/zelo.dev/blob/master/src/routes/(wares)/keymash/%2Bpage.svelte">Source Code</a>
     </div>

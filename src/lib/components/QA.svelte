@@ -4,7 +4,7 @@
     let date = new Date(qa.created).toLocaleString("DE", {dateStyle: "short"})
 </script>
 
-<section class="p-2 mb-4 flex gap-5 backdrop-blur-[2px] rounded hover:bg-gray-900/50 hover:ring-1 transition-all">
+<section class="p-2 mb-4 flex gap-5 backdrop-blur-[2px] rounded-xs hover:bg-gray-900/50 hover:ring-1 transition-all">
     <div class="grow w-full">
         <div class="flex justify-between gap-2">
             <p class="font-bold text-2xl bg-amber-200 bg-cyan-300/20 px-2 py-1 break-words">{qa.question}</p>

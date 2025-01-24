@@ -1,74 +1,94 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-html {
-    font-family: "Roboto", sans-serif;
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
 }
 
-html, body {
+@layer utilities {
+  html {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  html,
+  body {
     @apply h-full text-neutral-50;
-}
+  }
 
-header {
+  header {
     @apply text-7xl text-center;
-}
+  }
 
-a {
+  a {
     @apply no-underline;
-}
+  }
 
-canvas {
+  canvas {
     @apply outline-black max-w-[800px] max-h-[800px];
-}
+  }
 
-.button {
-    @apply p-2.5 m-1 bg-gray-300 outline-black text-center rounded shadow transition-colors cursor-pointer;
-}
+  .button {
+    @apply p-2.5 m-1 bg-gray-300 outline-black text-center rounded-sm shadow-sm transition-colors cursor-pointer;
+  }
 
-.button:hover {
+  .button:hover {
     @apply bg-gray-400;
-}
+  }
 
-::backdrop {
+  ::backdrop {
     @apply bg-gray-900/20;
-}
+  }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
     @apply w-2.5;
-}
+  }
 
-::-webkit-scrollbar-track {
+  ::-webkit-scrollbar-track {
     @apply bg-black;
-}
+  }
 
-::-webkit-scrollbar-thumb {
-    @apply bg-gray-700 shadow;
-}
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-700 shadow-sm;
+  }
 
-::-webkit-scrollbar-thumb:hover {
+  ::-webkit-scrollbar-thumb:hover {
     @apply bg-gray-600;
-}
+  }
 
-table {
-    @apply outline outline-2 outline-black/50 rounded border-hidden;
+  table {
+    @apply outline outline-2 outline-black/50 rounded-sm border-hidden;
     @apply dark:outline-white/50;
-}
+  }
 
-th, td {
+  th,
+  td {
     @apply p-2.5 border-2 border-neutral-400;
     @apply dark:border-neutral-600;
-}
+  }
 
-th {
+  th {
     @apply bg-neutral-300;
     @apply dark:bg-neutral-700;
-}
+  }
 
-td {
+  td {
     @apply bg-neutral-200;
     @apply dark:bg-neutral-800;
+  }
 }
 
 @layer base {

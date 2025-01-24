@@ -10,7 +10,7 @@
 
 <a
     href={ware.link}
-    class="ware type-{ware.type} rounded backdrop-blur-xl ring-1 shadow-2xl px-0 mx-5 mb-4 flex gap-5 hover:scale-105 transition-transform"
+    class="ware type-{ware.type} rounded-xs backdrop-blur-xl ring-1 shadow-2xl px-0 mx-5 mb-4 flex gap-5 hover:scale-105 transition-transform"
 >
     <!--    <img class="absolute w-full h-full blur-2xl -z-10" src={href} alt={ware.name}/>-->
     <div class="w-full flex flex-col justify-between p-5">
@@ -19,7 +19,7 @@
                 {#if ware.type !== "future"}
                     {#if isVideo}
                         <video
-                            class="w-1/6 h-1/6 rounded"
+                            class="w-1/6 h-1/6 rounded-xs"
                             src={href}
                             autoplay
                             muted
@@ -27,7 +27,7 @@
                         >
                     {:else}
                         <img
-                            class="w-1/6 h-1/6 rounded"
+                            class="w-1/6 h-1/6 rounded-xs"
                             src={href}
                             alt={ware.name}
                         />
