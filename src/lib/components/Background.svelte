@@ -5,12 +5,11 @@
     let src = `${srcOG}?thumb=256x256`;
 
     let date = new Date(background.date).toLocaleString("DE", {dateStyle: "short"})
-    console.log(background)
 </script>
 
 <div class="hover:bg-black/20 dark:hover:bg-white/5 p-1 transition-colors">
     <p class="absolute px-2 bg-black/40">{background.name}</p>
-        <a href={background.info || srcOG}><img class:info={background.info} class="w-[256px] h-[256px] object-cover" {src} alt={background.name}/></a>
+        <a href={background.info || srcOG}><img class:background-info={background.info} class="w-[256px] h-[256px] object-cover transition-transform active:scale-95" {src} alt={background.name}/></a>
     <div class="flex justify-between">
         <div class="flex flex-col">
             {#if background.madeIn.startsWith("blender")}
@@ -25,17 +24,3 @@
         </div>
     </div>
 </div>
-
-<style>
-    .info {
-        @apply outline outline-green-400;
-    }
-
-    img {
-        @apply transition-transform;
-    }
-
-    img:active {
-        @apply scale-95;
-    }
-</style>

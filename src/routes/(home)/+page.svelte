@@ -76,17 +76,3 @@
         </div> -->
     </div>
 </div>
-
-<style>
-    h1 {
-        @apply px-5 text-4xl font-bold italic border-b-4;
-    }
-
-    h2 {
-        @apply py-1;
-    }
-
-    h3 {
-        @apply font-bold text-3xl px-5 py-1;
-    }
-</style>

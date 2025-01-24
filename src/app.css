@@ -19,76 +19,88 @@
 }
 
 @layer utilities {
-  html {
+    html {
     font-family: 'Roboto', sans-serif;
-  }
+    }
 
-  html,
-  body {
+    html,
+    body {
     @apply h-full text-neutral-50;
-  }
+    }
 
-  header {
+    header {
     @apply text-7xl text-center;
-  }
+    }
 
-  a {
+    a {
     @apply no-underline;
-  }
+    }
 
-  canvas {
+    canvas {
     @apply outline-black max-w-[800px] max-h-[800px];
-  }
+    }
 
-  .button {
+    .button {
     @apply p-2.5 m-1 bg-gray-300 outline-black text-center rounded-sm shadow-sm transition-colors cursor-pointer;
-  }
+    }
 
-  .button:hover {
+    .button:hover {
     @apply bg-gray-400;
-  }
+    }
 
-  ::backdrop {
+    ::backdrop {
     @apply bg-gray-900/20;
-  }
+    }
 
-  /* Custom Scrollbar */
-  ::-webkit-scrollbar {
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
     @apply w-2.5;
-  }
+    }
 
-  ::-webkit-scrollbar-track {
+    ::-webkit-scrollbar-track {
     @apply bg-black;
-  }
+    }
 
-  ::-webkit-scrollbar-thumb {
+    ::-webkit-scrollbar-thumb {
     @apply bg-gray-700 shadow-sm;
-  }
+    }
 
-  ::-webkit-scrollbar-thumb:hover {
+    ::-webkit-scrollbar-thumb:hover {
     @apply bg-gray-600;
-  }
+    }
 
-  table {
+    table {
     @apply outline outline-2 outline-black/50 rounded-sm border-hidden;
     @apply dark:outline-white/50;
-  }
+    }
 
-  th,
-  td {
+    th,
+    td {
     @apply p-2.5 border-2 border-neutral-400;
     @apply dark:border-neutral-600;
-  }
+    }
 
-  th {
+    th {
     @apply bg-neutral-300;
     @apply dark:bg-neutral-700;
-  }
+    }
 
-  td {
+    td {
     @apply bg-neutral-200;
     @apply dark:bg-neutral-800;
-  }
+    }
+
+    h1 {
+        @apply px-5 text-4xl font-bold italic border-b-4;
+    }
+
+    h2 {
+        @apply py-1;
+    }
+
+    h3 {
+        @apply font-bold text-3xl px-5 py-1;
+    }
 }
 
 @layer base {
@@ -101,4 +113,66 @@
     a {
         text-decoration: revert;
     }
+}
+
+/* QA Message HTML CSS */
+.answer > table {
+    @apply outline outline-1;
+}
+
+.answer a {
+    @apply text-blue-300;
+}
+
+.answer a:hover {
+    @apply underline;
+}
+
+/* News CSS */
+#article a {
+    @apply text-blue-500 underline transition-colors;
+}
+
+#article a:hover {
+    @apply text-teal-400;
+}
+
+/* Backgrounds CSS */
+
+.background-info {
+    @apply outline outline-green-400;
+}
+
+/* Ware types CSS */
+.type-future {
+    @apply ring-[#36cf00]/50;
+}
+
+.type-stable {
+    @apply ring-[#66d99e]/50;
+}
+
+.type-contributed {
+    @apply ring-[#999999]/50;
+}
+
+.type-legacy {
+    @apply ring-[#434343]/50;
+}
+
+/* Artifacts CSS */
+.type-image {
+    @apply text-green-500;
+}
+
+.type-video {
+    @apply text-blue-500;
+}
+
+.type-animation {
+    @apply text-pink-500;
+}
+
+.type-link {
+    @apply underline;
 }

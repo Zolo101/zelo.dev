@@ -85,29 +85,3 @@
 <footer class="text-2xl">
     <a href="../">Go back</a>
 </footer>
-
-<style>
-    h1 {
-        @apply text-4xl font-bold;
-    }
-
-    :global(#article a) {
-        @apply text-blue-500 underline transition-colors;
-    }
-
-    :global(#article a:hover) {
-        @apply text-teal-400;
-    }
-
-    a {
-        @apply text-blue-400 italic;
-    }
-
-    button {
-        @apply px-5 ring-1 rounded transition-all;
-    }
-
-    button:hover {
-        @apply ring-blue-500 bg-blue-900/40;
-    }
-</style>

@@ -12,7 +12,6 @@
     href={ware.link}
     class="ware type-{ware.type} rounded-xs backdrop-blur-xl ring-1 shadow-2xl px-0 mx-5 mb-4 flex gap-5 hover:scale-105 transition-transform"
 >
-    <!--    <img class="absolute w-full h-full blur-2xl -z-10" src={href} alt={ware.name}/>-->
     <div class="w-full flex flex-col justify-between p-5">
         <section>
             <div class="flex justify-between gap-2">
@@ -44,15 +43,15 @@
                     {/if}
                     {#if ware.source}
                         <!-- IDK how to fix this "warning" -->
-                        <a href={ware.source}>
+                        <button class="cursor-pointer" onclick={() => window.open(ware.source, "_blank")}>
                             <img
                                 alt="Github logo"
                                 width="64"
                                 height="64"
-                                class="opacity-40 hover:opacity-100 w-4 h-4 transition-opacity"
+                                class="opacity-40 hover:opacity-100 w-8 h-8 transition-opacity"
                                 src={github_icon}
                             />
-                        </a>
+                        </button>
                     {/if}
                 {/if}
             </div>
@@ -60,21 +59,3 @@
         </section>
     </div>
 </a>
-
-<style>
-    .type-future {
-        @apply ring-[#36cf00]/50;
-    }
-
-    .type-stable {
-        @apply ring-[#66d99e]/50;
-    }
-
-    .type-contributed {
-        @apply ring-[#999999]/50;
-    }
-
-    .type-legacy {
-        @apply ring-[#434343]/50;
-    }
-</style>

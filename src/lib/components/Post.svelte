@@ -18,7 +18,6 @@
     } else if (artifact.link) {
         type = "link";
     }
-    console.log(type);
 </script>
 
 <div>
@@ -33,21 +32,3 @@
     <!--    <span class="underline text-cyan-800 dark:text-cyan-500" title={note}>{notice}</span>-->
     <!--{/if}-->
 </div>
-
-<style>
-    .type-image {
-        @apply text-green-500;
-    }
-
-    .type-video {
-        @apply text-blue-500;
-    }
-
-    .type-animation {
-        @apply text-pink-500;
-    }
-
-    .type-link {
-        @apply underline;
-    }
-</style>

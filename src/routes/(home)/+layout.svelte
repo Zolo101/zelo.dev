@@ -28,26 +28,14 @@
 
 <style>
     .m {
-        /*@apply blur-sm;*/
-        /*@apply blur-2xl;*/
-        /*@apply brightness-50;*/
-        @apply bg-neutral-950;
-        /*background-image: url("$lib/assets/doubledoubledodecdouble2.png");*/
-        /*background-size: cover;*/
+        background: oklch(0.145 0 0);
         position: fixed;
-        /*left: -5px;*/
-        /*top: -5px;*/
-        /*width: 105%;*/
-        /*height: 105%;*/
-
         left: -100px;
         top: -100px;
         width: 150%;
         height: 150%;
         z-index: -1;
-
         overflow-x: hidden;
-
         perspective: 1px;
     }
 </style>
