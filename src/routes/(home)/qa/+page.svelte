@@ -1,9 +1,12 @@
 <script lang="ts">
     import PocketBase from "pocketbase";
     import QA from "$lib/components/QA.svelte";
-    import Linebreak from "$lib/components/Linebreak.svelte";
     import { writable } from "svelte/store";
     import { onMount } from "svelte";
+    import type { PageProps } from "./$types";
+
+    let { data: serverData }: PageProps = $props();
+    const {QAs: result} = serverData;
 
     const pb = new PocketBase("https://cdn.zelo.dev");
 
@@ -34,26 +37,11 @@
         filter: "latest",
     });
 
-    let text = writable("q&a");
-    let submitText = writable("Ask");
+    let text = $state("q&a");
+    let submitText = $state("Ask");
 
-    const requestQuestions = (filter: string) => {
-        switch (filter) {
-            case "yours":
-                return pb.collection<QAItem>("qa").getFullList(-1, {
-                    sort: "-created",
-                    filter: `questioner = "${$data.questioner}"`,
-                });
-
-            case "latest":
-            default:
-                return pb.collection<QAItem>("qa").getFullList(-1, {
-                    sort: "-created",
-                });
-        }
-    };
-
-    const askQuestion = () => {
+    const askQuestion = (event: SubmitEvent) => {
+        event.preventDefault();
         pb.collection("qa")
             .create($data)
             .then(() => {
@@ -61,7 +49,7 @@
                 setText("Sent!");
             })
             .catch((err) => {
-                console.error(JSON.stringify(err, 0, 2));
+                console.error(JSON.stringify(err, null, 2));
                 setText("Error sending...");
             });
     };
@@ -71,21 +59,21 @@
     };
 
     const setText = (content: string) => {
-        $text = content.toLowerCase();
-        $submitText = content;
-        setTimeout(() => ($text = "q&a"), 5000);
-        setTimeout(() => ($submitText = "Ask"), 5000);
+        text = content.toLowerCase();
+        submitText = content;
+        setTimeout(() => (text = "q&a"), 5000);
+        setTimeout(() => (submitText = "Ask"), 5000);
     };
 </script>
 
-<p class="text-8xl font-bold fixed right-4 bottom-6 text-gray-400/20">
-    {$text}
+<p class="text-8xl font-bold fixed left-4 bottom-6 text-gray-400/20">
+    {text}
 </p>
 
 <section class="flex max-lg:flex-col gap-6 mt-10 max-w-[1600px] p-5">
     <form
         class="lg:sticky top-10 flex flex-col gap-2 min-w-96 h-full"
-        on:submit|preventDefault={askQuestion}
+        onsubmit={askQuestion}
     >
         <textarea
             class="w-full p-2 h-24 ring-1 bg-black"
@@ -96,14 +84,15 @@
         <input
             type="submit"
             class="cursor-pointer font-bold bg-cyan-800 hover:bg-gray-800 text-2xl p-2"
-            value={$submitText}
+            value={submitText}
         />
+        <noscript>
+            <span class="text-red-500 font-bold">Enable JavaScript to ask questions!</span>
+        </noscript>
     </form>
     <div class="flex flex-col">
-        {#await requestQuestions($settings.filter) then result}
-            {#each result as qa}
-                <QA {qa} />
-            {/each}
-        {/await}
+        {#each result as qa}
+            <QA {qa} />
+        {/each}
     </div>
 </section>

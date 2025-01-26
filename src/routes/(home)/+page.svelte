@@ -1,9 +1,8 @@
 <script lang="ts">
-    import PocketBase from "pocketbase";
     import Ware from "$lib/components/Ware.svelte";
-
     import Other from "$lib/components/Other.svelte";
     import Social from "$lib/components/Social.svelte";
+    import type { PageProps } from "./$types";
 
     let { data }: PageProps = $props();
     const {wares, news, commits} = data;
@@ -49,19 +48,19 @@
             {/each}
         </section>
         <h1 class="border-blue-500">More</h1>
-        <div class="flex flex-col gap-3 *:ring-blue-600/50">
-            <div class="grid grid-cols-2 gap-3 hover:*:bg-blue-600/10">
+        <div class="flex flex-col gap-3">
+            <div class="grid grid-cols-2 gap-3 *:hover:bg-blue-600/10">
                 <Other href="/wares">wares</Other>
                 <Other href="/backgrounds">backgrounds</Other>
                 <!--                <Other href="/artifacts">artifacts</Other>-->
             </div>
-            <div class="hover:*:bg-blue-600/10">
+            <div class="*:hover:bg-blue-600/10">
                 <Other href="/qa">q&a</Other>
             </div>
         </div>
         <h1 class="border-purple-500">Socials</h1>
         <div
-            class="flex gap-2 mb-24 *:ring-1 *:ring-purple-600/50 *:rounded-xs *:p-2 *:transition-colors"
+            class="flex gap-2 mb-24 *:ring *:ring-purple-600/50 *:rounded-xs *:p-2 *:transition-colors"
         >
             <Social
                 name="Github"

@@ -1,7 +1,6 @@
 <script lang="ts">
-    import PocketBase from "pocketbase";
     import Ware from "$lib/components/Ware.svelte";
-    import { onMount } from "svelte";
+    import type { PageProps } from "./$types";
 
     let { data }: PageProps = $props();
     const {wares} = data;
@@ -31,10 +30,10 @@
 
 <p class="text-center text-4xl pb-4">wares</p>
 <div>
-    {#each boxSortWares(wares) as [type, wares]}
+    {#each boxSortWares(wares) as [type, waresItself]}
         <h1 class="capitalize" style="border-color: {typeColours[type]}">{type}</h1>
         <div class="grid grid-cols-2 py-4">
-            {#each wares as ware}
+            {#each waresItself as ware}
                 <Ware {ware}/>
             {/each}
         </div>

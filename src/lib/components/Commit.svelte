@@ -48,7 +48,7 @@
                 <span class="text-sm opacity-75 italic">{dateText}</span>
                 {#if imageSrc !== github_logo}
                     <span class="text-green-500 tracking-tighter">::</span>
-                    <span class="opacity-75">{repositoryName}</span>
+                    <span class="opacity-75 font-bold">{repositoryName}</span>
                 {/if}
             </div>
         </div>

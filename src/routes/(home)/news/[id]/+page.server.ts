@@ -1,11 +1,6 @@
-import PocketBase from "pocketbase";
-import type { EntryGenerator, RouteParams } from "./$types";
+import type { PageServerLoad } from "./$types";
+import { getNewsArticle} from "$lib/fetchDB";
 
-export const entries: EntryGenerator = async () => {
-    const pb = new PocketBase("https://cdn.zelo.dev");
-    const newsList = await pb.collection("news").getFullList();
-    // return [{ slug: "uhbg6idhwnwua0c" }];
-    return newsList.map((news) => ({
-        id: news.id,
-    }));
+export const load: PageServerLoad = async ({params, locals: {db}}) => {
+    return {article: await getNewsArticle(db, params.id)}
 };

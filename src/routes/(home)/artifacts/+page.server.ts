@@ -1,6 +1,6 @@
-import { getWares } from "$lib/fetchDB";
+import { getArtifacts } from "$lib/fetchDB";
 import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async ({locals: {db}}) => {
-    return {wares: await getWares(db, false)}
+    return {result: await getArtifacts(db)}
 };

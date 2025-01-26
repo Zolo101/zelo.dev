@@ -1,9 +1,7 @@
-import PocketBase from "pocketbase";
 import { getCommits, getNews, getWares } from "$lib/fetchDB";
+import type { PageServerLoad } from "./$types";
 
-export const load: PageLoad = async () => {
-    const pb = new PocketBase("https://cdn.zelo.dev");
-
-    const [wares, news, commits] = await Promise.all([getWares(pb, true), getNews(pb), getCommits(pb)]);
+export const load: PageServerLoad = async ({locals: {db}}) => {
+    const [wares, news, commits] = await Promise.all([getWares(db, true), getNews(db), getCommits(db)]);
     return {wares, news, commits}
 };
