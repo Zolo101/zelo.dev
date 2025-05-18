@@ -3,11 +3,11 @@
     import type { PageProps } from "./$types";
 
     let { data }: PageProps = $props();
-    const {result} = data;
+    const { result } = data;
 </script>
 
-<p class="text-center text-4xl pb-4">artifacts</p>
-<div class="grid gap-4 grid-cols-7 p-10 text-xl">
+<p class="pb-4 text-center text-4xl">artifacts</p>
+<div class="grid grid-cols-7 gap-4 p-10 text-xl">
     {#each result as artifact}
         <Post {artifact} />
     {/each}

@@ -1,17 +1,17 @@
-import { sveltekit } from '@sveltejs/kit/vite';
-import type { UserConfig } from 'vite';
+import { sveltekit } from "@sveltejs/kit/vite";
+import type { UserConfig } from "vite";
 
 const config: UserConfig = {
-	plugins: [sveltekit()],
+    plugins: [sveltekit()],
 
-	optimizeDeps: {
-		esbuildOptions: {
-			loader: {
-				".glsl": "text",
-				".wgsl": "text",
-			},
-		}
-	},
+    optimizeDeps: {
+        esbuildOptions: {
+            loader: {
+                ".glsl": "text",
+                ".wgsl": "text"
+            }
+        }
+    }
 };
 
 export default config;

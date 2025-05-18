@@ -22,11 +22,11 @@ declare interface WareItem extends PocketbaseItem {
     name: string;
     icon: string;
     date: DateString;
-    description: string
+    description: string;
     link?: string;
     source?: string;
     featured: boolean;
-    type: "future" | "stable" | "contributed" | "legacy"
+    type: "future" | "stable" | "contributed" | "legacy";
 }
 
 declare interface PostItem extends PocketbaseItem {

@@ -1,90 +1,105 @@
 <script lang="ts">
-
 </script>
 
 <main>
-  <h1>5bMMO PRIVACY POLICY</h1>
-  <span>The 5bMMO Privacy Policy was last updated on October 24th, 2024.</span>
-  <h2>1. INTRODUCTION</h2>
-  This document aims to describe what information we collect on our network and in the use of our products and services, how we use that information and what options we offer you to control your personal information.
+    <h1>5bMMO PRIVACY POLICY</h1>
+    <span>The 5bMMO Privacy Policy was last updated on October 24th, 2024.</span>
+    <h2>1. INTRODUCTION</h2>
+    This document aims to describe what information we collect on our network and in the use of our products
+    and services, how we use that information and what options we offer you to control your personal
+    information. By using our service, you confirm that you have read and understood the Terms of Service
+    and this Privacy Policy, including how and why we use your information and that your use of the service
+    is subject to the applicable Terms of Service and this Privacy Policy. If you do not want us to collect
+    or process your personal information as described herein, you have several choices including limiting
+    the information we collect on you, or not using the Network, or our Products and Services.
 
-  By using our service, you confirm that you have read and understood the Terms of Service and this Privacy Policy, including how and why we use your information and that your use of the service is subject to the applicable Terms of Service and this Privacy Policy. If you do not want us to collect or process your personal information as described herein, you have several choices including limiting the information we collect on you, or not using the Network, or our Products and Services.
+    <h2>2. INFORMATION WE COLLECT</h2>
+    We use your Discord account information in order to identify you. We will collect:
+    <ul>
+        <li>Your Discord username</li>
+        <li>Your Discord email</li>
+    </ul>
+    <!--  <h3>When registering an anonymous account</h3>-->
+    <!--  While limited functionality can be enjoyed without any account, it is often required that a user registers an account to experience certain services. When registering an anonymous account, we store-->
 
-  <h2>2. INFORMATION WE COLLECT</h2>
-  We use your Discord account information in order to identify you. We will collect:
-  <ul>
-    <li>Your Discord username</li>
-    <li>Your Discord email</li>
-  </ul>
-<!--  <h3>When registering an anonymous account</h3>-->
-<!--  While limited functionality can be enjoyed without any account, it is often required that a user registers an account to experience certain services. When registering an anonymous account, we store-->
+    <!--  <ul>-->
+    <!--    <li>Your username</li>-->
+    <!--    <li>Your IP address</li>-->
+    <!--  </ul>-->
+    <!--  This personal information, with the exception of your username, is never shared publicly.-->
 
-<!--  <ul>-->
-<!--    <li>Your username</li>-->
-<!--    <li>Your IP address</li>-->
-<!--  </ul>-->
-<!--  This personal information, with the exception of your username, is never shared publicly.-->
+    <!--  <h3>When registering an account</h3>-->
+    <!--  While limited functionality can be enjoyed with an anonymous account, it is often required that a user registers a full account to experience certain services. When registering a full account, we store-->
 
-<!--  <h3>When registering an account</h3>-->
-<!--  While limited functionality can be enjoyed with an anonymous account, it is often required that a user registers a full account to experience certain services. When registering a full account, we store-->
+    <!--  <ul>-->
+    <!--    <li>Your username</li>-->
+    <!--    <li>Your password (saved securely using bcrypt)</li>-->
+    <!--    <li>Your IP address</li>-->
+    <!--    <li>Your email address (optional)</li>-->
+    <!--    <li>Your country (based on IP address)</li>-->
+    <!--    <li>This personal information, with the exception of your username and country, is never shared publicly. You may choose to hide your country at any time.</li>-->
+    <!--  </ul>-->
 
-<!--  <ul>-->
-<!--    <li>Your username</li>-->
-<!--    <li>Your password (saved securely using bcrypt)</li>-->
-<!--    <li>Your IP address</li>-->
-<!--    <li>Your email address (optional)</li>-->
-<!--    <li>Your country (based on IP address)</li>-->
-<!--    <li>This personal information, with the exception of your username and country, is never shared publicly. You may choose to hide your country at any time.</li>-->
-<!--  </ul>-->
+    <!--  <h3>When logging in to the game</h3>-->
+    <!--  When connecting to our Service, your IP address, as well as some statistics of the device you are using, may be logged and attached to your username. The main purpose of this is to maintain a fair ranking system and help us enforce account security should your account be accessed from a compromised location. This is considered private and only stored as long as it is deemed relevant.-->
 
-<!--  <h3>When logging in to the game</h3>-->
-<!--  When connecting to our Service, your IP address, as well as some statistics of the device you are using, may be logged and attached to your username. The main purpose of this is to maintain a fair ranking system and help us enforce account security should your account be accessed from a compromised location. This is considered private and only stored as long as it is deemed relevant.-->
+    <!--  <h3>When playing the game and submitting scores</h3>-->
+    <!--  When completing a game session, details on your performance will be automatically submitted to our servers. This submission includes game replay data and may be displayed publicly in Global Leaderboards (called "Tetra Channel") and on your User Profile and can not be deleted or modified.-->
 
-<!--  <h3>When playing the game and submitting scores</h3>-->
-<!--  When completing a game session, details on your performance will be automatically submitted to our servers. This submission includes game replay data and may be displayed publicly in Global Leaderboards (called "Tetra Channel") and on your User Profile and can not be deleted or modified.-->
+    <!--  <h3>When accessing the Service in general</h3>-->
+    <!--  5bMMO uses the self-hosted analytics service Matomo as well as data generated by normal usage of the Service to collect analytics data about the way you find and interact with the Service. This data includes information like what device you are using, what technologies your browser supports and information sent by your browser. This data is stored on-premises and, with the exception of general anonymous aggregate statistics, is never shared publicly.-->
 
-<!--  <h3>When accessing the Service in general</h3>-->
-<!--  5bMMO uses the self-hosted analytics service Matomo as well as data generated by normal usage of the Service to collect analytics data about the way you find and interact with the Service. This data includes information like what device you are using, what technologies your browser supports and information sent by your browser. This data is stored on-premises and, with the exception of general anonymous aggregate statistics, is never shared publicly.-->
+    <!--  Furthermore, 5bMMO, like most of the Internet, may serve third-party advertisements through our advertising partners. These advertisements may collect data of their own. This data includes information like what device you are using and information sent by your browser.-->
 
-<!--  Furthermore, 5bMMO, like most of the Internet, may serve third-party advertisements through our advertising partners. These advertisements may collect data of their own. This data includes information like what device you are using and information sent by your browser.-->
+    <!--  <h3>When using 5bMMO Desktop</h3>-->
+    <!--  When opening 5bMMO Desktop, the program will search for updates to said software. It does so by polling a simple file which tells it which version is the latest version. In this process, zero user data is collected. Using 5bMMO Desktop therefore collects the same data as using the browser version.-->
 
-<!--  <h3>When using 5bMMO Desktop</h3>-->
-<!--  When opening 5bMMO Desktop, the program will search for updates to said software. It does so by polling a simple file which tells it which version is the latest version. In this process, zero user data is collected. Using 5bMMO Desktop therefore collects the same data as using the browser version.-->
+    <h2>3. DISCLOSURES OF YOUR PERSONAL DATA</h2>
+    We do not send any unsolicited emails. The only emails you will receive from us are the result of
+    an action on our service (such as requesting two-factor authentication, purchasing a product or enabling
+    notifications for a discussion). We may employ third-party companies and individuals for the following
+    reasons:
 
-  <h2>3. DISCLOSURES OF YOUR PERSONAL DATA</h2>
-  We do not send any unsolicited emails. The only emails you will receive from us are the result of an action on our service (such as requesting two-factor authentication, purchasing a product or enabling notifications for a discussion).
+    <p>To facilitate our Service;</p>
+    <p>To provide the Service on our behalf;</p>
+    <p>To perform Service-related services; or</p>
+    <p>To assist us in analyzing how our Service is used.</p>
+    We want to inform our Service users that these third parties have access to (parts of) your Personal
+    Information. The reason is to perform the tasks assigned to them on our behalf. However, they are
+    obligated not to disclose or use the information for any other purpose.
 
-  We may employ third-party companies and individuals for the following reasons:
+    <h2>4. YOUR RIGHTS AND CONTROL</h2>
+    As a user you have the right to migrate, update or delete your personal information. Currently we
+    do not have a way to change these on the application, so please message us (@zelo101) on discord
+    if you would like to have anything changed, and we will respond within 30 days.
+    <!--  As a user you have the right to migrate, update or delete your personal information. This can be done primarily from the user settings, or where not available from an "Edit" feature on the relevant section of our site.-->
 
-  <p>To facilitate our Service;</p>
-  <p>To provide the Service on our behalf;</p>
-  <p>To perform Service-related services; or</p>
-  <p>To assist us in analyzing how our Service is used.</p>
-  We want to inform our Service users that these third parties have access to (parts of) your Personal Information. The reason is to perform the tasks assigned to them on our behalf. However, they are obligated not to disclose or use the information for any other purpose.
+    <!--  It is possible to opt-out of analytics data collection done through Matomo. This can be done by configuring your browser to send a Do-Not-Track header with your requests.-->
 
-  <h2>4. YOUR RIGHTS AND CONTROL</h2>
-  As a user you have the right to migrate, update or delete your personal information. Currently we do not have a way to change these on the application, so please message us (@zelo101) on discord if you would like to have anything changed, and we will respond within 30 days.
-<!--  As a user you have the right to migrate, update or delete your personal information. This can be done primarily from the user settings, or where not available from an "Edit" feature on the relevant section of our site.-->
+    <!--  As a user you have the option of deleting your account from our service. You may do so from the Account settings panel, found under Config. In the case of account deletion, portions of your public contributions may remain intact, as detailed in "Information we collect".-->
 
-<!--  It is possible to opt-out of analytics data collection done through Matomo. This can be done by configuring your browser to send a Do-Not-Track header with your requests.-->
+    <!--  <h2>5. COOKIES</h2>-->
+    <!--  We use cookies, like most of the internet. We strictly use them to maintain your session state and login credentials across multiple sessions, as well as to collect analytics data (see 4. YOUR RIGHTS AND CONTROL). If you do not wish for cookies to be stored, please do not use our services.-->
 
-<!--  As a user you have the option of deleting your account from our service. You may do so from the Account settings panel, found under Config. In the case of account deletion, portions of your public contributions may remain intact, as detailed in "Information we collect".-->
+    <!--  <h2>6. DATA SECURITY</h2>-->
+    <!--  Security is very important to us. 5bMMO follows accepted standards to protect your personal information during processing, transferring, and storage. We ensure all sites on our domain are encrypted via TLS and maintain high standards in data security for access to our servers, restricting access to your personal data when we do not need to access it.-->
 
-<!--  <h2>5. COOKIES</h2>-->
-<!--  We use cookies, like most of the internet. We strictly use them to maintain your session state and login credentials across multiple sessions, as well as to collect analytics data (see 4. YOUR RIGHTS AND CONTROL). If you do not wish for cookies to be stored, please do not use our services.-->
+    <h2>5. CHILDREN</h2>
+    Our services are not designed for children under the age of 13. If we discover that a person under
+    the age of 13 has submitted personal information to us without parental permission, we will endeavour
+    to delete the information from our systems.
 
-<!--  <h2>6. DATA SECURITY</h2>-->
-<!--  Security is very important to us. 5bMMO follows accepted standards to protect your personal information during processing, transferring, and storage. We ensure all sites on our domain are encrypted via TLS and maintain high standards in data security for access to our servers, restricting access to your personal data when we do not need to access it.-->
+    <h2>6. LINKS TO OTHER SITES</h2>
+    Our Service may contain links to other sites. If you click on a third-party link, you will be directed
+    to that site. Note that these external sites are not operated by us. Therefore, we strongly advise
+    you to review the Privacy Policy of these websites. We have no control over, and assume no responsibility
+    for the content, privacy policies, or practices of any third-party sites or services.
 
-  <h2>5. CHILDREN</h2>
-  Our services are not designed for children under the age of 13. If we discover that a person under the age of 13 has submitted personal information to us without parental permission, we will endeavour to delete the information from our systems.
+    <!--  <h2>9. GOOGLE API DISCLAIMER</h2>-->
+    <!--  5bMMO's use and transfer to any other app of information received from Google APIs will adhere to Google API Services User Data Policy, including the Limited Use requirements.-->
 
-  <h2>6. LINKS TO OTHER SITES</h2>
-  Our Service may contain links to other sites. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by us. Therefore, we strongly advise you to review the Privacy Policy of these websites. We have no control over, and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.
-
-<!--  <h2>9. GOOGLE API DISCLAIMER</h2>-->
-<!--  5bMMO's use and transfer to any other app of information received from Google APIs will adhere to Google API Services User Data Policy, including the Limited Use requirements.-->
-
-  <h2>7. CHANGES TO THIS PRIVACY POLICY</h2>
-  We may update our Privacy Policy from time to time. Thus, we advise you to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page. These changes are effective immediately, after they are posted on this page.
+    <h2>7. CHANGES TO THIS PRIVACY POLICY</h2>
+    We may update our Privacy Policy from time to time. Thus, we advise you to review this page periodically
+    for any changes. We will notify you of any changes by posting the new Privacy Policy on this page.
+    These changes are effective immediately, after they are posted on this page.
 </main>

@@ -6,7 +6,7 @@
     import type { PageProps } from "./$types";
 
     let { data: serverData }: PageProps = $props();
-    const {QAs: result} = serverData;
+    const { QAs: result } = serverData;
 
     const pb = new PocketBase("https://cdn.zelo.dev");
 
@@ -30,11 +30,11 @@
     let data = writable({
         question: "",
         questioner: "",
-        hidden: false,
+        hidden: false
     });
 
     let settings = writable({
-        filter: "latest",
+        filter: "latest"
     });
 
     let text = $state("q&a");
@@ -66,28 +66,25 @@
     };
 </script>
 
-<p class="text-8xl font-bold fixed left-4 bottom-6 text-gray-400/20">
+<p class="fixed bottom-6 left-4 text-8xl font-bold text-gray-400/20">
     {text}
 </p>
 
-<section class="flex max-lg:flex-col gap-6 mt-10 max-w-[1600px] p-5">
-    <form
-        class="lg:sticky top-10 flex flex-col gap-2 min-w-96 h-full"
-        onsubmit={askQuestion}
-    >
+<section class="mt-10 flex max-w-[1600px] gap-6 p-5 max-lg:flex-col">
+    <form class="top-10 flex h-full min-w-96 flex-col gap-2 lg:sticky" onsubmit={askQuestion}>
         <textarea
-            class="w-full p-2 h-24 ring-1 bg-black"
+            class="h-24 w-full bg-black p-2 ring-1"
             minlength="5"
             maxlength="1000"
             bind:value={$data.question}
         ></textarea>
         <input
             type="submit"
-            class="cursor-pointer font-bold bg-cyan-800 hover:bg-gray-800 text-2xl p-2"
+            class="cursor-pointer bg-cyan-800 p-2 text-2xl font-bold hover:bg-gray-800"
             value={submitText}
         />
         <noscript>
-            <span class="text-red-500 font-bold">Enable JavaScript to ask questions!</span>
+            <span class="font-bold text-red-500">Enable JavaScript to ask questions!</span>
         </noscript>
     </form>
     <div class="flex flex-col">

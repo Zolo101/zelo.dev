@@ -1,1 +1,1 @@
-<div class="outline outline-1 outline-gray-200 w-full"></div>
+<div class="w-full outline outline-1 outline-gray-200"></div>

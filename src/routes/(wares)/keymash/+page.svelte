@@ -3,48 +3,51 @@
     import { onMount } from "svelte";
 
     const fitGradeBounds = (value: number) => {
-        return Math.max(Math.min(Math.floor(value), 9), 1) as GradeScore
-    }
+        return Math.max(Math.min(Math.floor(value), 9), 1) as GradeScore;
+    };
 
     // stolen from wikipedia
     const time: [string, number][] = [
-        ["ns", 10E+0],
-        ["µs", 10E+3],
-        ["ms", 10E+6],
-        ["s", 10E+9],
+        ["ns", 10],
+        ["µs", 10e3],
+        ["ms", 10e6],
+        ["s", 10e9],
         // copilot made below, no clue if this is true
-        ["minutes", 6E+10],
-        ["hours", 3.6E+12],
-        ["days", 8.64E+13],
-        ["weeks", 6.048E+14],
-        ["months", 2.628E+16],
-        ["years", 3.154E+17],
-        ["decades", 3.154E+19],
-        ["centuries", 3.154E+21],
-        ["millennia", 3.154E+23],
-        ["millennium", 3.154E+25],
-    ]
+        ["minutes", 6e10],
+        ["hours", 3.6e12],
+        ["days", 8.64e13],
+        ["weeks", 6.048e14],
+        ["months", 2.628e16],
+        ["years", 3.154e17],
+        ["decades", 3.154e19],
+        ["centuries", 3.154e21],
+        ["millennia", 3.154e23],
+        ["millennium", 3.154e25]
+    ];
 
     const SpeedTest: TestGrader = (keymash: string) => {
         return ["Speed", fitGradeBounds(keymash.length / 2)];
-    }
+    };
 
     const RepetitionTest: TestGrader = (keymash: string) => {
         const charMap: Map<string, number> = new Map();
         for (const char of keymash) {
             if (charMap.has(char)) {
-                charMap.set(char, charMap.get(char)! + 1)
+                charMap.set(char, charMap.get(char)! + 1);
             } else {
-                charMap.set(char, 1)
+                charMap.set(char, 1);
             }
         }
 
         const penalty = keymash.length < 6 ? 5 : 10;
 
         // automatic F--- if keymash is empty
-        const grade = charMap.size > 0 ? fitGradeBounds(penalty - Math.max(...Array.from(charMap.values()))) : 1;
+        const grade =
+            charMap.size > 0
+                ? fitGradeBounds(penalty - Math.max(...Array.from(charMap.values())))
+                : 1;
         return ["Repetition", grade];
-    }
+    };
 
     const StrengthTest: TestGrader = (keymash: string) => {
         let timeValue = keymash.length ** (8 + RepetitionTest(keymash)[1]);
@@ -61,34 +64,31 @@
         // space between
         if (i > 4) timeUnit = ` ${timeUnit}`;
 
-        const timeToCrackText = timeValue > 0 ? `${timeValue.toPrecision(3)}${timeUnit}` : "an instant!";
+        const timeToCrackText =
+            timeValue > 0 ? `${timeValue.toPrecision(3)}${timeUnit}` : "an instant!";
         const crackMsg = `Bruteforced in ${timeToCrackText}`;
         return ["Strength", fitGradeBounds(i), crackMsg];
-    }
+    };
 
-    const tests = [
-        SpeedTest,
-        RepetitionTest,
-        StrengthTest,
-    ]
+    const tests = [SpeedTest, RepetitionTest, StrengthTest];
 
     const run = (keymash: string) => {
-        return runAllTests(keymash)
-    }
+        return runAllTests(keymash);
+    };
 
     const runAllTests = (keymash: string) => {
-        return tests.map((test) => test(keymash))
-    }
+        return tests.map((test) => test(keymash));
+    };
 
     const blankAllTests = (): [string, GradeScore][] => {
-        return tests.map((test) => test("")).map((result) => [result[0], 0 as GradeScore])
-    }
+        return tests.map((test) => test("")).map((result) => [result[0], 0 as GradeScore]);
+    };
 
     let running = false;
     let input: HTMLInputElement;
     let counterButton: HTMLButtonElement;
     let countdown: HTMLParagraphElement;
-    let results = $state(blankAllTests())
+    let results = $state(blankAllTests());
 
     type TestGrader = (keymash: string) => [string, GradeScore, string?];
     type GradeScore = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
@@ -102,14 +102,18 @@
         [3, "F-"],
         [2, "F--"],
         [1, "F---"],
-        [0, "N/A"],
+        [0, "N/A"]
     ]);
-    const meanGrade = (results: ReturnType<TestGrader>[]) => Math.round(results.map((result) => result[1]).reduce((a, b) => (a + b) as GradeScore) / results.length) as GradeScore;
+    const meanGrade = (results: ReturnType<TestGrader>[]) =>
+        Math.round(
+            results.map((result) => result[1]).reduce((a, b) => (a + b) as GradeScore) /
+                results.length
+        ) as GradeScore;
 
     onMount(() => {
         // ez quick start hotkey (S)
         window.onkeydown = keyboardStart;
-    })
+    });
 
     function startPreTest() {
         if (running) return;
@@ -126,10 +130,9 @@
             countdown.textContent = Math.abs(c).toFixed(1);
             if (c <= 0) {
                 clearInterval(pre_cd);
-                mainTest()
+                mainTest();
             }
-        }, 100)
-
+        }, 100);
     }
 
     function mainTest() {
@@ -149,10 +152,10 @@
                 counterButton.disabled = false;
                 countdown.classList.remove("countdown-running");
                 countdown.textContent = "...";
-                running = false
-                results = run(input.value)
+                running = false;
+                results = run(input.value);
             }
-        }, 10)
+        }, 10);
     }
 
     function keyboardStart(e: KeyboardEvent) {
@@ -175,7 +178,7 @@
 {/snippet}
 
 {#snippet total_grade(results)}
-    <div class="text-5xl text-center mb-12">
+    <div class="mb-12 text-center text-5xl">
         <span class="mr-2">Total Grade: </span>{@render grade_text(meanGrade(results))}
     </div>
 {/snippet}
@@ -201,31 +204,49 @@
     <div class="counter">
         {@render grade_text(results)}
         {@render total_grade(results)}
-        <div class="max-md:grid-rows-2 grid md:grid-cols-2 gap-4 justify-items-center items-center">
+        <div class="grid items-center justify-items-center gap-4 max-md:grid-rows-2 md:grid-cols-2">
             <div>
-                <input bind:this={input} class="w-full text-3xl p-1 rounded-xs ring-1 ring-gray-500" disabled placeholder="type here"/>
-                <button bind:this={counterButton} onclick={startPreTest} class="py-1 px-2.5 my-2 rounded-xs ring-1 ring-gray-500">Start! (Space)</button>
-                <p bind:this={countdown} class="m-0 text-9xl text-center">...</p>
+                <input
+                    bind:this={input}
+                    class="w-full rounded-xs p-1 text-3xl ring-1 ring-gray-500"
+                    disabled
+                    placeholder="type here"
+                />
+                <button
+                    bind:this={counterButton}
+                    onclick={startPreTest}
+                    class="my-2 rounded-xs px-2.5 py-1 ring-1 ring-gray-500">Start! (Space)</button
+                >
+                <p bind:this={countdown} class="m-0 text-center text-9xl">...</p>
             </div>
             <div>
                 <p class="text-center">
-                    Press Start to get a 3 second count down to prepare. When it hits zero,
-                    start keymashing! You will have 700 milliseconds and it will be graded based on how good you are.
-                    <br/><br/>
-                    You do not need to click on the input box at the start; it will automatically focus once the timer begins.
+                    Press Start to get a 3 second count down to prepare. When it hits zero, start
+                    keymashing! You will have 700 milliseconds and it will be graded based on how
+                    good you are.
+                    <br /><br />
+                    You do not need to click on the input box at the start; it will automatically focus
+                    once the timer begins.
                 </p>
-                <hr/>
+                <hr />
                 {@render test_list(results)}
             </div>
         </div>
-        <hr/>
+        <hr />
     </div>
 </main>
-<footer class="md:absolute bottom-0 text-xs m-2.5">
+<footer class="bottom-0 m-2.5 text-xs md:absolute">
     <span>Made by Zelo101, 2021</span>
-    <div class="inline-flex *:px-2 *:py-1 *:mx-1 *:rounded-xs *:ring-1 *:ring-black hover:*:scale-105 *:transition-transform">
+    <div
+        class="inline-flex *:mx-1 *:rounded-xs *:px-2 *:py-1 *:ring-1 *:ring-black *:transition-transform hover:*:scale-105"
+    >
         <a href="../">Back to Site</a>
-        <a target="_blank" rel="noopener" href="https://github.com/Zolo101/zelo.dev/blob/master/src/routes/(wares)/keymash/%2Bpage.svelte">Source Code</a>
+        <a
+            target="_blank"
+            rel="noopener"
+            href="https://github.com/Zolo101/zelo.dev/blob/master/src/routes/(wares)/keymash/%2Bpage.svelte"
+            >Source Code</a
+        >
     </div>
 </footer>
 
@@ -236,7 +257,7 @@
 
     .counter-main {
         display: grid;
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: repeat(2, 1fr);
         justify-items: center;
         align-items: center;
     }
@@ -315,13 +336,13 @@
     .test {
         font-size: 1.4rem;
         font-weight: bold;
-        line-height: .4em;
+        line-height: 0.4em;
         text-align: left;
     }
 
     .test-info {
         color: gray;
-        font-size: .8rem;
+        font-size: 0.8rem;
         font-style: italic;
         margin-left: 20px;
     }

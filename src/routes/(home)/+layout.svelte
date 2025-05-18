@@ -9,17 +9,17 @@
 </svelte:head>
 
 <div class="m"></div>
-<div class="w-full h-24">
-    <img class="w-full h-full" alt="" src={header} />
+<div class="h-24 w-full">
+    <img class="h-full w-full" alt="" src={header} />
     <div
-        class="absolute top-0 w-full h-24 bg-linear-to-b from-transparent via-neutral-950/10 via-75% to-neutral-950"
+        class="absolute top-0 h-24 w-full bg-linear-to-b from-transparent via-neutral-950/10 via-75% to-neutral-950"
     ></div>
 </div>
 
-<main class="h-full max-w-7xl m-auto">
+<main class="m-auto h-full max-w-7xl">
     <header>
         <a
-            class="mt-2.5 font-bold tracking-tighter no-underline block cursor-pointer hover:scale-105 transition-transform"
+            class="mt-2.5 block cursor-pointer font-bold tracking-tighter no-underline transition-transform hover:scale-105"
             href="/">zelo.dev</a
         >
     </header>

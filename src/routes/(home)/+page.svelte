@@ -5,7 +5,7 @@
     import type { PageProps } from "./$types";
 
     let { data }: PageProps = $props();
-    const {wares, news, commits} = data;
+    const { wares, news, commits } = data;
 
     import github_logo from "$lib/assets/github.png";
     import discord_logo from "$lib/assets/discord.png";
@@ -19,7 +19,7 @@
     //     .then(json => console.log(json))
 </script>
 
-<div class="flex max-sm:flex-col gap-8 max-w-full mt-5 px-5 mx-auto">
+<div class="mx-auto mt-5 flex max-w-full gap-8 px-5 max-sm:flex-col">
     <div class="sm:w-1/2">
         <h1 class="border-red-500">News</h1>
         <section class="mb-10">
@@ -34,7 +34,7 @@
             {/if}
         </section>
         <h1 class="border-emerald-500 max-sm:hidden">Commits</h1>
-        <div class="p-2 order-5 max-sm:hidden">
+        <div class="order-5 p-2 max-sm:hidden">
             {#each commits.data.items as item}
                 <Commit {item} />
             {/each}
@@ -60,13 +60,9 @@
         </div>
         <h1 class="border-purple-500">Socials</h1>
         <div
-            class="flex gap-2 mb-24 *:ring *:ring-purple-600/50 *:rounded-xs *:p-2 *:transition-colors"
+            class="mb-24 flex gap-2 *:rounded-xs *:p-2 *:ring *:ring-purple-600/50 *:transition-colors"
         >
-            <Social
-                name="Github"
-                href="https://github.com/Zolo101"
-                image={github_logo}
-            />
+            <Social name="Github" href="https://github.com/Zolo101" image={github_logo} />
             <Social name="Discord" image={discord_logo}>@zelo101</Social>
         </div>
         <!-- <h1 class="border-pink-500">Boredom Repellent</h1>
