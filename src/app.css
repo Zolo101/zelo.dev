@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
 
 /*
@@ -21,144 +22,41 @@
 @layer utilities {
     html {
         font-family: "Roboto", sans-serif;
-    }
-
-    html,
-    body {
-        @apply h-full text-neutral-50;
-    }
-
-    header {
-        @apply text-center text-7xl;
-    }
-
-    a {
-        @apply no-underline;
+        /* background-color: black; */
     }
 
     canvas {
-        @apply max-h-[800px] max-w-[800px] outline-black;
+        image-rendering: pixelated;
+        width: 100%;
+        height: 100%;
     }
 
-    .button {
-        @apply m-1 cursor-pointer rounded-sm bg-gray-300 p-2.5 text-center shadow-sm outline-black transition-colors;
+    /* Dark mode support */
+    @media (prefers-color-scheme: dark) {
+        html {
+            background-color: black;
+            color-scheme: dark;
+        }
+        body {
+            background-color: black;
+        }
     }
 
-    .button:hover {
-        @apply bg-gray-400;
-    }
+    nav a {
+        transition:
+            background-color 0.1s ease-out,
+            color 0.1s ease-out;
+        padding: 0.05rem 0.2rem;
 
-    ::backdrop {
-        @apply bg-gray-900/20;
-    }
-
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-        @apply w-2.5;
-    }
-
-    ::-webkit-scrollbar-track {
-        @apply bg-black;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        @apply bg-gray-700 shadow-sm;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-        @apply bg-gray-600;
-    }
-
-    table {
-        @apply rounded-sm border-hidden outline outline-2 outline-black/50;
-        @apply dark:outline-white/50;
-    }
-
-    th,
-    td {
-        @apply border-2 border-neutral-400 p-2.5;
-        @apply dark:border-neutral-600;
-    }
-
-    th {
-        @apply bg-neutral-300;
-        @apply dark:bg-neutral-700;
-    }
-
-    td {
-        @apply bg-neutral-200;
-        @apply dark:bg-neutral-800;
-    }
-
-    h1 {
-        @apply border-b-4 px-5 text-4xl font-bold italic;
-    }
-
-    h2 {
-        @apply py-1;
-    }
-
-    h3 {
-        @apply px-5 py-1 text-3xl font-bold;
+        &:hover {
+            color: white;
+            background-color: var(--color-violet-600);
+        }
     }
 }
 
-@layer base {
-    ul,
-    ol {
-        list-style: revert;
-        margin: revert;
-        padding: revert;
-    }
-
-    a {
-        text-decoration: revert;
-    }
-}
-
-/* QA Message HTML CSS */
-.answer > table {
-    @apply outline outline-1;
-}
-
-.answer a {
-    @apply text-blue-300;
-}
-
-.answer a:hover {
-    @apply underline;
-}
-
-/* News CSS */
-#article a {
-    @apply text-blue-500 underline transition-colors;
-}
-
-#article a:hover {
-    @apply text-teal-400;
-}
-
-/* Backgrounds CSS */
-
-.background-info {
-    @apply outline outline-green-400;
-}
-
-/* Ware types CSS */
-.type-future {
-    @apply ring-[#36cf00]/50;
-}
-
-.type-stable {
-    @apply ring-[#66d99e]/50;
-}
-
-.type-contributed {
-    @apply ring-[#999999]/50;
-}
-
-.type-legacy {
-    @apply ring-[#434343]/50;
+@theme {
+    --color-violet-990: hsl(262.4, 77.8%, 12.9%);
 }
 
 /* Artifacts CSS */

@@ -1,6 +1,7 @@
 // Date class as a string
 type DateString = string;
 
+// TODO: Use the pocketbase sdk types when available
 declare interface PocketbaseItem {
     id: string;
     collectionId: string;
@@ -22,11 +23,14 @@ declare interface WareItem extends PocketbaseItem {
     name: string;
     icon: string;
     date: DateString;
+    updatedDate: DateString;
+    updateText: string;
     description: string;
     link?: string;
     source?: string;
     featured: boolean;
     type: "future" | "stable" | "contributed" | "legacy";
+    hidden: boolean;
 }
 
 declare interface PostItem extends PocketbaseItem {

@@ -1,41 +1,81 @@
 <script lang="ts">
     import "../../app.css";
-    import header from "$lib/assets/header.webp";
+    import type { LayoutProps } from "./$types";
+    import Logo from "$lib/assets/zelo_logo.svelte";
+    import discord from "$lib/assets/logos/discord.svg";
+    import github from "$lib/assets/logos/github.svg";
+    // import { crossfade, fade, fly, scale, slide } from "svelte/transition";
+    // import { elasticIn, quartIn, quartOut } from "svelte/easing";
+
+    let { data, children }: LayoutProps = $props();
+
+    // const [send, receive] = crossfade({
+    //     duration: 1000
+    // });
 </script>
 
-<svelte:head>
-    <link rel="icon" href="favicon.png" />
-    <link rel="preconnect" href="https://cdn.zelo.dev/" />
-</svelte:head>
+{#snippet dropdown()}
+    <div class="flex gap-6 text-violet-500">
+        <a href="/">wares</a>
+        <a href="/backgrounds">backgrounds</a>
+        <a href="/qa">q&a</a>
+        <!-- <a href="/branding">branding</a> -->
+        <!-- <a class="corkboard" href="https://corkboard.zelo.dev/">corkboard</a> -->
+    </div>
+{/snippet}
 
-<div class="m"></div>
-<div class="h-24 w-full">
-    <img class="h-full w-full" alt="" src={header} />
-    <div
-        class="absolute top-0 h-24 w-full bg-linear-to-b from-transparent via-neutral-950/10 via-75% to-neutral-950"
-    ></div>
-</div>
+{#snippet socials()}
+    <div class="flex gap-6 text-violet-400">
+        <!-- icons here -->
+        <!-- <a>about</a> -->
+        <!-- <a>old site</a> -->
+        <a href="https://github.com/Zolo101" target="_blank" class="flex gap-2">
+            <img src={github} alt="icon" class="h-6 w-6 dark:invert" />
+            <span>github</span>
+        </a>
+        <!-- <a href="https://github.com/Zolo101">github</a> -->
+        <!-- <a>discord</a> -->
+    </div>
+{/snippet}
 
-<main class="m-auto h-full max-w-7xl">
-    <header>
-        <a
-            class="mt-2.5 block cursor-pointer font-bold tracking-tighter no-underline transition-transform hover:scale-105"
-            href="/">zelo.dev</a
-        >
-    </header>
-    <slot />
+<!-- TODO: Fade transitions -->
+<main class="dark:bg-violet-990 container m-auto bg-violet-100 px-20 py-5">
+    <!-- Header -->
+    <nav class="flex items-end gap-10">
+        <Logo width={192} height={80} textFill="#ede9fe" backgroundFill="#7B00FF" />
+        <!-- <h1 class="text-7xl font-light text-violet-600">{page}</h1> -->
+        <div class="flex w-full justify-between">
+            {@render dropdown()}
+            {@render socials()}
+        </div>
+    </nav>
+    <hr class="my-4 border-violet-300" />
+    <!-- <img src={zelo_logo} alt="zelo logo" class="h-48 w-48" /> -->
+    <!-- {#key page.route.id}
+        <div
+            class="children dark:bg-violet-990 container m-auto bg-violet-100"
+            transition:fly={{ x: 100, duration: 1000 }}
+        > -->
+    {@render children()}
+    <!-- </div>
+    {/key} -->
+    <!-- in:receive={{ key: page.route.id }}
+        out:send={{ key: page.route.id }} -->
 </main>
 
 <style>
-    .m {
-        background: oklch(0.145 0 0);
-        position: fixed;
-        left: -100px;
-        top: -100px;
-        width: 150%;
-        height: 150%;
-        z-index: -1;
-        overflow-x: hidden;
-        perspective: 1px;
-    }
+    /* .children { */
+    /* position: absolute; */
+    /* top: 150px; */
+    /* left: 90px; */
+    /* width: 100%; */
+    /* height: 100%; */
+    /* } */
+
+    /* main {
+        height: max(100vh, 100%);
+    } */
+    /* .corkboard {
+        color: color-mix(in srgb, var(--color-violet-500) 70%, var(--color-orange-200));
+    } */
 </style>

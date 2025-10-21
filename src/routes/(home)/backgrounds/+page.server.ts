@@ -1,6 +1,8 @@
-import { getBackgrounds } from "$lib/fetchDB";
 import type { PageServerLoad } from "./$types";
 
-export const load: PageServerLoad = async ({ locals: { db } }) => {
-    return { backgrounds: await getBackgrounds(db) };
-};
+export const load = (async ({ locals: { db } }) => {
+    const backgrounds = await db.collection("backgrounds").getFullList({
+        sort: "-date"
+    });
+    return { backgrounds };
+}) satisfies PageServerLoad;

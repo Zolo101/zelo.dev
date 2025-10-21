@@ -1,11 +1,14 @@
-import { getCommits, getNews, getWares } from "$lib/fetchDB";
-import type { PageServerLoad } from "./$types";
+import type { PageServerLoad } from "./newest/$types";
 
-export const load: PageServerLoad = async ({ locals: { db } }) => {
-    const [wares, news, commits] = await Promise.all([
-        getWares(db, true),
-        getNews(db),
-        getCommits(db)
-    ]);
-    return { wares, news, commits };
-};
+export const load = (async ({ locals: { db } }) => {
+    // remove not enough servers
+    const wares = await db.collection("wares").getFullList({
+        sort: "-updatedDate, -date",
+        filter: "type != 'future'"
+        // filter: "type = 'stable' && id != 'gonr0um2p7gpnpv'"
+    });
+    const contributedWares = await db.collection("wares").getFullList({
+        filter: "type = 'contributed'"
+    });
+    return { wares, contributedWares };
+}) satisfies PageServerLoad;
