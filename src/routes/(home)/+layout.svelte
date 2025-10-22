@@ -39,9 +39,9 @@
 {/snippet}
 
 <!-- TODO: Fade transitions -->
-<main class="dark:bg-violet-990 container m-auto bg-violet-100 px-20 py-5">
+<main class="dark:bg-violet-990 container m-auto bg-violet-100 px-1 md:px-20 md:py-5">
     <!-- Header -->
-    <nav class="flex items-end gap-10">
+    <nav class="max-md flex items-center gap-2 px-2 pt-2 max-md:flex-col md:items-end md:gap-10">
         <Logo width={192} height={80} textFill="#ede9fe" backgroundFill="#7B00FF" />
         <!-- <h1 class="text-7xl font-light text-violet-600">{page}</h1> -->
         <div class="flex w-full justify-between">
@@ -49,7 +49,7 @@
             {@render socials()}
         </div>
     </nav>
-    <hr class="my-4 border-violet-300" />
+    <hr class="my-4 border-violet-300 dark:border-violet-900" />
     <!-- <img src={zelo_logo} alt="zelo logo" class="h-48 w-48" /> -->
     <!-- {#key page.route.id}
         <div

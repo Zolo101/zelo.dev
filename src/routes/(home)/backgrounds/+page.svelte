@@ -15,10 +15,10 @@
         .replace(" ", " '")}
     {@const newDate = new Date(background.date).getFullYear() === new Date().getFullYear()}
     {@const srcOG = `https://cdn.zelo.dev/api/files/gu9lna7y2ntbryv/${background.id}/${background.media}`}
-    {@const src = `${srcOG}?thumb=256x256`}
+    {@const src = `${srcOG}?token=&thumb=640x360`}
 
     <a href={srcOG}>
-        <div class="article h-fit w-40 bg-white">
+        <div class="article h-fit w-[360px] bg-white">
             <div class="outline outline-violet-500 dark:outline-violet-400" class:new={newDate}>
                 <div class="flex items-stretch bg-white dark:bg-black">
                     {#if newDate}
@@ -54,7 +54,7 @@
     >. It means you can use this for whatever but just credit me by linking the website. Click on
     the preview to get the full image.
 </h1>
-<div class="flex flex-wrap gap-4">
+<div class="flex flex-wrap justify-center gap-4">
     {#each backgrounds as b}
         {@render backgroundArticle(b)}
     {/each}

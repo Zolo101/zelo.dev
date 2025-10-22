@@ -5,7 +5,7 @@
 </script>
 
 <section
-    class="mb-4 flex gap-5 p-2 transition-colors hover:bg-gray-100/50 hover:ring hover:ring-violet-300/50 dark:hover:bg-gray-900/50"
+    class="mb-4 flex gap-5 transition-colors hover:bg-gray-100/50 hover:ring hover:ring-violet-300/50 md:p-2 dark:hover:bg-gray-900/50"
 >
     <div class="w-full grow">
         <div class="flex justify-between gap-2">

@@ -6,7 +6,7 @@
     const { questions, id } = data;
 </script>
 
-<div class="flex gap-5">
+<div class="flex gap-5 max-md:flex-col">
     <form class="top-10 flex h-full min-w-48 flex-col gap-2 lg:sticky" method="POST">
         <input type="hidden" name="questioner" value={id} />
         <textarea

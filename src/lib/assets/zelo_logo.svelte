@@ -3,14 +3,7 @@
 </script>
 
 <!-- viewBox="0 0 448 182" -->
-<svg
-    {width}
-    {height}
-    viewBox="0 0 448 152"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    class="rounded"
->
+<svg {width} {height} viewBox="0 0 448 180" fill="none" xmlns="http://www.w3.org/2000/svg">
     <a href="/" aria-label="Homepage">
         <g clip-path="url(#clip0_8_2)">
             <rect width="446" height="178" y="2" fill={backgroundFill} />
