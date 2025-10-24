@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
 
 /*
@@ -21,7 +21,8 @@
 
 @layer utilities {
     html {
-        font-family: "Roboto", sans-serif;
+        font-family: "Inter", sans-serif;
+        scrollbar-gutter: stable;
         /* background-color: black; */
     }
 
@@ -57,6 +58,10 @@
 
 @theme {
     --color-violet-990: hsl(262.4, 77.8%, 12.9%);
+}
+
+@view-transition {
+    navigation: auto;
 }
 
 /* Artifacts CSS */
