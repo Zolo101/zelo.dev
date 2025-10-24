@@ -2,16 +2,22 @@
     import "../../app.css";
     import type { LayoutProps } from "./$types";
     import Logo from "$lib/assets/zelo_logo.svelte";
-    import discord from "$lib/assets/logos/discord.svg";
     import github from "$lib/assets/logos/github.svg";
-    // import { crossfade, fade, fly, scale, slide } from "svelte/transition";
-    // import { elasticIn, quartIn, quartOut } from "svelte/easing";
-
+    import { onNavigate } from "$app/navigation";
     let { data, children }: LayoutProps = $props();
 
-    // const [send, receive] = crossfade({
-    //     duration: 1000
-    // });
+    // view transition stuff
+    // TODO: This is from 2023, I don't know if there's a better way to do this
+    onNavigate((navigation) => {
+        if (!document.startViewTransition) return;
+
+        return new Promise((resolve) => {
+            document.startViewTransition(async () => {
+                resolve();
+                await navigation.complete;
+            });
+        });
+    });
 </script>
 
 {#snippet dropdown()}
@@ -62,8 +68,18 @@
     <!-- in:receive={{ key: page.route.id }}
         out:send={{ key: page.route.id }} -->
 </main>
+<footer class="container m-auto h-64 px-1 md:px-20"></footer>
 
 <style>
+    footer {
+        background: linear-gradient(var(--color-violet-100), transparent);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        footer {
+            background: linear-gradient(var(--color-violet-990), transparent);
+        }
+    }
     /* .children { */
     /* position: absolute; */
     /* top: 150px; */

@@ -16,16 +16,16 @@ import { arrangeWithForces } from "./arrange";
 import renderScale from "$lib/assets/renderscale.webp?url";
 import fiveBeam from "$lib/assets/5beam.webp?url";
 import fiveBeamBox from "$lib/assets/5beam_box.png?url";
-export type WareAnimation = (app: Application, ware: WareItem) => void;
+type Animation = (app: Application, meta?: { dark: boolean }) => void;
 
 function randomColor() {
     return new Color([Math.random(), Math.random(), Math.random()]);
 }
 
-function randomGrayscaleColor() {
-    const c = Math.random();
-    return new Color([c, c, c]);
-}
+// function randomGrayscaleColor() {
+//     const c = Math.random();
+//     return new Color([c, c, c]);
+// }
 
 function clamp(n: number, min: number, max: number) {
     return Math.max(min, Math.min(n, max));
@@ -103,7 +103,7 @@ export default {
             dither({ intensity: 0.5, levels: 4, matrixSize: 4 })
         ];
 
-        console.log("rendered scale");
+        // console.log("rendered scale");
     },
     "[bc]": (app: Application) => {
         const barsContainer = new Container();
@@ -161,7 +161,7 @@ export default {
             time += t.deltaTime / 100;
         });
 
-        console.log("rendered corkboard");
+        // console.log("rendered corkboard");
     },
     "keymash grader": (app: Application) => {
         const g = new Graphics();
@@ -220,7 +220,7 @@ export default {
             if (Math.abs(Math.sin(time)) < 0.015) bb();
         });
 
-        console.log("rendered keymash grader");
+        // console.log("rendered keymash grader");
     },
     "Zelocoin Incremental Game": (app: Application, { dark }: { dark: boolean }) => {
         const g = new Graphics();
@@ -381,8 +381,8 @@ export default {
         whiteTileChange.rect(-tileSize, tileSize * 2, tileSize, tileSize);
         whiteTileChange.fill({ color: 0xffffff });
         whiteTileChange.scale.set(scale);
-        whiteTileChange.position.x = 23;
-        whiteTileChange.position.y = 19;
+        whiteTileChange.position.x = ant.position.x - 37;
+        whiteTileChange.position.y = ant.position.y - 13;
         // whiteTileChange.alpha = 0.5;
 
         const blackTileChange = new Graphics();
@@ -392,8 +392,8 @@ export default {
         blackTileChange.scale.set(scale);
         // blackTileChange.position.x = tileSize - 2;
         // blackTileChange.position.y = tileSize - 6;
-        blackTileChange.position.x = 23;
-        blackTileChange.position.y = 44;
+        blackTileChange.position.x = ant.position.x - 37;
+        blackTileChange.position.y = ant.position.y + 12;
         // blackTileChange.alpha = 0.5;
 
         const gridLines = new TilingSprite({
@@ -520,9 +520,9 @@ export default {
 
         app.stage.addChild(boxes);
 
-        let time = 0;
+        // let time = 0;
         let count = 0;
-        app.ticker.add((t) => {
+        app.ticker.add(() => {
             if (count % 3 === 0) {
                 createBox();
             }
@@ -538,7 +538,7 @@ export default {
             }
 
             count++;
-            time += t.deltaTime / 200;
+            // time += t.deltaTime / 200;
         });
     }
-};
+} as Record<string, Animation>;
