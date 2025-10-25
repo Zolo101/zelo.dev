@@ -14,18 +14,21 @@ import {
 import dither from "./shaders/dither/dither";
 import { arrangeWithForces } from "./arrange";
 import renderScale from "$lib/assets/renderscale.webp?url";
-import fiveBeam from "$lib/assets/5beam.webp?url";
-import fiveBeamBox from "$lib/assets/5beam_box.png?url";
+import fiveBeam from "$lib/assets/5beam/5beam.webp?url";
+import fiveBeamBox from "$lib/assets/5beam/box.webp?url";
+import fiveBeamCompanion from "$lib/assets/5beam/companion.webp?url";
+import fiveBeamMetal from "$lib/assets/5beam/metal.webp?url";
+import fiveBeamParcel from "$lib/assets/5beam/parcel.webp?url";
 type Animation = (app: Application, meta?: { dark: boolean }) => void;
 
 function randomColor() {
     return new Color([Math.random(), Math.random(), Math.random()]);
 }
 
-// function randomGrayscaleColor() {
-//     const c = Math.random();
-//     return new Color([c, c, c]);
-// }
+function randomGrayscaleColor() {
+    const c = Math.random();
+    return new Color([c, c, c]);
+}
 
 function clamp(n: number, min: number, max: number) {
     return Math.max(min, Math.min(n, max));
@@ -35,9 +38,9 @@ function randomFrom(from: number, to: number) {
     return Math.random() * (to - from) + from;
 }
 
-// function pick<T>(array: T[]) {
-// return array[Math.floor(Math.random() * array.length)];
-// }
+function pick<T>(array: T[]) {
+    return array[Math.floor(Math.random() * array.length)];
+}
 
 function pickIndex(array: unknown[]) {
     return Math.floor(Math.random() * array.length);
@@ -143,7 +146,7 @@ export default {
             const width = randomFrom(10, 20);
             const height = randomFrom(10, 20);
             frame.rect(0, 0, width, height);
-            frame.fill({ color: randomColor() });
+            frame.fill({ color: randomGrayscaleColor() });
             frame.x = randomFrom(padding, app.screen.width - padding - width);
             frame.y = randomFrom(padding, app.screen.height - padding - height);
             frame.alpha = 0.75;
@@ -377,8 +380,9 @@ export default {
         tileSection.fill({ color: 0xffffff });
 
         const whiteTileChange = new Graphics();
-        whiteTileChange.rect(0, tileSize, tileSize, tileSize);
-        whiteTileChange.rect(-tileSize, tileSize * 2, tileSize, tileSize);
+        for (let i = 0; i < 5; i++) {
+            whiteTileChange.rect(-tileSize * i, tileSize * (i + 1), tileSize, tileSize);
+        }
         whiteTileChange.fill({ color: 0xffffff });
         whiteTileChange.scale.set(scale);
         whiteTileChange.position.x = ant.position.x - 37;
@@ -386,6 +390,10 @@ export default {
         // whiteTileChange.alpha = 0.5;
 
         const blackTileChange = new Graphics();
+
+        for (let i = 0; i < 5; i++) {
+            blackTileChange.rect(-tileSize * i, tileSize * (i - 1), tileSize, tileSize);
+        }
         blackTileChange.rect(0, -tileSize, tileSize, tileSize);
         blackTileChange.rect(-tileSize, 0, tileSize, tileSize);
         blackTileChange.fill({ color: 0x000000 });
@@ -490,25 +498,29 @@ export default {
     "5beam": async (app: Application) => {
         await Assets.load(fiveBeam);
         await Assets.load(fiveBeamBox);
+        await Assets.load(fiveBeamCompanion);
+        await Assets.load(fiveBeamMetal);
+        await Assets.load(fiveBeamParcel);
 
         const sprite = Sprite.from(fiveBeam);
         sprite.width = 1600;
         sprite.height = 900;
         sprite.scale.set(0.125);
-        sprite.position.y -= 25;
+        sprite.position.x -= 50;
+        sprite.position.y -= 20;
 
         app.stage.addChild(sprite);
 
+        const icons = [fiveBeamBox, fiveBeamCompanion, fiveBeamMetal, fiveBeamParcel];
         const boxes = new Container();
         const boxSet: Set<Sprite> = new Set();
-        const boxSize = 10;
 
         const createBox = () => {
-            const box = Sprite.from(fiveBeamBox);
-            box.width = boxSize;
-            box.height = boxSize;
-            box.position.x = randomFrom(20, app.screen.width - 20);
-            box.position.y = 0 - boxSize - 10;
+            const box = Sprite.from(pick(icons));
+            box.width = box.texture.width / 50;
+            box.height = box.texture.height / 50;
+            box.position.x = randomFrom(0, app.screen.width);
+            box.position.y = app.screen.height + 50;
             box.rotation = Math.random() * 2 * Math.PI;
 
             // This is wrong but it looks cool
@@ -529,8 +541,8 @@ export default {
 
             for (const box of boxSet) {
                 box.rotation += 0.1;
-                box.position.y += 2;
-                if (box.position.y > app.screen.height + boxSize) {
+                box.position.y -= 2;
+                if (box.position.y < -50) {
                     box.destroy();
                     boxSet.delete(box);
                     boxes.removeChild(box);
