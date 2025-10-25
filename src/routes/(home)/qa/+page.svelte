@@ -16,7 +16,7 @@
             maxlength="1000"
         ></textarea>
         <button
-            class="cursor-pointer bg-violet-300 px-2 py-1 text-2xl transition-colors hover:bg-violet-950 dark:bg-violet-800"
+            class="cursor-pointer bg-violet-300 px-2 py-1 text-2xl transition-colors hover:bg-violet-400 dark:bg-violet-800 dark:hover:bg-violet-950"
             >Submit!</button
         >
     </form>

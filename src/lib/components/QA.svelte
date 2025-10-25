@@ -10,13 +10,13 @@
     <div class="w-full grow">
         <div class="flex justify-between gap-2">
             <p
-                class="bg-violet-300 px-2 py-1 text-2xl font-bold break-words text-white dark:bg-violet-700/50"
+                class="bg-violet-600 px-1 text-2xl font-bold break-words text-violet-100 dark:bg-violet-700/50"
             >
                 {qa.question}
             </p>
-            <p class="px-2 text-right text-lg">{date}</p>
+            <p class="text-right text-lg">{date}</p>
         </div>
-        <div class="answer max-w-2xl overflow-x-auto p-4 text-xl text-violet-400">
+        <div class="answer max-w-2xl overflow-x-auto p-4 text-xl text-black dark:text-white">
             {@html qa.answer}
         </div>
     </div>

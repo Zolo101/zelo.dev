@@ -486,7 +486,8 @@ export default {
             ]
         });
         const fadeToBlack = new Graphics();
-        fadeToBlack.rect(0, 0, app.screen.width, app.screen.height);
+        // * 1.01 to avoid edge artifacts to the right
+        fadeToBlack.rect(0, 0, app.screen.width * 1.01, app.screen.height);
         fadeToBlack.fill(fadeToBlackGradient);
 
         const mask = Sprite.from(app.renderer.generateTexture(fadeToBlack));

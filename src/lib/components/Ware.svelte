@@ -135,7 +135,7 @@
                 <div class="flex items-center">
                     <span
                         class="rainbow h-full bg-indigo-300 px-2 font-medium tracking-widest dark:bg-indigo-500"
-                        >NEW!</span
+                        >NEW</span
                     >
                 </div>
             {/if}
@@ -143,12 +143,12 @@
                 <div class="flex items-center">
                     <span
                         class="rainbow h-full bg-violet-300 px-2 font-medium tracking-widest dark:bg-violet-500"
-                        >UPDATED!</span
+                        >UPDATE</span
                     >
                 </div>
             {/if}
             <div class="flex w-full justify-between tracking-wider text-black dark:text-white">
-                <h1 class="title px-1.5">{ware.name}</h1>
+                <h1 class="px-1.5 font-medium">{ware.name}</h1>
                 {#if !(newDate || newUpdatedDate)}
                     <p class="px-2">{date}</p>
                 {/if}
@@ -205,10 +205,6 @@
         }
     }
 
-    .article {
-        outline: none;
-    }
-
     @media (min-width: 768px) {
         .article {
             --shadow-size: 0.5rem;
@@ -217,10 +213,10 @@
                 box-shadow 0.2s ease-out,
                 transform 0.2s ease-out;
             box-shadow:
-                calc((var(--shadow-size) / 3) * 1.75) calc((var(--shadow-size) / 3) * 1.75)
-                    hsla(0, 0%, 66%, 0.25),
+                calc((var(--shadow-size) / 3) * 1.5) calc((var(--shadow-size) / 3) * 1.5)
+                    hsla(0, 0%, 33%, 0.25),
                 calc((var(--shadow-size) / 3) * 3) calc((var(--shadow-size) / 3) * 3)
-                    hsla(0, 0%, 99%, 0.125);
+                    hsla(0, 0%, 66%, 0.125);
             /* calc(var(--shadow-size) - 0.4rem) calc(var(--shadow-size) - 0.4rem) hsl(0, 0%, 60%), */
             /* calc(var(--shadow-size) - 0.5rem) calc(var(--shadow-size) - 0.5rem) hsl(0, 0%, 80%); */
             /* border-image: repeating-linear-gradient(45deg, white 0 4px, black 4px 5px) 20; */
