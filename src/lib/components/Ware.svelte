@@ -195,27 +195,47 @@
         }
     }
 
-    .article {
-        --shadow-size: 0.5rem;
-        /* transition: box-shadow 0.2s ease-in; */
-        transition:
-            box-shadow 0.2s ease-out,
-            transform 0.2s ease-out;
-        box-shadow:
-            calc((var(--shadow-size) / 3) * 1.75) calc((var(--shadow-size) / 3) * 1.75)
-                hsla(0, 0%, 66%, 0.25),
-            calc((var(--shadow-size) / 3) * 3) calc((var(--shadow-size) / 3) * 3)
-                hsla(0, 0%, 99%, 0.125);
-        /* calc(var(--shadow-size) - 0.4rem) calc(var(--shadow-size) - 0.4rem) hsl(0, 0%, 60%), */
-        /* calc(var(--shadow-size) - 0.5rem) calc(var(--shadow-size) - 0.5rem) hsl(0, 0%, 80%); */
-        /* border-image: repeating-linear-gradient(45deg, white 0 4px, black 4px 5px) 20; */
+    @media (max-width: 768px) {
+        a {
+            .canvas-container {
+                /* height: calc(17rem * 3); */
+                /* height: calc(100svh - 3lh); */
+                height: calc(50vh);
+            }
+        }
     }
 
-    .article:hover {
-        border-bottom: 0rem solid;
-        border-right: 0rem solid;
-        box-shadow: 0rem 0rem black;
-        transform: translateY(0.4rem) translateX(0.4rem);
+    .article {
+        outline: none;
+    }
+
+    @media (min-width: 768px) {
+        .article {
+            --shadow-size: 0.5rem;
+            /* transition: box-shadow 0.2s ease-in; */
+            transition:
+                box-shadow 0.2s ease-out,
+                transform 0.2s ease-out;
+            box-shadow:
+                calc((var(--shadow-size) / 3) * 1.75) calc((var(--shadow-size) / 3) * 1.75)
+                    hsla(0, 0%, 66%, 0.25),
+                calc((var(--shadow-size) / 3) * 3) calc((var(--shadow-size) / 3) * 3)
+                    hsla(0, 0%, 99%, 0.125);
+            /* calc(var(--shadow-size) - 0.4rem) calc(var(--shadow-size) - 0.4rem) hsl(0, 0%, 60%), */
+            /* calc(var(--shadow-size) - 0.5rem) calc(var(--shadow-size) - 0.5rem) hsl(0, 0%, 80%); */
+            /* border-image: repeating-linear-gradient(45deg, white 0 4px, black 4px 5px) 20; */
+        }
+
+        .article:hover {
+            border-bottom: 0rem solid;
+            border-right: 0rem solid;
+            box-shadow: 0rem 0rem black;
+            transform: translateY(0.4rem) translateX(0.4rem);
+        }
+    }
+
+    :global(canvas) {
+        touch-action: pan-y !important; /* What's causing it to always do touch-action: none? */
     }
 
     @keyframes rainbow {

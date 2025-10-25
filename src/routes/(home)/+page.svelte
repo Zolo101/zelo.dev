@@ -32,7 +32,7 @@
 
     @media (max-width: 1024px) {
         .list {
-            gap: 2rem;
+            gap: 1rem;
         }
     }
 </style>

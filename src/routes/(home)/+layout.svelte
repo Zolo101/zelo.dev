@@ -31,7 +31,7 @@
 {/snippet}
 
 {#snippet socials()}
-    <div class="flex gap-6 text-violet-400">
+    <div class="flex gap-6 text-violet-500">
         <!-- icons here -->
         <!-- <a>about</a> -->
         <!-- <a>old site</a> -->
@@ -45,7 +45,7 @@
 {/snippet}
 
 <!-- TODO: Fade transitions -->
-<main class="dark:bg-violet-990 container m-auto bg-violet-100 px-1 md:px-20 md:py-5">
+<main class="dark:bg-violet-990 container m-auto bg-violet-100 md:px-20 md:py-5">
     <!-- Header -->
     <nav class="max-md flex items-center gap-2 px-2 pt-2 max-md:flex-col md:items-end md:gap-10">
         <Logo width={192} height={80} textFill="#ede9fe" backgroundFill="#7B00FF" />
@@ -68,7 +68,7 @@
     <!-- in:receive={{ key: page.route.id }}
         out:send={{ key: page.route.id }} -->
 </main>
-<footer class="container m-auto h-64 px-1 md:px-20"></footer>
+<footer class="container m-auto h-64 md:px-20"></footer>
 
 <style>
     footer {
@@ -80,6 +80,27 @@
             background: linear-gradient(var(--color-violet-990), transparent);
         }
     }
+
+    @media (max-width: 768px) {
+        @keyframes squash {
+            to {
+                /* height: 50px; */
+                transform: scaleY(0);
+            }
+        }
+
+        :global(svg) {
+            transform-origin: center bottom;
+            animation: squash 0.5s linear both;
+            animation-timeline: scroll();
+            animation-range: 8px 90px;
+        }
+
+        footer {
+            display: none;
+        }
+    }
+
     /* .children { */
     /* position: absolute; */
     /* top: 150px; */
