@@ -1,5 +1,4 @@
 <script lang="ts">
-    import "$lib/keymash.css";
     import { onMount } from "svelte";
 
     const fitGradeBounds = (value: number) => {
@@ -65,8 +64,8 @@
         if (i > 4) timeUnit = ` ${timeUnit}`;
 
         const timeToCrackText =
-            timeValue > 0 ? `${timeValue.toPrecision(3)}${timeUnit}` : "an instant!";
-        const crackMsg = `Bruteforced in ${timeToCrackText}`;
+            timeValue > 0 ? `${timeValue.toPrecision(3)}${timeUnit}` : "no time";
+        const crackMsg = `If this were a password, it would take ${timeToCrackText} to solve.`;
         return ["Strength", fitGradeBounds(i), crackMsg];
     };
 
@@ -163,11 +162,11 @@
     }
 </script>
 
-{#snippet grade_text(grade)}
+{#snippet grade_text(grade: GradeScore)}
     <span class={`grade grade-${grade}`}>{Grades.get(grade)}</span>
 {/snippet}
 
-{#snippet test(name, grade, info)}
+{#snippet test(name: string, grade: GradeScore, info?: string)}
     <p class="text-2xl font-bold">
         {name}:
         {@render grade_text(grade)}
@@ -179,7 +178,7 @@
 
 {#snippet total_grade(results)}
     <div class="mb-12 text-center text-5xl">
-        <span class="mr-2">Total Grade: </span>{@render grade_text(meanGrade(results))}
+        <span class="mr-2">Final Grade: </span>{@render grade_text(meanGrade(results))}
     </div>
 {/snippet}
 
@@ -196,10 +195,7 @@
     <link rel="icon" href="wares/keymash/favicon.png" />
 </svelte:head>
 
-<header class="text-center">
-    <h1>Keymash Grader</h1>
-    <p class="my-4">think your good at keymashing? probably</p>
-</header>
+<header></header>
 <main class="app">
     <div class="counter">
         {@render grade_text(results)}
@@ -208,34 +204,37 @@
             <div>
                 <input
                     bind:this={input}
-                    class="w-full rounded-xs p-1 text-3xl ring-1 ring-gray-500"
+                    class="w-full rounded px-2 py-2 text-3xl ring-1 ring-violet-500"
                     disabled
                     placeholder="type here"
                 />
                 <button
                     bind:this={counterButton}
                     onclick={startPreTest}
-                    class="my-2 rounded-xs px-2.5 py-1 ring-1 ring-gray-500">Start! (Space)</button
+                    class="my-3 rounded-xs px-2.5 py-1 ring-1 ring-violet-500"
+                    >Start! (Space)</button
                 >
-                <p bind:this={countdown} class="m-0 text-center text-9xl">...</p>
+                <p bind:this={countdown} class="text-center text-9xl">...</p>
             </div>
             <div>
+                <h1 class="text-center text-3xl font-bold">Keymash Grader</h1>
                 <p class="text-center">
                     Press Start to get a 3 second count down to prepare. When it hits zero, start
-                    keymashing! You will have 700 milliseconds and it will be graded based on how
-                    good you are.
+                    keymashing! You will have 700 milliseconds and it will be graded based on three
+                    factors.
                     <br /><br />
                     You do not need to click on the input box at the start; it will automatically focus
                     once the timer begins.
                 </p>
-                <hr />
+                <hr class="mt-2 mb-4 border-violet-300 dark:border-violet-900" />
                 {@render test_list(results)}
             </div>
         </div>
-        <hr />
+        <!-- <hr /> -->
     </div>
 </main>
-<footer class="bottom-0 m-2.5 text-xs md:absolute">
+
+<!-- <footer class="bottom-0 m-2.5 text-xs md:absolute">
     <span>Made by Zelo101, 2021</span>
     <div
         class="inline-flex *:mx-1 *:rounded-xs *:px-2 *:py-1 *:ring-1 *:ring-black *:transition-transform hover:*:scale-105"
@@ -248,7 +247,7 @@
             >Source Code</a
         >
     </div>
-</footer>
+</footer> -->
 
 <style>
     hr {
@@ -330,7 +329,7 @@
 
     .grade-9 {
         color: #ff5e00;
-        text-shadow: 0 0 4px orange;
+        /* text-shadow: 0 0 4px orange; */
     }
 
     .test {
