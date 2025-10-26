@@ -7,7 +7,7 @@
 </script>
 
 <div class="flex gap-5 max-md:flex-col">
-    <form class="top-10 flex h-full min-w-48 flex-col gap-2 lg:sticky" method="POST">
+    <form class="top-10 flex h-full min-w-48 flex-col gap-3 lg:sticky" method="POST">
         <input type="hidden" name="questioner" value={id} />
         <textarea
             name="question"
@@ -16,8 +16,8 @@
             maxlength="1000"
         ></textarea>
         <button
-            class="cursor-pointer bg-violet-300 px-2 py-1 text-2xl transition-colors hover:bg-violet-400 dark:bg-violet-800 dark:hover:bg-violet-950"
-            >Submit!</button
+            class="cursor-pointer bg-violet-300 px-2 text-2xl transition-colors hover:bg-violet-400 dark:bg-violet-800 dark:hover:bg-violet-950"
+            >Ask!</button
         >
     </form>
     <div class="flex flex-col">

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import "../../app.css";
+    import "../app.css";
     import type { LayoutProps } from "./$types";
     import Logo from "$lib/assets/zelo_logo.svelte";
     import github from "$lib/assets/logos/github.svg";
@@ -25,6 +25,7 @@
         <a href="/">wares</a>
         <a href="/backgrounds">backgrounds</a>
         <a href="/qa">q&a</a>
+        <!-- <a href="/blog">blog</a> -->
         <!-- <a href="/branding">branding</a> -->
         <!-- <a class="corkboard" href="https://corkboard.zelo.dev/">corkboard</a> -->
     </div>
@@ -32,8 +33,7 @@
 
 {#snippet socials()}
     <div class="flex gap-6 text-violet-500">
-        <!-- icons here -->
-        <!-- <a>about</a> -->
+        <a href="/about">about</a>
         <a href="https://github.com/Zolo101" target="_blank" class="flex gap-2">
             <img src={github} alt="icon" class="h-6 w-6 dark:invert" />
             <span>github</span>
@@ -66,12 +66,12 @@
     } */
 
     footer {
-        background: linear-gradient(var(--color-violet-100), transparent);
+        background: linear-gradient(in oklab, var(--color-violet-100) 100px, white);
     }
 
     @media (prefers-color-scheme: dark) {
         footer {
-            background: linear-gradient(var(--color-violet-990), transparent);
+            background: linear-gradient(in oklab, var(--color-violet-990) 100px, black);
         }
     }
 
