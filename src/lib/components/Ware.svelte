@@ -26,7 +26,9 @@
     import animations from "$lib/animations";
     import dither from "$lib/shaders/dither/dither";
     import { Container, Application, Filter } from "pixi.js";
+    import loading_animation from "$lib/assets/loading_scan.webp";
     import type { Attachment } from "svelte/attachments";
+    import { fade } from "svelte/transition";
 
     let { ware = $bindable() }: { ware: WareItem } = $props();
 
@@ -55,6 +57,7 @@
             console.warn("rendered default");
         }
     }
+    let ready = $state(false);
 
     function animation(ware: WareItem): Attachment {
         const meta = {
@@ -113,6 +116,7 @@
                 // runAnimation(app, ware, meta);
 
                 ro.observe(element);
+                ready = true;
             });
 
             return () => {
@@ -126,7 +130,7 @@
 
 <a href={ware.link}>
     <div
-        class="article relative h-full bg-white outline outline-neutral-400"
+        class="article relative h-full bg-white"
         class:new={newDate}
         class:updated={newUpdatedDate}
     >
@@ -155,12 +159,22 @@
             </div>
         </div>
         {#if newUpdatedDate}
+        <!-- TODO: Freeze everything for Reduced motion users -->
             <!-- svelte-ignore a11y_distracting_elements -->
             <marquee
                 class="absolute bg-violet-300 tracking-wider text-black italic dark:bg-violet-500"
             >
                 {ware.updateText}
             </marquee>
+        {/if}
+        {#if !ready}
+            <img
+                src={loading_animation}
+                alt="Loading Animation"
+                class="absolute canvas-container w-full h-64 object-cover"
+                style="image-rendering: pixelated;"
+                transition:fade={{ duration: 200 }}
+            />
         {/if}
         <div class="canvas-container h-64" {@attach animation(ware)}></div>
         <p
@@ -216,7 +230,7 @@
                 calc((var(--shadow-size) / 3) * 1.5) calc((var(--shadow-size) / 3) * 1.5)
                     hsla(0, 0%, 33%, 0.25),
                 calc((var(--shadow-size) / 3) * 3) calc((var(--shadow-size) / 3) * 3)
-                    hsla(0, 0%, 66%, 0.125);
+                    hsla(0, 0%, 66%, 0.0625);
             /* calc(var(--shadow-size) - 0.4rem) calc(var(--shadow-size) - 0.4rem) hsl(0, 0%, 60%), */
             /* calc(var(--shadow-size) - 0.5rem) calc(var(--shadow-size) - 0.5rem) hsl(0, 0%, 80%); */
             /* border-image: repeating-linear-gradient(45deg, white 0 4px, black 4px 5px) 20; */
