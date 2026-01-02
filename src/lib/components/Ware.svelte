@@ -41,15 +41,16 @@
         .split(" ")[1];
     const newDate = new Date(ware.date).getFullYear() === new Date().getFullYear();
     const newUpdatedDate =
-        new Date(ware.updatedDate).getTime() < new Date().getTime() + 1000 * 60 * 60 * 24 * 30;
+        new Date(ware.updatedDate).getTime() > new Date().getTime() - 1000 * 60 * 60 * 24 * 90;
+    // 3 months
 
     // Set default filter resolution to 2 for all new Filter instances
-    type Animation = (app: Application, meta?: { dark: boolean }) => void;
-    function runAnimation(app: Application, ware: WareItem, meta?: { dark: boolean }) {
+    type Animation = (app: Application, meta?: { dark: boolean }) => void | Promise<void>;
+    async function runAnimation(app: Application, ware: WareItem, meta?: { dark: boolean }) {
         const animation: Animation = animations[ware.name];
 
         if (animation) {
-            animation(app, meta);
+            await animation(app, meta);
             console.log("rendered", ware.name);
         } else {
             // animations.default(app, meta);
@@ -61,7 +62,8 @@
 
     function animation(ware: WareItem): Attachment {
         const meta = {
-            dark: window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+            dark: window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches,
+            reducedMotion: window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches
         };
 
         return (element) => {
@@ -76,9 +78,14 @@
                     app.ticker.stop();
                     app.renderer.resize(width / 4, height / 4);
                     app.stage.removeChildren();
-                    runAnimation(app, ware, meta);
-                    app.render();
-                    app.ticker.start();
+                    runAnimation(app, ware, meta).then(() => {
+                        app.render();
+
+                        // TODO: Figure out why SOTU does not show on reduce motion
+                        if (!meta.reducedMotion) {
+                            app.ticker.start();
+                        }
+                    });
                 }
             });
 
@@ -128,7 +135,7 @@
     }
 </script>
 
-<a href={ware.link}>
+<a href={ware.link} aria-label={ware.name}>
     <div
         class="article relative h-full bg-white"
         class:new={newDate}
@@ -186,11 +193,12 @@
 </a>
 
 <style>
-    a:first-child {
-        --grid-height: 3;
+    a[aria-label="Scale of the Universe"] {
+        --grid-height: 1;
+        --grid-width: 2;
 
         grid-row: span var(--grid-height);
-        /* grid-column: span 3; */
+        grid-column: span var(--grid-width);
 
         .canvas-container {
             height: calc(17rem * var(--grid-height));
@@ -198,13 +206,13 @@
     }
 
     @media (max-width: 1295px) {
-        a:first-child {
+        a[aria-label="Scale of the Universe"] {
             --grid-height: 2;
         }
     }
 
     @media (max-width: 1024px) {
-        a:first-child {
+        a[aria-label="Scale of the Universe"] {
             --grid-height: 1;
         }
     }
