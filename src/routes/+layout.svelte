@@ -1,13 +1,13 @@
 <script lang="ts">
     import "../app.css";
     import type { LayoutProps } from "./$types";
+    import favicon from "$lib/assets/favicon.png";
     import Logo from "$lib/assets/zelo_logo.svelte";
     import github from "$lib/assets/logos/github.svg";
     import { onNavigate } from "$app/navigation";
     let { data, children }: LayoutProps = $props();
 
-    // view transition stuff
-    // TODO: This is from 2023, I don't know if there's a better way to do this
+    // view transition
     onNavigate((navigation) => {
         if (!document.startViewTransition) return;
 
@@ -19,6 +19,19 @@
         });
     });
 </script>
+
+<svelte:head>
+    <link rel="icon" href={favicon} />
+    <title>zelo.dev</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Zelo101" />
+    <meta name="description" content="Zelo101's projects, Q&A and more!" />
+    <script
+        defer
+        src="https://analytics.zelo.dev/script.js"
+        data-website-id="2709cca4-26c3-43bc-84a1-5b33684bf4a1"
+    ></script>
+</svelte:head>
 
 {#snippet dropdown()}
     <div class="flex gap-6 text-violet-500">
