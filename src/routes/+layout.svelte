@@ -4,6 +4,7 @@
     import favicon from "$lib/assets/favicon.png";
     import Logo from "$lib/assets/zelo_logo.svelte";
     import github from "$lib/assets/logos/github.svg";
+    import bluesky from "$lib/assets/logos/bluesky.svg";
     import { onNavigate } from "$app/navigation";
     let { data, children }: LayoutProps = $props();
 
@@ -42,14 +43,17 @@
         <!-- <a href="/branding">branding</a> -->
         <!-- <a class="corkboard" href="https://corkboard.zelo.dev/">corkboard</a> -->
     </div>
-{/snippet}
-
+    {/snippet}
+    
 {#snippet socials()}
-    <div class="flex gap-6 text-violet-500">
-        <a href="/about">about</a>
+    <div class="flex gap-2 text-violet-500 [&_a:hover]:bg-transparent">
+        <!-- <a href="/more">more</a> -->
+        <!-- <a href="/about">about</a> -->
         <a href="https://github.com/Zolo101" target="_blank" class="flex gap-2">
             <img src={github} alt="icon" class="h-6 w-6 dark:invert" />
-            <span>github</span>
+        </a>
+        <a href="https://bsky.app/profile/zelo.dev" target="_blank" class="flex gap-2">
+            <img src={bluesky} alt="icon" class="h-6 w-6" />
         </a>
     </div>
 {/snippet}
