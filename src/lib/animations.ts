@@ -108,7 +108,7 @@ export default {
 
         // console.log("rendered scale");
     },
-    "[bc]": (app: Application) => {
+    "bracketcounter": (app: Application) => {
         const barsContainer = new Container();
         const bars: Graphics[] = [];
         const barsAmount = 7;

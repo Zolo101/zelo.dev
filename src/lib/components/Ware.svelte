@@ -193,7 +193,7 @@
 </a>
 
 <style>
-    a[aria-label="Scale of the Universe"] {
+    a[aria-label="bracketcounter"] {
         --grid-height: 1;
         --grid-width: 2;
 
@@ -206,13 +206,13 @@
     }
 
     @media (max-width: 1295px) {
-        a[aria-label="Scale of the Universe"] {
+        a[aria-label="bracketcounter"] {
             --grid-height: 2;
         }
     }
 
     @media (max-width: 1024px) {
-        a[aria-label="Scale of the Universe"] {
+        a[aria-label="bracketcounter"] {
             --grid-height: 1;
         }
     }
