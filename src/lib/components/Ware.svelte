@@ -208,6 +208,7 @@
     @media (max-width: 1295px) {
         a[aria-label="bracketcounter"] {
             --grid-height: 2;
+            --grid-width: 1;
         }
     }
 
