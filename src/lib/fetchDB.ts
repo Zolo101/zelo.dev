@@ -19,8 +19,8 @@ export const getNews = (pb: PocketBase) => {
     });
 };
 
-export const getBackgrounds = (pb: PocketBase) => {
-    return pb.collection<BackgroundItem>("backgrounds").getFullList(-1, { sort: "-date" });
+export const getWallpapers = (pb: PocketBase) => {
+    return pb.collection<WallpaperItem>("backgrounds").getFullList(-1, { sort: "-date" });
 };
 
 export const getQAs = (pb: PocketBase) => {

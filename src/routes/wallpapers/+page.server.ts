@@ -1,8 +1,8 @@
 import type { PageServerLoad } from "./$types";
 
 export const load = (async ({ locals: { db } }) => {
-    const backgrounds = await db.collection("backgrounds").getFullList({
+    const wallpapers = await db.collection("backgrounds").getFullList({
         sort: "-date"
     });
-    return { backgrounds };
+    return { wallpapers };
 }) satisfies PageServerLoad;

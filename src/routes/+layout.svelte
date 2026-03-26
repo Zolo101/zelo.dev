@@ -37,7 +37,7 @@
 {#snippet dropdown()}
     <div class="flex gap-6 text-violet-500">
         <a href="/">wares</a>
-        <a href="/backgrounds">backgrounds</a>
+        <a href="/wallpapers">wallpapers</a>
         <a href="/qa">q&a</a>
         <!-- <a href="/blog">blog</a> -->
         <!-- <a href="/branding">branding</a> -->

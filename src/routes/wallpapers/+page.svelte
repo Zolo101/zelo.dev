@@ -3,18 +3,18 @@
     import type { PageProps } from "./$types";
 
     let { data }: PageProps = $props();
-    const { backgrounds } = data;
+    const { wallpapers } = data;
 </script>
 
-{#snippet backgroundArticle(background: BackgroundItem)}
-    {@const date = new Date(background.date)
+{#snippet wallpaperArticle(wallpaper: WallpaperItem)}
+    {@const date = new Date(wallpaper.date)
         .toLocaleString("en-GB", {
             year: "2-digit",
             month: "short"
         })
         .replace(" ", " '")}
-    {@const newDate = new Date(background.date).getFullYear() === new Date().getFullYear()}
-    {@const srcOG = `https://cdn.zelo.dev/api/files/gu9lna7y2ntbryv/${background.id}/${background.media}`}
+    {@const newDate = new Date(wallpaper.date).getFullYear() === new Date().getFullYear()}
+    {@const srcOG = `https://cdn.zelo.dev/api/files/gu9lna7y2ntbryv/${wallpaper.id}/${wallpaper.media}`}
     {@const src = `${srcOG}?token=&thumb=640x360`}
 
     <a href={srcOG}>
@@ -32,15 +32,15 @@
                     <div
                         class="flex w-full justify-between text-xs tracking-wider text-black dark:text-white"
                     >
-                        <h1 class="title px-2">{background.name}</h1>
-                        {#if background.date}
+                        <h1 class="title px-2">{wallpaper.name}</h1>
+                        {#if wallpaper.date}
                             <p class="px-2">{date}</p>
                         {/if}
                     </div>
                 </div>
-                <img {src} alt={background.name} class="h-full w-full object-cover" />
+                <img {src} alt={wallpaper.name} class="h-full w-full object-cover" />
                 <p class="bg-white px-2 tracking-wide text-black dark:bg-black dark:text-white">
-                    {background.info}
+                    {wallpaper.info}
                 </p>
             </div>
         </div>
@@ -48,15 +48,15 @@
 {/snippet}
 
 <h1 class="m-5 text-center">
-    All backgrounds are licensed as <a
+    All wallpapers are licensed as <a
         class="font-bold text-violet-500 underline hover:text-violet-400"
         href="https://creativecommons.org/licenses/by/4.0/deed.en">CC BY 4.0</a
     >. It means you can use this for whatever but just credit me by linking the website. Click on
     the preview to get the full image.
 </h1>
 <div class="flex flex-wrap justify-center gap-4">
-    {#each backgrounds as b}
-        {@render backgroundArticle(b)}
+    {#each wallpapers as b}
+        {@render wallpaperArticle(b)}
     {/each}
 </div>
 

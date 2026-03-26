@@ -10,7 +10,7 @@ declare interface PocketbaseItem {
     updated: DateString;
 }
 
-declare interface BackgroundItem extends PocketbaseItem {
+declare interface WallpaperItem extends PocketbaseItem {
     name: string;
     media: string;
     source?: string;
