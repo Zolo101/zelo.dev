@@ -46,13 +46,14 @@
     {/snippet}
     
 {#snippet socials()}
-    <div class="flex gap-2 text-violet-500 [&_a:hover]:bg-transparent">
+    <!-- <div class="flex gap-2 text-violet-500"> -->
+    <div class="flex gap-2 text-violet-500">
         <!-- <a href="/more">more</a> -->
-        <!-- <a href="/about">about</a> -->
-        <a href="https://github.com/Zolo101" target="_blank" class="flex gap-2">
+        <a href="/about">about</a>
+        <a href="https://github.com/Zolo101" target="_blank" class="flex gap-2 hover:bg-transparent">
             <img src={github} alt="icon" class="h-6 w-6 dark:invert" />
         </a>
-        <a href="https://bsky.app/profile/zelo.dev" target="_blank" class="flex gap-2">
+        <a href="https://bsky.app/profile/zelo.dev" target="_blank" class="flex gap-2 hover:bg-transparent">
             <img src={bluesky} alt="icon" class="h-6 w-6" />
         </a>
     </div>

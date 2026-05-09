@@ -20,6 +20,10 @@
 }
 
 @layer utilities {
+    :root {
+        color-scheme: light dark;
+    }
+    
     html {
         font-family: "Inter", sans-serif;
         scrollbar-gutter: stable;
@@ -53,6 +57,10 @@
             color: white;
             background-color: var(--color-violet-600);
         }
+    }
+
+    ul {
+        list-style: inside square;
     }
 }
 
