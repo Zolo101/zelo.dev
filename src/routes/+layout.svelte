@@ -32,6 +32,12 @@
         src="https://analytics.zelo.dev/script.js"
         data-website-id="2709cca4-26c3-43bc-84a1-5b33684bf4a1"
     ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet"
+    />
 </svelte:head>
 
 {#snippet dropdown()}
@@ -43,17 +49,25 @@
         <!-- <a href="/branding">branding</a> -->
         <!-- <a class="corkboard" href="https://corkboard.zelo.dev/">corkboard</a> -->
     </div>
-    {/snippet}
-    
+{/snippet}
+
 {#snippet socials()}
     <!-- <div class="flex gap-2 text-violet-500"> -->
     <div class="flex gap-2 text-violet-500">
         <!-- <a href="/more">more</a> -->
         <a href="/about">about</a>
-        <a href="https://github.com/Zolo101" target="_blank" class="flex gap-2 hover:bg-transparent">
+        <a
+            href="https://github.com/Zolo101"
+            target="_blank"
+            class="flex gap-2 hover:bg-transparent"
+        >
             <img src={github} alt="icon" class="h-6 w-6 dark:invert" />
         </a>
-        <a href="https://bsky.app/profile/zelo.dev" target="_blank" class="flex gap-2 hover:bg-transparent">
+        <a
+            href="https://bsky.app/profile/zelo.dev"
+            target="_blank"
+            class="flex gap-2 hover:bg-transparent"
+        >
             <img src={bluesky} alt="icon" class="h-6 w-6" />
         </a>
     </div>

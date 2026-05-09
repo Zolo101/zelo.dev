@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
 
 /*
@@ -23,7 +22,7 @@
     :root {
         color-scheme: light dark;
     }
-    
+
     html {
         font-family: "Inter", sans-serif;
         scrollbar-gutter: stable;
