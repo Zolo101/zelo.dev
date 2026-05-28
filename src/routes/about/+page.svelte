@@ -5,8 +5,8 @@
 </script>
 
 <p>
-    Hi! I'm Adam or "Zelo101", a 20 year old programmer from London, currently studying a Masters in Computer
-    Science at <em>Royal Holloway</em>.
+    Hi! I'm Adam or "Zelo101", a 21 year old programmer from London, currently studying a Masters in
+    Computer Science at <em>Royal Holloway</em>.
 </p>
 <p>
     I'm interested in computer graphics,<a class="text-violet-500" href="https://ant.zelo.dev"
