@@ -30,5 +30,16 @@ export default ts.config(
                 parser: ts.parser
             }
         }
+    },
+    // remove internal link a tag spam
+    {
+        rules: {
+            "svelte/no-navigation-without-resolve": [
+                "error",
+                {
+                    ignoreLinks: true
+                }
+            ]
+        }
     }
 );
