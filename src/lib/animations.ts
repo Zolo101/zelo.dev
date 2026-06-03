@@ -108,7 +108,7 @@ export default {
 
         // console.log("rendered scale");
     },
-    "bracketcounter": (app: Application) => {
+    bracketcounter: (app: Application) => {
         const barsContainer = new Container();
         const bars: Graphics[] = [];
         const barsAmount = 7;
@@ -143,8 +143,8 @@ export default {
         const frames: Graphics[] = [];
         for (let i = 0; i < 50; i++) {
             const frame = new Graphics();
-            const width = randomFrom(10, 20);
-            const height = randomFrom(10, 20);
+            const width = randomFrom(20, 40);
+            const height = randomFrom(20, 40);
             frame.rect(0, 0, width, height);
             frame.fill({ color: randomGrayscaleColor() });
             frame.x = randomFrom(padding, app.screen.width - padding - width);

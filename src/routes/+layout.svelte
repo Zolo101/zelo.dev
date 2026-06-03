@@ -2,6 +2,7 @@
     import "../app.css";
     import type { LayoutProps } from "./$types";
     import favicon from "$lib/assets/favicon.png";
+    import footerImage from "$lib/assets/zelodev_footer.png";
     import Logo from "$lib/assets/zelo_logo.svelte";
     import github from "$lib/assets/logos/github.svg";
     import bluesky from "$lib/assets/logos/bluesky.svg";
@@ -35,57 +36,40 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
         rel="stylesheet"
     />
 </svelte:head>
 
-{#snippet dropdown()}
-    <div class="flex gap-6 text-violet-500">
+{#snippet pages()}
+    <div class="pages flex gap-10 text-violet-500 max-xl:text-2xl max-lg:flex-wrap">
         <a href="/">wares</a>
+        <a href="/wips">whatevers</a>
         <a href="/wallpapers">wallpapers</a>
         <a href="/qa">q&a</a>
+        <a href="/about">about me</a>
         <!-- <a href="/blog">blog</a> -->
         <!-- <a href="/branding">branding</a> -->
         <!-- <a class="corkboard" href="https://corkboard.zelo.dev/">corkboard</a> -->
     </div>
 {/snippet}
 
-{#snippet socials()}
-    <!-- <div class="flex gap-2 text-violet-500"> -->
-    <div class="flex gap-2 text-violet-500">
-        <!-- <a href="/more">more</a> -->
-        <a href="/about">about</a>
-        <a
-            href="https://github.com/Zolo101"
-            target="_blank"
-            class="flex gap-2 hover:bg-transparent"
-        >
-            <img src={github} alt="icon" class="h-6 w-6 dark:invert" />
-        </a>
-        <a
-            href="https://bsky.app/profile/zelo.dev"
-            target="_blank"
-            class="flex gap-2 hover:bg-transparent"
-        >
-            <img src={bluesky} alt="icon" class="h-6 w-6" />
-        </a>
-    </div>
-{/snippet}
-
-<main class="dark:bg-violet-990 container m-auto bg-violet-100 md:px-20 md:py-5">
-    <!-- Header -->
-    <nav class="flex items-center gap-2 p-2 max-md:flex-col md:items-end md:gap-10">
-        <Logo width={192} height={80} textFill="#ede9fe" backgroundFill="#7B00FF" />
-        <div class="flex w-full justify-between">
-            {@render dropdown()}
-            {@render socials()}
-        </div>
-    </nav>
-    <hr class="mt-2 mb-4 border-violet-300 dark:border-violet-900" />
-    {@render children()}
-</main>
-<footer class="container m-auto h-64 md:px-20"></footer>
+<div class="page-shell">
+    <main class="dark:bg-violet-990 container m-auto bg-violet-100 max-lg:px-5 lg:px-20 lg:py-5">
+        <!-- Header -->
+        <nav class="flex items-center gap-2 p-2 text-4xl max-lg:flex-col lg:items-end lg:gap-10">
+            <Logo width={192} height={80} textFill="#ede9fe" backgroundFill="#7B00FF" />
+            <div class="flex w-full max-lg:justify-center max-md:hidden">
+                {@render pages()}
+            </div>
+        </nav>
+        <hr class="mt-2 mb-4 border-violet-300 dark:border-violet-900" />
+        {@render children()}
+    </main>
+    <footer class="container m-auto">
+        <img src={footerImage} alt="" class="footer-image" />
+    </footer>
+</div>
 
 <style>
     /* nav {
@@ -97,13 +81,42 @@
         animation-range: 8px 90px;
     } */
 
+    .page-shell {
+        display: flex;
+        min-height: 100svh;
+        flex-direction: column;
+    }
+
+    main {
+        flex: 1 0 auto;
+        width: 100%;
+    }
+
     footer {
-        background: linear-gradient(in oklab, var(--color-violet-100) 100px, white);
+        display: flex;
+        flex-shrink: 0;
+        align-items: end;
+        justify-content: center;
+        width: 100%;
+        min-height: 28.75rem;
+        background: linear-gradient(in oklab, var(--color-violet-100) 50px, white 60%);
+    }
+
+    .footer-image {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    @media (prefers-color-scheme: light) {
+        .footer-image {
+            filter: invert() hue-rotate(170deg);
+        }
     }
 
     @media (prefers-color-scheme: dark) {
         footer {
-            background: linear-gradient(in oklab, var(--color-violet-990) 100px, black);
+            background: linear-gradient(in oklab, var(--color-violet-990) 50px, black 60%);
         }
     }
 
@@ -148,7 +161,7 @@
         }
 
         footer {
-            display: none;
+            min-height: 9rem;
         }
     }
 

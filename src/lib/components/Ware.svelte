@@ -63,7 +63,8 @@
     function animation(ware: WareItem): Attachment {
         const meta = {
             dark: window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches,
-            reducedMotion: window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches
+            reducedMotion:
+                window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches
         };
 
         return (element) => {
@@ -137,7 +138,7 @@
 
 <a href={ware.link} aria-label={ware.name}>
     <div
-        class="article relative h-full bg-white"
+        class="article relative h-full bg-white text-xl"
         class:new={newDate}
         class:updated={newUpdatedDate}
     >
@@ -159,14 +160,14 @@
                 </div>
             {/if}
             <div class="flex w-full justify-between tracking-wider text-black dark:text-white">
-                <h1 class="px-1.5 font-medium">{ware.name}</h1>
+                <h1 class="px-1.5 font-bold tracking-normal">{ware.name}</h1>
                 {#if !(newDate || newUpdatedDate)}
                     <p class="px-2">{date}</p>
                 {/if}
             </div>
         </div>
         {#if newUpdatedDate}
-        <!-- TODO: Freeze everything for Reduced motion users -->
+            <!-- TODO: Freeze everything for Reduced motion users -->
             <!-- svelte-ignore a11y_distracting_elements -->
             <marquee
                 class="absolute bg-violet-300 tracking-wider text-black italic dark:bg-violet-500"
@@ -178,7 +179,7 @@
             <img
                 src={loading_animation}
                 alt="Loading Animation"
-                class="absolute canvas-container w-full h-64 object-cover"
+                class="canvas-container absolute h-64 w-full object-cover"
                 style="image-rendering: pixelated;"
                 transition:fade={{ duration: 200 }}
             />
@@ -193,9 +194,23 @@
 </a>
 
 <style>
-    a[aria-label="bracketcounter"] {
+    a[aria-label="Scale of the Universe"] {
         --grid-height: 1;
-        --grid-width: 2;
+        --grid-width: 3;
+        order: -1;
+
+        grid-row: span var(--grid-height);
+        grid-column: span var(--grid-width);
+
+        .canvas-container {
+            height: calc(17rem * var(--grid-height));
+        }
+    }
+
+    a[aria-label="corkboard"] {
+        --grid-height: 2;
+        --grid-width: 1;
+        order: -1;
 
         grid-row: span var(--grid-height);
         grid-column: span var(--grid-width);
@@ -206,14 +221,20 @@
     }
 
     @media (max-width: 1295px) {
-        a[aria-label="bracketcounter"] {
-            --grid-height: 2;
-            --grid-width: 1;
+        a[aria-label="Scale of the Universe"] {
+            /* --grid-height: 3; */
+            --grid-width: 2;
         }
     }
 
     @media (max-width: 1024px) {
-        a[aria-label="bracketcounter"] {
+        a[aria-label="Scale of the Universe"] {
+            --grid-width: 1;
+            --grid-height: 1;
+        }
+
+        a[aria-label="corkboard"] {
+            --grid-width: 1;
             --grid-height: 1;
         }
     }
@@ -223,7 +244,7 @@
             .canvas-container {
                 /* height: calc(17rem * 3); */
                 /* height: calc(100svh - 3lh); */
-                height: calc(50vh);
+                height: calc(25vh);
             }
         }
     }
