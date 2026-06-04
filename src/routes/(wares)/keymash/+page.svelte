@@ -29,6 +29,7 @@
     };
 
     const RepetitionTest: TestGrader = (keymash: string) => {
+        // eslint-disable-next-line svelte/prefer-svelte-reactivity
         const charMap: Map<string, number> = new Map();
         for (const char of keymash) {
             if (charMap.has(char)) {
@@ -184,7 +185,7 @@
 
 {#snippet test_list(results)}
     <div class="tests">
-        {#each results as result}
+        {#each results as result, i (i)}
             {@render test(result[0], result[1], result[2])}
         {/each}
     </div>

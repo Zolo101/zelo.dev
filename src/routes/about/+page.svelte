@@ -1,6 +1,6 @@
 <script lang="ts">
     import discord from "$lib/assets/logos/discord.svg";
-    import bluesky from "$lib/assets/logos/bluesky.svg";
+    // import bluesky from "$lib/assets/logos/bluesky.svg";
     import ExternalLink from "$lib/components/ExternalLink.svelte";
 </script>
 
@@ -15,11 +15,12 @@
 </p>
 <br />
 <p>
-    Wanna talk? I don't have an email on this domain yet, so for now you can reach me on <span
-        class="text-purple-400"
+    Wanna talk? Send me <a href="mailto:hello@zelo.dev">an email!</a> Or alternatively you can reach
+    me on
+    <span class="text-purple-400"
         ><img src={discord} alt="Discord Icon" class="inline h-6 w-6 bg-indigo-500 p-0.5" /> discord
         <em class="text-base">(@zelo101)</em></span
-    >, <ExternalLink href="https://bsky.app/profile/zelo.dev">bluesky</ExternalLink> or on
+    >, <ExternalLink href="https://bsky.app/profile/zelo.dev">bluesky</ExternalLink> and
     <ExternalLink href="https://github.com/Zolo101">github</ExternalLink>.
 </p>
 <!-- <br /> -->
