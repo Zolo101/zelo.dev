@@ -1,11 +1,11 @@
 import type { PageServerLoad } from "./$types";
 
 const createQAId = async (ip: string) => {
-    let t = ip;
-    let d = new Date().toLocaleTimeString();
-    let te = new TextEncoder().encode(t + d);
-    let c = new Uint8Array(await crypto.subtle.digest("SHA-256", te));
-    let f = Array.from(c)
+    const t = ip;
+    const d = new Date().toLocaleTimeString();
+    const te = new TextEncoder().encode(t + d);
+    const c = new Uint8Array(await crypto.subtle.digest("SHA-256", te));
+    const f = Array.from(c)
         .map((b) => b.toString(16).padStart(2, "0"))
         .join("");
     return f;
