@@ -12,7 +12,8 @@
             month: "short"
         })
         .replace(" ", " '")}
-    {@const newDate = new Date(wallpaper.created).getTime() > new Date().getTime() - 1000 * 60 * 60 * 24 * 30 * 4}
+    {@const newDate =
+        new Date(wallpaper.created).getTime() > new Date().getTime() - 1000 * 60 * 60 * 24 * 30 * 4}
     {@const srcOG = `https://cdn.zelo.dev/api/files/gu9lna7y2ntbryv/${wallpaper.id}/${wallpaper.media}`}
     {@const src = `${srcOG}?token=&thumb=640x360`}
 
@@ -45,11 +46,7 @@
 {/snippet}
 
 <h1 class="m-5 text-center text-2xl">
-    Really it's a digital art gallery, but I use them as wallpapers. All images here are licensed
-    under <a
-        class="font-bold text-violet-500 underline hover:text-violet-400"
-        href="https://creativecommons.org/licenses/by/4.0/deed.en">CC BY 4.0</a
-    >. So you can use this for whatever but just give credit by linking my website.
+    Really it's a digital art gallery, but I use them as wallpapers. Free for personal use!
 </h1>
 <h2 class="m-5 text-center text-xl">Click on the preview to get the full image.</h2>
 <div class="list text-xl">
