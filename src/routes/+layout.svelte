@@ -67,7 +67,7 @@
     </main>
     <footer class="container m-auto">
         <enhanced:img
-            src="$lib/assets/zelodev_footer.png"
+            src="$lib/assets/zelodev_footer.png?quality=85"
             alt=""
             class="footer-image"
             fetchpriority="high"
@@ -104,6 +104,12 @@
         width: 100%;
         min-height: 28.75rem;
         background: linear-gradient(in oklab, var(--color-violet-100) 50px, white 60%);
+    }
+
+    /* enhanced:img generates a picture wrapper that must also fill the footer. */
+    footer > :global(picture) {
+        width: 100%;
+        min-width: 0;
     }
 
     .footer-image {
