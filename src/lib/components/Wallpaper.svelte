@@ -1,18 +1,23 @@
 <script lang="ts">
+    import SnapshotImage from "$lib/components/SnapshotImage.svelte";
     export let wallpaper: WallpaperItem;
 
-    let srcOG = `https://cdn.zelo.dev/api/files/gu9lna7y2ntbryv/${wallpaper.id}/${wallpaper.media}`;
-    let src = `${srcOG}?thumb=256x256`;
+    let srcOG = wallpaper.media;
+    let src = wallpaper.mediaSquareThumbnail;
 
     let date = new Date(wallpaper.date).toLocaleString("DE", { dateStyle: "short" });
 </script>
 
 <div class="p-1 transition-colors hover:bg-black/20 dark:hover:bg-white/5">
     <p class="absolute bg-black/40 px-2">{wallpaper.name}</p>
-    <a href={wallpaper.info || srcOG}
-        ><img
-            class:background-info={wallpaper.info}
-            class="h-[256px] w-[256px] object-cover transition-transform active:scale-95"
+    <a
+        href={wallpaper.info || srcOG}
+        aria-label={wallpaper.name}
+        target="_blank"
+        rel="noopener noreferrer"
+        ><SnapshotImage
+            class={`h-[256px] w-[256px] object-cover transition-transform active:scale-95 ${wallpaper.info ? "background-info" : ""}`}
+            sizes="256px"
             {src}
             alt={wallpaper.name}
         /></a

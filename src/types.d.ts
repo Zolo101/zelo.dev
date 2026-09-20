@@ -13,6 +13,8 @@ declare interface PocketbaseItem {
 declare interface WallpaperItem extends PocketbaseItem {
     name: string;
     media: string;
+    mediaThumbnail: string;
+    mediaSquareThumbnail: string;
     source?: string;
     date: DateString;
     madeIn: "blender" | "paint.net";
@@ -29,7 +31,7 @@ declare interface WareItem extends PocketbaseItem {
     link?: string;
     source?: string;
     featured: boolean;
-    type: "future" | "stable" | "contributed" | "legacy";
+    type: "future" | "stable" | "contributed" | "legacy" | "whatever";
     hidden: boolean;
 }
 
@@ -56,4 +58,10 @@ declare interface QAItem extends PocketbaseItem {
 
 declare interface CommitsAPIResultItem extends PocketbaseItem {
     data: any; // Json of the github api result
+}
+
+declare interface ZealItem extends PocketbaseItem {
+    type: "note" | "article" | "image" | "news";
+    content: string;
+    hidden: boolean;
 }

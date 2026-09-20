@@ -1,4 +1,5 @@
 <script lang="ts">
+    import SnapshotImage from "$lib/components/SnapshotImage.svelte";
     import type { PageProps } from "./$types";
 
     let { data }: PageProps = $props();
@@ -14,8 +15,8 @@
         .replace(" ", " '")}
     {@const newDate =
         new Date(wallpaper.created).getTime() > new Date().getTime() - 1000 * 60 * 60 * 24 * 30 * 4}
-    {@const srcOG = `https://cdn.zelo.dev/api/files/gu9lna7y2ntbryv/${wallpaper.id}/${wallpaper.media}`}
-    {@const src = `${srcOG}?token=&thumb=640x360`}
+    {@const srcOG = wallpaper.media}
+    {@const src = wallpaper.mediaThumbnail}
 
     <a href={srcOG}>
         <div class="article h-fit items-stretch bg-white">
@@ -36,7 +37,12 @@
                         <p class="px-2">{wallpaper.date ? date : "no idea"}</p>
                     </div>
                 </div>
-                <img {src} alt={wallpaper.name} class="h-full w-full object-cover" />
+                <SnapshotImage
+                    {src}
+                    alt={wallpaper.name}
+                    class="h-full w-full object-cover"
+                    sizes="(max-width: 767px) 100vw, 640px"
+                />
                 <p class="bg-white px-2 tracking-wide text-black dark:bg-black dark:text-white">
                     {wallpaper.info}
                 </p>

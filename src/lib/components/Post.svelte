@@ -2,9 +2,7 @@
     export let artifact: PostItem;
 
     let title = new Date(artifact.created).toLocaleString("DE", { dateStyle: "short" });
-    let href = artifact.media
-        ? `https://cdn.zelo.dev/api/files/culgp15ck7df4db/${artifact.id}/${artifact.media}`
-        : artifact.link;
+    let href = artifact.media ? artifact.media : artifact.link;
 
     let notice = artifact.alt ? "(?)" : "";
 

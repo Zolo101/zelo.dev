@@ -3,11 +3,12 @@
 </script>
 
 {#if icon}
-<img
-    src="https://www.google.com/s2/favicons?domain={href}"
-    alt="Site Icon"
-    class="inline h-6 w-6 p-0.5"
-/>{/if}<a {href} target="_blank" rel="noopener noreferrer">{@render children()}</a>
+    <!-- <enhanced:img -->
+    <img
+        src="https://www.google.com/s2/favicons?domain={href}"
+        alt="Site Icon"
+        class="inline h-6 w-6 p-0.5"
+    />{/if}<a {href} target="_blank" rel="noopener noreferrer">{@render children()}</a>
 
 <!-- style="background-image: url('https://www.google.com/s2/favicons?domain={href}')" -->
 

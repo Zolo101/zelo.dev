@@ -1,17 +1,11 @@
-import type { PageServerLoad } from "./$types";
-import { getNewsArticle } from "$lib/fetchDB";
+import { getContent } from "$lib/server/content";
 import { error } from "@sveltejs/kit";
-import { ClientResponseError } from "pocketbase";
+import type { EntryGenerator, PageServerLoad } from "./$types";
 
-export const load: PageServerLoad = async ({ params, locals: { db } }) => {
-    try {
-        const article = await getNewsArticle(db, params.id);
-        return { article };
-    } catch (err) {
-        if (err instanceof ClientResponseError) {
-            if (err.status === 404) {
-                throw error(404, "Article not found");
-            }
-        }
-    }
-};
+export const entries: EntryGenerator = () => getContent().news.map(({ id }) => ({ id }));
+
+export const load = (({ params }) => {
+    const article = getContent().news.find(({ id }) => id === params.id);
+    if (!article) error(404, "Article not found");
+    return { article };
+}) satisfies PageServerLoad;

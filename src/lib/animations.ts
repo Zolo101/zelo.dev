@@ -458,8 +458,8 @@ export default {
         });
     },
     RenderScale: async (app: Application) => {
-        // load local image
-        await Assets.load(renderScale);
+        // Imagetools development URLs have no extension, so select the texture parser explicitly.
+        await Assets.load({ src: renderScale, parser: "texture" });
 
         const sprite = Sprite.from(renderScale);
         sprite.width = app.screen.width;
@@ -497,11 +497,11 @@ export default {
         app.stage.addChild(sprite, spriteMasked);
     },
     "5beam": async (app: Application) => {
-        await Assets.load(fiveBeam);
-        await Assets.load(fiveBeamBox);
-        await Assets.load(fiveBeamCompanion);
-        await Assets.load(fiveBeamMetal);
-        await Assets.load(fiveBeamParcel);
+        await Assets.load({ src: fiveBeam, parser: "texture" });
+        await Assets.load({ src: fiveBeamBox, parser: "texture" });
+        await Assets.load({ src: fiveBeamCompanion, parser: "texture" });
+        await Assets.load({ src: fiveBeamMetal, parser: "texture" });
+        await Assets.load({ src: fiveBeamParcel, parser: "texture" });
 
         const sprite = Sprite.from(fiveBeam);
         sprite.width = 1600;

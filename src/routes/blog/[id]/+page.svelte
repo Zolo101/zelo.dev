@@ -1,12 +1,11 @@
 <script lang="ts">
-    import PocketBase from "pocketbase";
     import type { PageProps } from "./$types";
 
     let { data }: PageProps = $props();
-    const { article: news } = data;
+    const { article: news } = $derived(data);
 
-    const getNewsThumbnail = `https://cdn.zelo.dev/api/files/63wj7u8szd0trni/${news.id}/${news.header_img}`;
-    const isVideo = news.header_img.endsWith(".webm");
+    const getNewsThumbnail = $derived(news.header_img);
+    const isVideo = $derived(news.header_img.endsWith(".webm"));
 
     const formatNewsDate = (date: Date) => {
         return date.toLocaleString("en-US", {
@@ -34,7 +33,11 @@
                 loop><track kind="captions" src="" /></video
             >
         {:else}
-            <img alt="" class="h-30 w-full rounded-xs object-contain" src={getNewsThumbnail} />
+            <img
+                alt=""
+                class="h-30 w-full rounded-xs object-contain"
+                src={getNewsThumbnail}
+            />
         {/if}
     </div>
     <h1 class="text-7xl font-black">{news.header}</h1>

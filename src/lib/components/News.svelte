@@ -1,7 +1,7 @@
 <script lang="ts">
     export let news: NewsItem;
 
-    const getNewsThumbnail = `https://cdn.zelo.dev/api/files/63wj7u8szd0trni/${news.id}/${news.header_img}`;
+    const getNewsThumbnail = news.header_img;
     const isVideo = news.header_img.endsWith(".webm");
     const formatNewsDate = (date: Date) => {
         return date.toLocaleString("en-US", {
@@ -14,7 +14,7 @@
 
 <section class="border-b border-b-white/25 p-2">
     <div class="flex items-center justify-between py-3">
-        <a class="text-2xl" href="/news/{news.id}"><h3>{news.header}</h3></a>
+        <a class="text-2xl" href="/blog/{news.id}"><h3>{news.header}</h3></a>
         <p class="text-right italic">{formatNewsDate(new Date(news.created))}</p>
     </div>
     <div class="h-36">

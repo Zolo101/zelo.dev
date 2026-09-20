@@ -2,7 +2,6 @@
     import "../app.css";
     import type { LayoutProps } from "./$types";
     import favicon from "$lib/assets/favicon.png";
-    import footerImage from "$lib/assets/zelodev_footer.png";
     import Logo from "$lib/assets/zelo_logo.svelte";
     import github from "$lib/assets/logos/github.svg";
     import bluesky from "$lib/assets/logos/bluesky.svg";
@@ -36,7 +35,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair:ital,opsz,wdth,wght@0,5..1200,87.5,300..900;1,5..1200,87.5,300..900&display=swap"
         rel="stylesheet"
     />
 </svelte:head>
@@ -46,9 +45,9 @@
         <a href="/">wares</a>
         <a href="/wips">whatevers</a>
         <a href="/wallpapers">wallpapers</a>
+        <!-- <a href="/blog">blog</a> -->
         <a href="/qa">q&a</a>
         <a href="/about">about me</a>
-        <!-- <a href="/blog">blog</a> -->
         <!-- <a href="/branding">branding</a> -->
         <!-- <a class="corkboard" href="https://corkboard.zelo.dev/">corkboard</a> -->
     </div>
@@ -67,7 +66,12 @@
         {@render children()}
     </main>
     <footer class="container m-auto">
-        <img src={footerImage} alt="" class="footer-image" />
+        <enhanced:img
+            src="$lib/assets/zelodev_footer.png"
+            alt=""
+            class="footer-image"
+            fetchpriority="high"
+        />
     </footer>
 </div>
 

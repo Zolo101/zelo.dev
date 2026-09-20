@@ -51,7 +51,7 @@
 
         if (animation) {
             await animation(app, meta);
-            console.log("rendered", ware.name);
+            // console.log("rendered", ware.name);
         } else {
             // animations.default(app, meta);
             animations.default(app);

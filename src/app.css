@@ -30,6 +30,10 @@
         /* background-color: black; */
     }
 
+    code {
+        font-family: "DM Mono", monospace;
+    }
+
     canvas {
         image-rendering: pixelated;
         width: 100%;
@@ -62,6 +66,14 @@
     ul {
         list-style: inside square;
     }
+}
+
+.serif {
+    font-family: "Playfair", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    /* font-variation-settings: "wdth" 100; */
+    font-variation-settings: "wdth" 87.5;
 }
 
 @theme {

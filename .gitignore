@@ -9,3 +9,7 @@ node_modules
 unneeded
 .idea
 .netlify
+/.generated
+/static/media/pocketbase
+
+/src/.production-routes

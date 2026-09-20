@@ -6,28 +6,31 @@
     const { wares } = $derived(data);
 </script>
 
-{#snippet articleList()}
-    <div class="list">
-        {#each wares as ware (ware.name)}
-            <Ware {ware} />
-        {/each}
-    </div>
-{/snippet}
-
 <div class="flex items-center gap-5 max-md:flex-col max-md:items-start">
     <p class="text-2xl">
         <strong>Hi!</strong> I'm Zelo, and welcome to my site! Below are cool projects I've made
         that you can play right now! Above me, you can check out
-        <a href="/whatever">projects im working on</a>
+        <a href="/wips">projects im working on</a>
         right now, <a href="/wallpapers">free wallpapers</a>, and a <a href="/qa">Q&A</a>
         where you can ask me anything! Or, maybe you want to know more
         <a href="/about">about me...?</a>
     </p>
     <img class="size-24 shrink-0 object-contain max-md:hidden" src={globe} alt="Globe" />
 </div>
+<!-- <hr class="my-4 border-violet-300 dark:border-violet-900" />
+<div class="serif flex bg-white p-2 text-4xl tracking-widest text-black">
+    <span class="font-black">ZEAL ARCHIVES</span>
+    <a href="/zeal" class="m-auto font-thin">CLICK TO READ</a>
+    <span class="ml-auto">JUNE 5 2026</span>
+</div> -->
+
 <hr class="my-4 border-violet-300 dark:border-violet-900" />
 
-{@render articleList()}
+<div class="list">
+    {#each wares as ware (ware.name)}
+        <Ware {ware} />
+    {/each}
+</div>
 
 <style>
     a {

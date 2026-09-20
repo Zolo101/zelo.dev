@@ -1,9 +1,6 @@
+import { getContent } from "$lib/server/content";
 import type { PageServerLoad } from "./$types";
 
-export const load = (async ({ locals: { db } }) => {
-    const wares = await db.collection("wares").getFullList({
-        sort: "-updatedDate, -date",
-        filter: "type != 'future' && type != 'whatever'"
-    });
-    return { wares };
-}) satisfies PageServerLoad;
+export const load = (() => ({
+    wares: getContent().wares.filter((ware) => ware.type !== "future" && ware.type !== "whatever")
+})) satisfies PageServerLoad;
