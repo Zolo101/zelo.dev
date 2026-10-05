@@ -53,6 +53,7 @@
     </div>
 {/snippet}
 
+<!-- TODO: Hamburger menu for mobile ASAP. -->
 <div class="page-shell">
     <main class="dark:bg-violet-990 container m-auto bg-violet-100 max-lg:px-5 lg:px-20 lg:py-5">
         <!-- Header -->
@@ -62,7 +63,7 @@
                 {@render pages()}
             </div>
         </nav>
-        <hr class="mt-2 mb-4 border-violet-300 dark:border-violet-900" />
+        <hr class="mt-2 mb-4 border-violet-300 max-lg:hidden dark:border-violet-900" />
         {@render children()}
     </main>
     <footer class="container m-auto">
@@ -106,7 +107,6 @@
         background: linear-gradient(in oklab, var(--color-violet-100) 50px, white 60%);
     }
 
-    /* enhanced:img generates a picture wrapper that must also fill the footer. */
     footer > :global(picture) {
         width: 100%;
         min-width: 0;
