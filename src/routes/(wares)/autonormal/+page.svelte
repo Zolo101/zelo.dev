@@ -56,8 +56,8 @@
     const features = [
         {
             number: "01",
-            title: "Add PBR textures to any block, item or entity",
-            description: "You can choose which mods to exclude, which kind of texture to skip.",
+            title: "Generate PBR textures for any block, item or entity",
+            description: "You can pick which mods to include!",
             image: f1,
             tiled: true
         },
@@ -65,7 +65,7 @@
             number: "02",
             title: "Specifically for minecraft!",
             description:
-                "We've created a custom model trained on minecraft textures to give the best quality for generating normal and specular maps.",
+                "We've created a custom model trained on Minecraft textures to give the best quality for generating normal and specular maps.",
             image: f2,
             tiled: false
         },
@@ -546,12 +546,12 @@
                 auto<span>normal</span>
             </h1> -->
             <h1
-                class="hero-title text-primary mt-3.5 mb-5 text-center text-8xl font-bold -tracking-[0.3125rem] max-[1100px]:-tracking-[0.21875rem] max-md:mt-2.75 max-md:mb-4 max-md:text-7xl max-md:-tracking-[0.25rem] dark:text-white"
+                class="hero-title text-primary mt-3.5 mb-5 text-8xl font-bold -tracking-[0.3125rem] max-[1100px]:-tracking-[0.21875rem] max-md:mt-2.75 max-md:mb-4 max-md:text-7xl max-md:-tracking-[0.25rem] dark:text-white"
             >
                 autonormal
             </h1>
             <p
-                class="mt-4.25 text-2xl text-violet-950/60 max-md:max-w-full lg:text-xl dark:text-violet-300/75"
+                class="mt-4.25 text-2xl text-violet-950 max-md:max-w-full lg:text-xl dark:text-violet-300"
             >
                 Give your minecraft world the glow-up it deserves. Turn your modpack textures into a <strong
                     class="font-medium text-violet-950 dark:text-violet-100"
@@ -686,6 +686,10 @@
 
     :global(#logo rect) {
         fill: transparent !important;
+    }
+
+    :global(#logo path) {
+        fill: var(--color-primary) !important;
     }
 
     .download-button {

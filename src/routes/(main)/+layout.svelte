@@ -1,5 +1,5 @@
 <script lang="ts">
-    import "../app.css";
+    import "../../app.css";
     import type { LayoutProps } from "./$types";
     import favicon from "$lib/assets/favicon.png";
     import Logo from "$lib/assets/zelo_logo.svelte";
