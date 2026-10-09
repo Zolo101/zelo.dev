@@ -43,7 +43,6 @@
     "dependencies": {
         "pixi-filters": "^6.1.5",
         "pixi.js": "^8.21.0",
-        "@pixi/3d": "file:../pixi-3d-beta",
         "pocketbase": "^0.26.8"
     }
 }

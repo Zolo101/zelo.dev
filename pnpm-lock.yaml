@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@pixi/3d':
-        specifier: file:../pixi-3d-beta
-        version: file:../pixi-3d-beta(pixi.js@8.21.0)
       pixi-filters:
         specifier: ^6.1.5
         version: 6.1.5(pixi.js@8.21.0)
@@ -354,11 +351,6 @@ packages:
 
   '@oxc-project/types@0.128.0':
     resolution: {integrity: sha512-huv1Y/LzBJkBVHt3OlC7u0zHBW9qXf1FdD7sGmc1rXc2P1mTwHssYv7jyGx5KAACSCH+9B3Bhn6Z9luHRvf7pQ==}
-
-  '@pixi/3d@file:../pixi-3d-beta':
-    resolution: {directory: ../pixi-3d-beta, type: directory}
-    peerDependencies:
-      pixi.js: ^8.21.0
 
   '@pixi/colord@2.9.6':
     resolution: {integrity: sha512-nezytU2pw587fQstUu1AsJZDVEynjskwOL+kibwcdxsMBFqPsFFNA7xl0ii/gXuDi6M0xj3mfRJj8pBSc2jCfA==}
@@ -1088,9 +1080,6 @@ packages:
   magic-string@0.30.21:
     resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
 
-  meshoptimizer@1.3.0:
-    resolution: {integrity: sha512-2oZqMAcEEiCtXWUjIGtZ71oPx1B0ZxYGTqIKsXB1wzWFhleNsCFxQuUJzgCV706bRcwPWtMGf1odmQvAcqKkIw==}
-
   minimatch@10.2.5:
     resolution: {integrity: sha512-MULkVLfKGYDFYejP07QOurDLLQpcjk7Fw+7jXS2R2czRQzR56yHRveU5NDJEOviH+hETZKSkIk5c+T23GjFUMg==}
     engines: {node: 18 || 20 || >=22}
@@ -1712,11 +1701,6 @@ snapshots:
     optional: true
 
   '@oxc-project/types@0.128.0': {}
-
-  '@pixi/3d@file:../pixi-3d-beta(pixi.js@8.21.0)':
-    dependencies:
-      meshoptimizer: 1.3.0
-      pixi.js: 8.21.0
 
   '@pixi/colord@2.9.6': {}
 
@@ -2349,8 +2333,6 @@ snapshots:
   magic-string@0.30.21:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
-
-  meshoptimizer@1.3.0: {}
 
   minimatch@10.2.5:
     dependencies:
